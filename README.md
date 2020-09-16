@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # -SZE-MOSZE-2020-AMD_Bike
 
 ## Csapat tagjai: 
@@ -14,6 +13,3 @@ Példa egy ilyen bemenetre: Maple 150 10 Sally 45 30. Ezután körökre lebontva lef
 Az osztály 3 adattaggal rendelkezik, amelyek a karakterek nevét, életerejét és sebzését határozzák meg. 
 
 A konstruktoron és a getter függvényeken kívül az osztály rendelkezik egy *Fight()* fügvénnyel, amelyben vizsgáljuk a karakterek halálát (tehát, hogy az adott karakter elérte-e a 0 életerõt), illetve azt is, hogy a támadások egymás után következzenek (egyszer Maple üt, egyyszer Sally).
-=======
-# -SZE-MOSZE-2020-AMD_Bike
->>>>>>> fd0e6556e8d6af9003301b9977cb53579d00ee8a
