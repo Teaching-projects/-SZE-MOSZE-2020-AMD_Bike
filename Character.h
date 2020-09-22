@@ -6,13 +6,15 @@
 class Character {
 private:
 	const std::string name;
-	const int hp;
+	int hp;
 	const int dmg;
 public:
 	Character(const std::string name, const int hp, const int dmg);
 	std::string getName() const;
 	int getHp() const;
 	int getDmg() const;
+	void DMGTaken(const int dmg);
+	void Dead();
 };
 
 #endif
