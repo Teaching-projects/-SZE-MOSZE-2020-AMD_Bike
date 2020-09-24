@@ -13,8 +13,8 @@ public:
 	std::string getName() const;
 	int getHp() const;
 	int getDmg() const;
-	void DMGTaken(const int dmg);
-	void Dead();
+	void DMGTaken(const Character character);
+	bool IsDead();
 };
 
 #endif

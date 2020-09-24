@@ -19,13 +19,14 @@ int Character::getDmg() const
 	return dmg;
 }
 
-void Character::DMGTaken(const int dmg)
+void Character::DMGTaken(const Character character)
 {
-	hp -= dmg;
+	hp -= character.getDmg();
 }
 
-void Character::Dead()
+bool Character::IsDead()
 {
-	if (hp <= 0) {hp = 0;}
+	if (hp <= 0) { hp = 0; return true; }
+	else { return false; }
 }
 
