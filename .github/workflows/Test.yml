@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v2
       - run: chmod 755 main.cpp Character.cpp Character.h Luke.json Vader.json
       - run: g++ -Wall main.cpp Character.cpp
-      - run: /a.out Vader.json Luke.json
+      - run: ./a.out Vader.json Luke.json
