@@ -12,3 +12,10 @@ IFS=$'\n'
 cat output.txt
 
 diff output.txt correct_output.txt
+
+if [ $? -eq 0 ]
+then
+echo "Matching"
+else
+echo "Not matching"
+fi
