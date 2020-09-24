@@ -1,5 +1,6 @@
 #include<iostream>
 #include "Character.h"
+#include<fstream>
 
 void Fight(Character character1, Character character2) {
 	int n = 0;
@@ -25,22 +26,37 @@ void Fight(Character character1, Character character2) {
 	else { std::cout << character2.getName() << " died. " << character1.getName() << " wins." << std::endl; }
 }
 
-int main(int argc, char* argv[]) {
+bool IsExist(const std::string FileName1, const std::string FileName2) {
+	std::ifstream file1, file2;
+	file1.open(FileName1);
+	file2.open(FileName2);
+	if (!file1.is_open() || !file2.is_open()) {
+		file1.close();
+		file2.close();
+		return true;
+	}
+	else { file1.close(); file2.close(); return false; }
+}
 
-	if (argc < 7) {
+
+int main(int argc, char *argv[]) {
+	
+	if (argc < 3) {
 		std::cout << "Not enough arguments" << std::endl;
 		return 1;
 	}
-	else if (argc > 7) {
+	else if (argc > 3) {
 		std::cout << "Too many arguments" << std::endl;
 		return 1;
 	}
+	else if (IsExist(argv[1], argv[2])) {
+		std::cout << "At least one file not exists" << std::endl;
+	}
 	else {
-		Character Character1(argv[1], std::stoi(argv[2]), std::stoi(argv[3]));
-		Character Character2(argv[4], std::stoi(argv[5]), std::stoi(argv[6]));
+		Character Character1 = Character::parseUnit(argv[1]);
+		Character Character2 = Character::parseUnit(argv[2]);
 		Fight(Character1, Character2);
 	}
 
 	return 0;
 }
-
