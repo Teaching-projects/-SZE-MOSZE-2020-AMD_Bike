@@ -9,6 +9,7 @@ jobs:
     steps: 
       - uses: actions/checkout@v2
       - run: chmod 755 main.cpp Character.cpp Character.h Luke.json Vader.json
+      - run: chmod +x test.sh
       - run: g++ -Wall main.cpp Character.cpp
       - run: ./a.out Vader.json Luke.json
       - run: ./test.sh
