@@ -1,12 +1,12 @@
 name: Test workflow
 
 on:
-	push
+  push
 
 jobs:
-	build:
-		runs-on: ubuntu-latest
-		steps:
-			- uses: action/checkout@v2
-			- run: chmod 755 main.cpp Character.cpp Character.h Luke.json Vader.json
-			- run: g++ Wall main.cpp Character.cpp
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - run: chmod 755 main.cpp Character.cpp Character.h Luke.json Vader.json
+      - run: g++ Wall main.cpp Character.cpp
