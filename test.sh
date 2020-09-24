@@ -10,3 +10,5 @@ IFS=$'\n'
 ./a.out units/Luke.json units/Vader.json >> output.txt
 
 cat output.txt
+
+diff output.txt correct_output.txt
