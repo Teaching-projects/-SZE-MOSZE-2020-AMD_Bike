@@ -11,12 +11,10 @@ void Fight(Character character1, Character character2) {
 		if (n % 2 == 0) {
 			std::cout << character1.getName() << "->" << character2.getName() << std::endl;
 			character2.DMGTaken(character1);
-			character2.IsDead();
 		}
 		else {
 			std::cout << character2.getName() << "->" << character1.getName() << std::endl;
 			character1.DMGTaken(character2);
-			character1.IsDead();
 		}
 		n++;
 	}
@@ -35,10 +33,11 @@ int main(int argc, char* argv[]) {
 	}
 	else if (argc > 7) {
 		std::cout << "Too many arguments" << std::endl;
+		return 1;
 	}
 	else {
 		Character Character1(argv[1], std::stoi(argv[2]), std::stoi(argv[3]));
-		Character Character2(argv[1], std::stoi(argv[2]), std::stoi(argv[3]));
+		Character Character2(argv[4], std::stoi(argv[5]), std::stoi(argv[6]));
 		Fight(Character1, Character2);
 	}
 

@@ -14,7 +14,7 @@ public:
 	int getHp() const;
 	int getDmg() const;
 	void DMGTaken(const Character character);
-	bool IsDead();
+	bool IsDead() const;
 };
 
 #endif

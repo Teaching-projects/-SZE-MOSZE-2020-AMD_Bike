@@ -22,11 +22,11 @@ int Character::getDmg() const
 void Character::DMGTaken(const Character character)
 {
 	hp -= character.getDmg();
+	if (hp <= 0) { hp = 0; }
 }
 
-bool Character::IsDead()
+bool Character::IsDead() const
 {
-	if (hp <= 0) { hp = 0; return true; }
-	else { return false; }
+	if (hp == 0) { return true; } else { return false; }
 }
 
