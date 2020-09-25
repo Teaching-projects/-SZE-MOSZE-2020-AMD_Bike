@@ -44,6 +44,7 @@ int main(int argc, char *argv[]) {
 	}
 	else if (IsExist(argv[1], argv[2])) {
 		std::cout << "At least one file not exists" << std::endl;
+		return 1;
 	}
 	else {
 		Character Character1 = Character::parseUnit(argv[1]);
