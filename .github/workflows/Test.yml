@@ -11,5 +11,4 @@ jobs:
       - run: chmod 755 main.cpp Character.cpp Character.h units/Vader.json units/Luke.json units/Yoda.json
       - run: chmod +x test.sh
       - run: g++ -Wall main.cpp Character.cpp
-      - run: ./a.out units/Vader.json units/Luke.json units/Yoda.json
       - run: ./test.sh
