@@ -2,6 +2,8 @@
 
 IFS=$'\n'
 
+rm output.txt
+
 ./a.out units/Vader.json units/Luke.json >> output.txt
 ./a.out units/Vader.json units/Yoda.json >> output.txt
 ./a.out units/Yoda.json units/Luke.json >> output.txt
@@ -10,12 +12,11 @@ IFS=$'\n'
 ./a.out units/Luke.json units/Vader.json >> output.txt
 
 cat output.txt
+DIFF=$(diff output.txt correct_output.txt) 
 
-diff output.txt correct_output.txt
-
-if [ $? -eq 0 ]
+if [ "$DIFF" != "" ] 
 then
-echo "Matching"
-else
 echo "Not matching"
+else
+echo "Matching"
 fi

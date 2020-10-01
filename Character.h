@@ -16,7 +16,7 @@ public:
 	int getDmg() const;
 	void DMGTaken(const Character character);
 	bool IsDead() const;
-	static Character parseUnit(const std::string FileName);
+	static Character parseUnit(const std::string& FileName);
 };
 
 #endif

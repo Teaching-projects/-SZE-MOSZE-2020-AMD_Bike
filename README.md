@@ -2,17 +2,14 @@
 
 ## Csapat tagjai: 
 * Hajdu Norbert
-* Skrapits RÃ³bert Ãgoston
-* GergÃ¡ly Szabolcs
+* Skrapits Róbert Ágoston
+* Gergály Szabolcs
 
-## A feladat leÃ­rÃ¡sa:
-A program indulÃ¡sakor 2 JSON kiterjesztÃ©sÅ± fÃ¡jl nevÃ©t szÃ¼ksÃ©ges megadni. Ezekben vannak meghatÃ¡rozva karaktereink adatai, azaz a nevÃ¼k, az Ã©leterejÃ¼k, Ã©s a sebzÃ©sÃ¼k, amiket beolvasunk a programba a fÃ¡jlokbÃ³l.<br/>
-PÃ©ldÃ¡ul ezekben a fÃ¡jlokban tÃ¡rolt informÃ¡ciÃ³k alapjÃ¡n az Ã¶sszecsapÃ³ kÃ©t karakterÃ¼nk: Luke Skywalker 2500 440 Ã©s Darth Vader 3800 270. EzutÃ¡n kÃ¶rÃ¶kre lebontva lefut a program Ã©s a vÃ©gÃ©n amelyik karakter elÅ‘szÃ¶r Ã©ri el a 0 Ã©leterÅ‘t, az veszÃ­t, a mÃ¡sik pedig gyÅ‘zedelmeskedik. 
+## A feladat leírása:
+A program indulásakor 6 paramétert szükséges megadni (természetesen ez a késõbbiekben bõvülhet, változhat). Elõször megadjuk a hõsünk, karakterünk nevét, életerejét, és sebzését, majd ugyanilyen sorrendben megtesszük ezt az ellenfél karakteréhez is. 
+Példa egy ilyen bemenetre: Maple 150 10 Sally 45 30. Ezután körökre lebontva lefut a program, és a végén amelyik karakter elõször éri el a 0 életerõt, az veszít, a másik pedig gyõzedelmeskedik. 
 
-### A program lefutÃ¡sÃ¡t egy Character osztÃ¡ly Ã©s a main *Fight()* fÃ¼ggvÃ©nye teszi lehetÅ‘vÃ©:  
-Az osztÃ¡ly 3 adattaggal rendelkezik, amelyek a karakterek nevÃ©t, Ã©leterejÃ©t Ã©s sebzÃ©sÃ©t hatÃ¡rozzÃ¡k meg, melyek kÃ¶zÃ¼l a nÃ©v Ã©s a sebzÃ©s konstans, mert ezek nem fognak vÃ¡ltozni a harc sorÃ¡n sem.<br/> 
-Az osztÃ¡ly az adattagokon kÃ­vÃ¼l 3 konstans getter-rel, egy *DMGTaken()* fÃ¼ggvÃ©nnyel, egy *IsDead()* fÃ¼ggvÃ©nnyel, egy *pharseUnit()* Ã©s egy konstruktor-ral rendelkezik. Ezen fÃ¼ggvÃ©nyek kÃ¶zÃ¼l a *DMGTaken()* fÃ¼ggvÃ©ny negatÃ­v Ã©leterÅ‘ kikÃ¼szÃ¶bÃ¶lÃ©sÃ©Ã©rt Ã©s a karakterek sebzÅ‘dÃ©sÃ©Ã©rt, mÃ­g a *IsDead()* a karakter halÃ¡lÃ¡nak megÃ¡llapÃ­tÃ¡sÃ¡Ã©rt felelÅ‘s.
-A Character osztÃ¡ly *pharseUnit()* fÃ¼ggvÃ©nye kizÃ¡rÃ³lag csak a fÃ¡jlbÃ³l beolvasÃ¡sÃ©rt felelÅ‘s.<br/>
-A programban a harc lefutÃ¡sÃ¡t a main-ben egy *Fight()* fÃ¼gvÃ©nnyel valÃ³sÃ­tottuk meg, amelyben a karakterek tÃ¡madÃ¡sai egymÃ¡s utÃ¡n felvÃ¡ltva kÃ¶vetkeznek be Ã©s vizsgÃ¡ljuk a karakterek esetleges halÃ¡lÃ¡t a mÃ¡r emlÃ­tett *DMGTaken()* fÃ¼ggvÃ©ny meghÃ­vÃ¡sÃ¡val.<br/>
-A *Units* kÃ¶nyvtÃ¡rban talÃ¡lhatÃ³ak maguk a karakterek azaz unitok, szÃ¡m szerint 3. <br/>
-A *test.sh* shell script feladata hogy a 3 unitot (Yoda.json, Vader.yson, Luke.yson) mind a 6 lehetsÃ©ges mÃ³don megÃ¼tkÃ¶ztesse egymÃ¡ssal. A diff parancs segÃ­tsÃ©gÃ©vel leellenÅ‘rzi, hogy a kapott eredmÃ©nyek megegyeznek-e a vÃ¡rt kimenettel, vagyis az *output.txt* megegyezik-e a *correct_output.txt*-ben tÃ¡rolt adatokkal.
+### A program lefutását egy Character osztály és a main *Fight()* függvénye teszi lehetõvé:  
+Az osztály 3 adattaggal rendelkezik, amelyek a karakterek nevét, életerejét és sebzését határozzák meg, melyek közül a név és a sebzés konstans, mert ezek nem fognak változni a harc során sem. 
+Az osztály az adattagokon kívül 3 konstans getter-rel, egy *DMGTaken()* függvénnyel, *Dead()* függvénnyel és egy konstruktor-ral rendelkezik. Ezen függvények közül a *DMGTaken()* függvény a karakterek sebzõdéséért, míg a *Dead()* függvény a negatív életerõ kiküszöböléséért felelõs.
+A programban a harc lefutását a main-ben egy *Fight()* fügvénnyel valósítottuk meg, amelyben vizsgáljuk a karakterek halálát (tehát, hogy az adott karakter elérte-e a 0 életerõt), illetve azt is, hogy a támadások egymás után következzenek (egyszer Maple üt, egyszer Sally).

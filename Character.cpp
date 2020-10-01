@@ -27,10 +27,11 @@ void Character::DMGTaken(const Character character)
 
 bool Character::IsDead() const
 {
-	if (hp == 0) { return true; } else { return false; }
+	if (hp == 0) { return true; }
+	else { return false; }
 }
 
-Character Character::parseUnit(const std::string FileName)
+Character Character::parseUnit(const std::string& FileName)
 {
 	std::ifstream file;
 	std::string line, name;
@@ -47,7 +48,6 @@ Character Character::parseUnit(const std::string FileName)
 				x += 3;
 				y = y - x - 1;
 				name = line.substr(x, y);
-
 			}
 			else if (i == 2) {
 				size_t x = line.find(':');
@@ -58,14 +58,17 @@ Character Character::parseUnit(const std::string FileName)
 			}
 			else if (i == 3) {
 				size_t x = line.find(':');
-				dmg = stoi(line.substr(x+2));
+				dmg = stoi(line.substr(x + 2));
 			}
 			i++;
 		}
 	}
+	else {
+		throw 1;
+	}
+
 	file.close();
-	Character character(name, hp, dmg);
-	return character;
+	return Character(name, hp, dmg);
 
 }
 
