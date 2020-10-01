@@ -8,5 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
+      - run: chmod +x ./test.sh
       - run: g++ -Wall main.cpp Character.cpp
       - run: ./test.sh
