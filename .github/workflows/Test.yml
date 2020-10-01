@@ -9,5 +9,4 @@ jobs:
     steps: 
       - uses: actions/checkout@v2
       - run: g++ -Wall main.cpp Character.cpp
-      - run: ./a.out units/Vader.json units/Luke.json units/Yoda.json
       - run: ./test.sh
