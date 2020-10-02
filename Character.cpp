@@ -27,8 +27,7 @@ void Character::DMGTaken(const Character character)
 
 bool Character::IsDead() const
 {
-	if (hp == 0) { return true; }
-	else { return false; }
+	return hp == 0;
 }
 
 Character Character::parseUnit(const std::string& FileName)
