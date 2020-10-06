@@ -2,6 +2,7 @@
 #define CHARACTER_H
 
 #include <string>
+#include <fstream>
 
 class Character {
 private:
@@ -15,6 +16,7 @@ public:
 	int getDmg() const;
 	void DMGTaken(const Character character);
 	bool IsDead() const;
+	static Character parseUnit(const std::string& FileName);
 };
 
 #endif
