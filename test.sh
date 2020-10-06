@@ -16,7 +16,8 @@ DIFF=$(diff output.txt correct_output.txt)
 
 if [ "$DIFF" != "" ] 
 then
-echo "Not matching"
+	echo "Not matching"
+	exit 1
 else
-echo "Matching"
+	echo "Matching"
 fi

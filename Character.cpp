@@ -61,12 +61,12 @@ Character Character::parseUnit(const std::string& FileName)
 			}
 			i++;
 		}
+		file.close();
 	}
 	else {
 		throw 1;
 	}
 
-	file.close();
 	return Character(name, hp, dmg);
 
 }
