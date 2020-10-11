@@ -1,5 +1,6 @@
 {
   "name": "Yoda",
   "hp": 1900,
-  "dmg": 570
+  "dmg": 570,
+  "attackspeed": 2
 }

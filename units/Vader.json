@@ -1,5 +1,6 @@
 {
   "name": "Darth Vader",
   "hp": 3800,
-  "dmg": 270
+  "dmg": 440,
+  "attackspeed": 3.2
 }
