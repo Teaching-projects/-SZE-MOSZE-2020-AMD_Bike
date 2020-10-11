@@ -1,6 +1,6 @@
-Luke Skywalker wins. Remaining HP: 20
+Darth Vader wins. Remaining HP: 20
 Yoda wins. Remaining HP: 140
 Yoda wins. Remaining HP: 10
 Yoda wins. Remaining HP: 140
-Luke Skywalker wins. Remaining HP: 10
-Luke Skywalker wins. Remaining HP: 20
+Yoda wins. Remaining HP: 10
+Darth Vader wins. Remaining HP: 20
