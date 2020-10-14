@@ -1,4 +1,4 @@
-name: Unit tests
+name: Unit test
 
 on:
   push
@@ -6,16 +6,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@v2
-      - run: sudo apt install libgtest-dev
-      - run: sudo apt install cmake
-      - run: sudo ln -st /usr/lib/ /usr/src/gtest/libgtest.a
-      - run: sudo ln -st /usr/lib/ /usr/src/gtest/libgtest_main.a
-      - run: cd /usr/src/gtest
-      - run: sudo cmake CMakeLists.txt
-      - run: sudo make
-      - run: g++ -std=c++17 *.cpp
-      - run: cmake test/CMakeLists.txt
-      - run: cd test && make
-      - run: test/UnitTest
+        run: sudo apt install libgtest-dev && sudo apt install cmake
+        run: cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
+        run: sudo ln -st /usr/lib/ /usr/src/gtest/libgtest.a && sudo ln -st /usr/lib/ /usr/src/gtest/libgtest_main.a
+        run: g++ -std=c++17 *.cpp
+        run: cmake test/CMakeLists.txt
+        run: cd test && make
+        run: test/UnitTest
