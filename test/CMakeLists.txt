@@ -8,4 +8,4 @@ include_directories(${GTEST_INCLUDE_DIRS})
 add_library(codeToTest ../JsonParser.cpp)
 add_executable(ParserTest UnitTest.cpp)
 
-target_link_libraries(parserTest ${GTEST_LIBRARIES} pthread codeToTest)
+target_link_libraries(ParserTest ${GTEST_LIBRARIES} pthread codeToTest)
