@@ -16,7 +16,7 @@ TEST(ParserTest, InputFileName) {
 	JsonParser j;
 	std::map<std::string, std::string> TestMap;
 
-	TestMap = j.Parser("units/Luke.json");
+	TestMap = j.Parser("test/units/Luke.json");
 
 	ASSERT_TRUE(TestMap["name"] == "Luke Skwalker");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 2500);
@@ -28,7 +28,7 @@ TEST(ParserTest, InputIstream) {
 	std::map<std::string, std::string> TestMap;
 	std::fstream filename;
 
-	filename.open("units/Yoda.json");
+	filename.open("test/units/Yoda.json");
 	TestMap = j.Parser(filename);
 	filename.close();
 
