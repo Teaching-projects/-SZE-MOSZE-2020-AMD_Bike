@@ -14,4 +14,4 @@ jobs:
       - run: g++ -std=c++17 *.cpp
       - run: cmake test/CMakeLists.txt
       - run: cd test && make
-      - run: test/UnitTest
+      - run: test/ParserTest
