@@ -1,30 +1,59 @@
-#include "JsonParser.h"
+#include "../JsonParser.h"
 #include <gtest/gtest.h>
 
 TEST(UnitTest, InputString) {
 	JsonParser j;
 	std::map<std::string, std::string> TestMap;
-	std::map<std::string, std::string> ExpectedMap;
+
+	TestMap = j.Parser("\"name\":\"DarthVader\",\"hp\":3800,\"dmg\":270");
+
+	ASSERT_TRUE(TestMap["name"] == "DarthVader");
+	ASSERT_TRUE(stoi(TestMap["hp"]) == 3800);
+	ASSERT_TRUE(stoi(TestMap["dmg"]) == 270);
 
 }
 
 
 TEST(UnitTest, InputFileName) {
+	JsonParser j;
+	std::map<std::string, std::string> TestMap;
 
+	TestMap = j.Parser("units/Luke.json");
+
+	ASSERT_TRUE(TestMap["name"] == "Luke Skwalker");
+	ASSERT_TRUE(stoi(TestMap["hp"]) == 2500);
+	ASSERT_TRUE(stoi(TestMap["dmg"]) == 440);
 }
 
 
-TEST(UnitTest, InputIostream) {
+TEST(UnitTest, WrongInputString) {
+	JsonParser j;
+	std::map<std::string, std::string> TestMap;
+
+	TestMap = j.Parser("\"names\":\"DarthVader\",\"hp\":3800,\"dmg\":270");
+
+	ASSERT_TRUE(TestMap["name"] == "DarthVader");
+	ASSERT_TRUE(stoi(TestMap["hp"]) == 3800);
+	ASSERT_TRUE(stoi(TestMap["dmg"]) == 270);
 
 }
 
+TEST(UnitTest, InputIstream) {
+	JsonParser j;
+	std::map<std::string, std::string> TestMap;
+	std::fstream filename;
 
+	filename.open("units/Yoda.json");
+	TestMap = j.Parser(filename);
+	filename.close();
+
+	ASSERT_TRUE(TestMap["name"] == "Yoda");
+	ASSERT_TRUE(stoi(TestMap["hp"]) == 1900);
+	ASSERT_TRUE(stoi(TestMap["dmg"]) == 570);
+}
 
 
 int main(int argc, char** argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
 }
-
-
-
