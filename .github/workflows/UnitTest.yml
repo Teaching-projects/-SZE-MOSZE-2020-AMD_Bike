@@ -9,7 +9,7 @@ jobs:
     steps: 
       - uses: actions/checkout@v2
       - run: sudo apt install libgtest-dev
-      - run: sudo apt isntall cmake
+      - run: sudo apt install cmake
       - run: cd /usr/src/gtest
       - run: sudo cmake CMakeLists.txt
       - run: sudo make
