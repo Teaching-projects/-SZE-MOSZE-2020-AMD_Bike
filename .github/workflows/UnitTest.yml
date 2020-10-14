@@ -14,6 +14,7 @@ jobs:
       - run: sudo ln -st /usr/lib/ /usr/src/gtest/libgtest_main.a
       - run: cd /usr/src/gtest
       - run: sudo cmake test/CMakeLists.txt
+      - run: cd test
       - run: sudo make
       - run: g++ -std=c++17 *.cpp
       - run: test/UnitTest
