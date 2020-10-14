@@ -18,7 +18,7 @@ TEST(ParserTest, InputFileName) {
 
 	TestMap = j.Parser("test/units/Luke.json");
 
-	ASSERT_TRUE(TestMap["name"] == "Luke Skwalker");
+	ASSERT_TRUE(TestMap["name"] == "Luke Skywalker");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 2500);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 440);
 }
