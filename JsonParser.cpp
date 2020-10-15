@@ -20,9 +20,6 @@ std::map<std::string, std::string> JsonParser::Parser(std::string Data)
 		}	
 	}
 
-
-	//Data = "\"name\":\"DarthVader\",\"hp\":3800,\"dmg\":270";
-
 	std::string akt2, akt1 = "";
 	while (Data.find('"') != std::string::npos) {
 		size_t x = Data.find('"') + 1;
@@ -49,7 +46,6 @@ std::map<std::string, std::string> JsonParser::Parser(std::string Data)
 			}
 			Data.erase(0, x + 1);
 		}
-		//Data.erase(0, x + 1);
 		toReturn.insert(std::pair<std::string, std::string>(akt1, akt2));
 		akt1 = "";
 		akt2 = "";
