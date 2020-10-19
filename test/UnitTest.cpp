@@ -44,9 +44,8 @@ TEST(UnitTest, WrongInputFile) {
 	TestMap = j.ParserForFileName("test/units/WrongLuke.json");
 
 	ASSERT_TRUE(TestMap["name"] == "Luke Skywalker");
-	ASSERT_TRUE(stoi(TestMap["hp"]) == 2500);
+	ASSERT_FALSE(stoi(TestMap["hp"]) == 2500);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 440);
-	
 }
 
 int main(int argc, char** argv) {
