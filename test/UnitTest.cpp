@@ -5,7 +5,7 @@ TEST(ParserTest, InputString) {
 	JsonParser j;
 	std::map<std::string, std::string> TestMap;
 
-	TestMap = j.Parser("\"name\":\"DarthVader\",\"hp\":3800,\"dmg\":270");
+	TestMap = j.ParserForString("\"name\":\"DarthVader\",\"hp\":3800,\"dmg\":270");
 
 	ASSERT_TRUE(TestMap["name"] == "DarthVader");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 3800);
