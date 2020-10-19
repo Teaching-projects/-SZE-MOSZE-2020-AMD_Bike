@@ -1,6 +1,6 @@
 #include "JsonParser.h"
 
-std::map<std::string, std::string> JsonParser::ParserForFileName(std::string FileName)
+std::map<std::string, std::string> JsonParser::Parser(std::string FileName)
 {
 	if (FileName.rfind(".json") == FileName.size() - 5) {
 		std::ifstream file;
@@ -17,20 +17,20 @@ std::map<std::string, std::string> JsonParser::ParserForFileName(std::string Fil
 			throw 1;
 		}
 	}
-	return JsonParser::ParserForString(FileName);
+	return JsonParser::ParserFromString(FileName);
 }
 	
-std::map<std::string, std::string> JsonParser::ParserForIstream(std::istream& Istream)
+std::map<std::string, std::string> JsonParser::Parser(std::istream& Istream)
 {
 	std::string Data, line;
 	while (getline(Istream, line))
 	{
 		Data += line;
 	}
-	return JsonParser::ParserForString(Data);
+	return JsonParser::Parser(Data);
 }
 
-std::map<std::string, std::string> JsonParser::ParserForString(std::string String)
+std::map<std::string, std::string> JsonParser::ParserFromString(std::string String)
 {
 	std::map<std::string, std::string> toReturn;
 	std::string akt2, akt1 = "";

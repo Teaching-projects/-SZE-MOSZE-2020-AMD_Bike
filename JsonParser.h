@@ -7,9 +7,9 @@
 
 class JsonParser {
 public:
-	static std::map<std::string, std::string> ParserForFileName(std::string FileName);
-	static std::map<std::string, std::string> ParserForIstream(std::istream& Istream);
-	static std::map<std::string, std::string> ParserForString(std::string String);	
+	static std::map<std::string, std::string> Parser(std::string FileName);
+	static std::map<std::string, std::string> Parser(std::istream& Istream);
+	static std::map<std::string, std::string> ParserFromString(std::string String);	
 };
 
 #endif

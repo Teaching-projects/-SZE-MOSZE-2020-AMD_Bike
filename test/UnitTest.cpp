@@ -5,7 +5,7 @@ TEST(ParserTest, InputString) {
 	JsonParser j;
 	std::map<std::string, std::string> TestMap;
 
-	TestMap = j.ParserForString("\"name\":\"DarthVader\",\"hp\":3800,\"dmg\":270");
+	TestMap = j.ParserFromString("\"name\":\"DarthVader\",\"hp\":3800,\"dmg\":270");
 
 	ASSERT_TRUE(TestMap["name"] == "DarthVader");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 3800);
@@ -16,7 +16,7 @@ TEST(ParserTest, InputFileName) {
 	JsonParser j;
 	std::map<std::string, std::string> TestMap;
 
-	TestMap = j.ParserForFileName("test/units/Luke.json");
+	TestMap = j.Parser("test/units/Luke.json");
 
 	ASSERT_TRUE(TestMap["name"] == "Luke Skywalker");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 2500);
@@ -29,7 +29,7 @@ TEST(ParserTest, InputIstream) {
 	std::fstream filename;
 
 	filename.open("test/units/Yoda.json");
-	TestMap = j.ParserForIstream(filename);
+	TestMap = j.Parser(filename);
 	filename.close();
 
 	ASSERT_TRUE(TestMap["name"] == "Yoda");
@@ -41,11 +41,12 @@ TEST(UnitTest, WrongInputFile) {
 	JsonParser j;
 	std::map<std::string, std::string> TestMap;
 
-	TestMap = j.ParserForFileName("test/units/WrongLuke.json");
+	TestMap = j.Parser("test/units/WrongLuke.json");
 
 	ASSERT_TRUE(TestMap["name"] == "Luke Skywalker");
-	ASSERT_FALSE(stoi(TestMap["hp"]) == 2500);
+	ASSERT_TRUE(stoi(TestMap["hp"]) == 2500);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 440);
+	
 }
 
 int main(int argc, char** argv) {
