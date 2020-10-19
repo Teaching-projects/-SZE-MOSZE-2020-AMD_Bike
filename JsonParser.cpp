@@ -1,64 +1,71 @@
 #include "JsonParser.h"
 
-std::map<std::string, std::string> JsonParser::Parser(std::string Data)
+std::map<std::string, std::string> JsonParser::ParserForFileName(std::string FileName)
 {
-	std::map<std::string, std::string> toReturn;
-	if (Data.rfind(".json") == Data.size()-5) {
+	if (FileName.rfind(".json") == FileName.size() - 5) {
 		std::ifstream file;
-		file.open(Data);
+		file.open(FileName);
 		std::string line;
 
 		if (file.is_open()) {
-			while (!file.eof()) {
-				getline(file, line);
-				Data += line;
+			while (getline(file, line)) {
+				FileName += line;
 			}
 			file.close();
 		}
 		else {
 			throw 1;
-		}	
+		}
 	}
+	return JsonParser::ParserForString(FileName);
+}
+	
+std::map<std::string, std::string> JsonParser::ParserForIstream(std::istream& Istream)
+{
+	std::string Data, line;
+	while (getline(Istream, line))
+	{
+		Data += line;
+	}
+	return JsonParser::ParserForString(Data);
+}
 
+std::map<std::string, std::string> JsonParser::ParserForString(std::string String)
+{
+	std::map<std::string, std::string> toReturn;
 	std::string akt2, akt1 = "";
-	while (Data.find('"') != std::string::npos) {
-		size_t x = Data.find('"') + 1;
-		while (Data[x] != '"') {
-			akt1 += Data[x];
+	char sign = '"';
+	while (String.find(sign) != std::string::npos) {
+		size_t x = String.find(sign) + 1;
+		if (x == String.rfind(sign) - 1) {
+			sign = ' ';
+		}
+		while (String[x] != sign) {
+			akt1 += String[x];
 			x++;
 		}
-		Data.erase(0, x + 1);
+		String.erase(0, x + 1);
 		if (akt1 == "name") {
-			size_t x = Data.find('"') + 1;
-			while (Data[x] != '"') {
-				akt2 += Data[x];
+			size_t x = String.find(sign) + 1;
+			while (String[x] != sign) {
+				akt2 += String[x];
 				x++;
 			}
-			Data.erase(0, x + 1);
+			String.erase(0, x + 1);
 		}
 		else {
 			x = 0;
-			while (isdigit(Data[x]) || akt2 == "") {
-				if (isdigit(Data[x])) {
-					akt2 += Data[x];
+			while (isdigit(String[x]) || akt2 == "") {
+				if (isdigit(String[x])) {
+					akt2 += String[x];
 				}
 				x++;
 			}
-			Data.erase(0, x + 1);
+			String.erase(0, x + 1);
 		}
 		toReturn.insert(std::pair<std::string, std::string>(akt1, akt2));
 		akt1 = "";
 		akt2 = "";
 	}
 	return toReturn;
-}
-
-std::map<std::string, std::string> JsonParser::Parser(std::istream& Istream)
-{
-	std::string Data, line;
-	while (std::getline(Istream, line))
-	{
-		Data += line;
-	}
-	return JsonParser::Parser(Data);
 }
