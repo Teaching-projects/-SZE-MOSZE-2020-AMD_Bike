@@ -5,6 +5,10 @@ Character::Character(const std::string name, const int hp, const int dmg, const 
 {
 }
 
+Character::~Character() {
+
+}
+
 std::string Character::getName() const
 {
 	return name;
