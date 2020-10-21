@@ -3,41 +3,72 @@
 #include<fstream>
 
 void Fight(Character character1, Character character2) {
-	int n = 0;
+	double gameprogress = 0;
+	double aktAS1 = character1.getAttackspeed();
+	double aktAS2 = character2.getAttackspeed();
+
+	character2.DMGTaken(character1);
+	if (!character2.IsDead()) {
+		character1.DMGTaken(character2);
+	}
 	while (character1.getHp() != 0 && character2.getHp() != 0) {
-		if (n % 2 == 0) {
+		if ((aktAS1-gameprogress) < (aktAS2-gameprogress)) {
 			character2.DMGTaken(character1);
+			gameprogress = aktAS1;
+			aktAS1 += character1.getAttackspeed();
+		}
+		else if ((aktAS1) - gameprogress > (aktAS2 - gameprogress)) {
+			character1.DMGTaken(character2);
+			gameprogress = aktAS2;
+			aktAS2 += character2.getAttackspeed();
 		}
 		else {
-			character1.DMGTaken(character2);
+			character2.DMGTaken(character1);
+			if (!character2.IsDead()) {
+				character1.DMGTaken(character2);
+			}
+			gameprogress = aktAS1;
+			aktAS1 += character1.getAttackspeed();
+			aktAS2 += character2.getAttackspeed();
 		}
-		n++;
 	}
-
 	if (character1.IsDead()) { std::cout << character2.getName() << " wins. Remaining HP: " << character2.getHp() << std::endl; }
 	else { std::cout << character1.getName() << " wins. Remaining HP: " << character1.getHp() << std::endl; }
 }
 
-int main(int argc, char* argv[]) {
+bool IsExist(const std::string FileName1, const std::string FileName2) {
+	std::ifstream file1, file2;
+	file1.open(FileName1);
+	file2.open(FileName2);
+	if (!file1.is_open() || !file2.is_open()) {
+		file1.close();
+		file2.close();
+		return true;
+	}
+	else { file1.close(); file2.close(); return false; }
+}
 
+
+int main(int argc, char *argv[]) {
+	
 	if (argc < 3) {
-		std::cout << "Not enough arguments." << std::endl;
+		std::cout << "Not enough arguments" << std::endl;
 		return 1;
 	}
 	else if (argc > 3) {
-		std::cout << "Too many arguments." << std::endl;
+		std::cout << "Too many arguments" << std::endl;
+		return 1;
+	}
+	else if (IsExist(argv[1], argv[2])) {
+		std::cout << "At least one file not exists" << std::endl;
 		return 1;
 	}
 	else {
-		try
-		{
-			Fight(Character::parseUnit(argv[1]), Character::parseUnit(argv[2]));
-		}
-		catch (const int& e)
-		{
-			std::cout << "One of the given arguments does not exists."<< std::endl;
-			return e;
-		}
+		Character Character1 = Character::parseUnit(argv[1]);
+		Character Character2 = Character::parseUnit(argv[2]);
+		Fight(Character1, Character2);
+
 	}
+
 	return 0;
 }

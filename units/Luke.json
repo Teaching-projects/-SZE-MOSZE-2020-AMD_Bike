@@ -1,5 +1,6 @@
 {
   "name": "Luke Skywalker",
   "hp": 2500,
-  "dmg": 440
+  "dmg": 270,
+  "attackspeed": 1.2
 }

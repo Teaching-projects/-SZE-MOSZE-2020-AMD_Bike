@@ -1,6 +1,7 @@
 #include "Character.h"
+#include <iostream>
 
-Character::Character(const std::string name, const int hp, const int dmg) : name(name), hp(hp), dmg(dmg)
+Character::Character(const std::string name, const int hp, const int dmg, const double attackspeed) : name(name), hp(hp), dmg(dmg), attackspeed(attackspeed)
 {
 }
 
@@ -19,6 +20,11 @@ int Character::getDmg() const
 	return dmg;
 }
 
+double Character::getAttackspeed() const
+{
+	return attackspeed;
+}
+
 void Character::DMGTaken(const Character character)
 {
 	hp -= character.getDmg();
@@ -30,11 +36,12 @@ bool Character::IsDead() const
 	return hp == 0;
 }
 
-Character Character::parseUnit(const std::string& FileName)
+Character Character::parseUnit(const std::string FileName)
 {
 	std::ifstream file;
 	std::string line, name;
 	int hp, dmg;
+	double attackspeed;
 	file.open(FileName);
 
 	if (file.is_open()) {
@@ -47,6 +54,7 @@ Character Character::parseUnit(const std::string& FileName)
 				x += 3;
 				y = y - x - 1;
 				name = line.substr(x, y);
+
 			}
 			else if (i == 2) {
 				size_t x = line.find(':');
@@ -57,17 +65,21 @@ Character Character::parseUnit(const std::string& FileName)
 			}
 			else if (i == 3) {
 				size_t x = line.find(':');
-				dmg = stoi(line.substr(x + 2));
+				size_t y = line.find(',');
+				x += 2;
+				y = y - x;
+				dmg = stoi(line.substr(x, y));
+			}
+			else if (i == 4) {
+				size_t x = line.find(':');
+				attackspeed = stod(line.substr(x + 2));
 			}
 			i++;
 		}
-		file.close();
 	}
-	else {
-		throw 1;
-	}
-
-	return Character(name, hp, dmg);
+	file.close();
+	Character character(name, hp, dmg, attackspeed);
+	return character;
 
 }
 
