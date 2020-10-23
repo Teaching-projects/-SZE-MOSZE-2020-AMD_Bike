@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-Player::~Player() 
+Player::~Player()
 {
 }
 
@@ -29,7 +29,7 @@ void Player::LevelUp()
 	xp -= 100;
 }
 
-void Player::OnePunch(Character* foe)
+void Player::OnePunch(Character*& foe)
 {
 	int HPofFoe = foe->getHp();
 	int CurrentXP = 0;
@@ -39,8 +39,8 @@ void Player::OnePunch(Character* foe)
 	else {
 		CurrentXP = dmg;
 	}
-
-	foe->DMGTaken(this);
+	Character* PlayerPointer = this;
+	foe->DMGTaken(PlayerPointer);
 	xp += CurrentXP;
 	if (xp >= 100) {
 		this->LevelUp();
