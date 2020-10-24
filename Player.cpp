@@ -28,7 +28,11 @@ void Player::OnePunch(Character& enemy)
 	else {
 		CurrentXP = dmg;
 	}
-	enemy.DMGTaken(this);
+	std::string name = this->getName();
+	int hp = this->getHp();
+	int dmg = this->getDmg();
+	Player player = Player(name, hp, dmg);
+	enemy.DMGTaken(player);
 	xp += CurrentXP;
 	if (xp >= 100) {
 		LevelUp();
