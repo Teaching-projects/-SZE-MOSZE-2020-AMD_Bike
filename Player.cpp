@@ -2,23 +2,13 @@
 #include <iostream>
 #include <cmath>
 
-Player::~Player()
+Player Player::parsePlayer(const std::string& FileName)
 {
-}
-
-int Player::getXp() const
-{
-	return xp;
-}
-
-Player* Player::parsePlayer(const std::string& FileName)
-{
-	Character* parsedCharacter = Character::parseUnit(FileName);
-	std::string name = parsedCharacter->getName();
-	int hp = parsedCharacter->getHp();
-	int dmg = parsedCharacter->getDmg();
-	delete parsedCharacter;
-	return new Player(name, hp, dmg);
+	Character parsedCharacter = Character::parseUnit(FileName);
+	std::string name = parsedCharacter.getName();
+	int hp = parsedCharacter.getHp();
+	int dmg = parsedCharacter.getDmg();
+	return Player(name, hp, dmg);
 }
 
 void Player::LevelUp()
@@ -29,20 +19,18 @@ void Player::LevelUp()
 	xp -= 100;
 }
 
-void Player::OnePunch(Character*& foe)
+void Player::OnePunch(Character& enemy)
 {
-	int HPofFoe = foe->getHp();
 	int CurrentXP = 0;
-	if (HPofFoe < dmg) {
-		CurrentXP = HPofFoe;
+	if (enemy.getHp() < dmg) {
+		CurrentXP = enemy.getHp();
 	}
 	else {
 		CurrentXP = dmg;
 	}
-	Character* PlayerPointer = this;
-	foe->DMGTaken(PlayerPointer);
+	enemy.DMGTaken(this);
 	xp += CurrentXP;
 	if (xp >= 100) {
-		this->LevelUp();
+		LevelUp();
 	}
 }
