@@ -43,7 +43,7 @@ TEST(UnitTest, WrongInputFile) {
 
 	TestMap = j.Parser("test/units/WrongLuke.json");
 
-	ASSERT_THROW(JsonParser::Parser(TestMap), std::runtime_error());
+	ASSERT_THROW(JsonParser::Parser(TestMap), std::runtime_error);
 }
 
 int main(int argc, char** argv) {
