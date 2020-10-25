@@ -38,15 +38,7 @@ TEST(ParserTest, InputIstream) {
 }
 
 TEST(UnitTest, WrongInputFile) {
-	JsonParser j;
-	std::map<std::string, std::string> TestMap;
-
-	TestMap = j.Parser("test/units/WrongLuke.json");
-
-	ASSERT_TRUE(TestMap["name"] == "Luke Skywalker");
-	ASSERT_FALSE(stoi(TestMap["hp"]) == 2500);
-	ASSERT_TRUE(stoi(TestMap["dmg"]) == 440);
-	
+	ASSERT_THROW(JsonParser::Parser("test/units/WrongLuke.json"), std::runtime_error())
 }
 
 int main(int argc, char** argv) {

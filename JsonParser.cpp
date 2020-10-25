@@ -2,20 +2,15 @@
 
 std::map<std::string, std::string> JsonParser::Parser(std::string FileName)
 {
-	if (FileName.rfind(".json") == FileName.size() - 5) {
-		std::ifstream file;
-		file.open(FileName);
-		std::string line;
+	std::ifstream file;
+	file.open(FileName);
+	std::string line;
 
-		if (file.is_open()) {
-			while (getline(file, line)) {
-				FileName += line;
-			}
-			file.close();
+	if (file.is_open()) {
+		while (getline(file, line)) {
+			FileName += line;
 		}
-		else {
-			throw 1;
-		}
+		file.close();
 	}
 	return JsonParser::ParserFromString(FileName);
 }
@@ -27,7 +22,7 @@ std::map<std::string, std::string> JsonParser::Parser(std::istream& Istream)
 	{
 		Data += line;
 	}
-	return JsonParser::Parser(Data);
+	return JsonParser::ParserFromString(Data);
 }
 
 std::map<std::string, std::string> JsonParser::ParserFromString(std::string String)
@@ -40,14 +35,14 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 		if (x == String.rfind(sign) - 1) {
 			sign = ' ';
 		}
-		while (String[x] != sign) {
+		while ((String[x] != sign) && (x!=String.size())) {
 			akt1 += String[x];
 			x++;
 		}
 		String.erase(0, x + 1);
 		if (akt1 == "name") {
 			size_t x = String.find(sign) + 1;
-			while (String[x] != sign) {
+			while ((String[x] != sign) && (x != String.size())) {
 				akt2 += String[x];
 				x++;
 			}
@@ -55,7 +50,7 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 		}
 		else {
 			x = 0;
-			while (isdigit(String[x]) || akt2 == "") {
+			while ((isdigit(String[x]) || akt2 == "") && (x != String.size())) {
 				if (isdigit(String[x])) {
 					akt2 += String[x];
 				}
@@ -66,6 +61,9 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 		toReturn.insert(std::pair<std::string, std::string>(akt1, akt2));
 		akt1 = "";
 		akt2 = "";
+	}
+	if (toReturn.size() != 3) {
+		throw std::runtime_error("Not enough parameters!");
 	}
 	return toReturn;
 }
