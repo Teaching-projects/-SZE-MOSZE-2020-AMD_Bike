@@ -38,7 +38,7 @@ TEST(ParserTest, InputIstream) {
 }
 
 TEST(UnitTest, WrongInputFile) {
-	ASSERT_THROW(JsonParser::Parser("test/units/WrongLuke.json"), std::runtime_error())
+	ASSERT_THROW(JsonParser::Parser("test/units/WrongLuke.json"), std::runtime_error());
 }
 
 int main(int argc, char** argv) {
