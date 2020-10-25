@@ -38,12 +38,9 @@ TEST(ParserTest, InputIstream) {
 }
 
 TEST(UnitTest, WrongInputFile) {
-	JsonParser j;
-	std::map<std::string, std::string> TestMap;
+	std::string InputFileName = "test/units/WrongLuke.json";
 
-	TestMap = j.Parser("test/units/WrongLuke.json");
-
-	ASSERT_THROW(JsonParser::Parser(TestMap), std::runtime_error);
+	ASSERT_THROW(JsonParser::Parser(InputFileName), std::runtime_error);
 }
 
 int main(int argc, char** argv) {
