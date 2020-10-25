@@ -37,7 +37,7 @@ TEST(ParserTest, InputIstream) {
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 570);
 }
 
-TEST(UnitTest, WrongInputFile) {
+TEST(ParserTest, WrongInputFile) {
 	std::string InputFileName = "test/units/WrongLuke.json";
 
 	ASSERT_THROW(JsonParser::Parser(InputFileName), std::runtime_error);
