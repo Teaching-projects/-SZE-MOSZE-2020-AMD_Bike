@@ -8,15 +8,17 @@ Player Player::parsePlayer(const std::string& FileName)
 	std::string name = parsedCharacter.getName();
 	int hp = parsedCharacter.getHp();
 	int dmg = parsedCharacter.getDmg();
-	return Player(name, hp, dmg);
+	double attackspeed = parsedCharacter.getAttackspeed();
+	return Player(name, hp, dmg, attackspeed);
 }
 
 void Player::LevelUp()
 {
-	MaxHp = round(MaxHp * 1.1);
-	dmg = round(dmg * 1.1);
+	MaxHp = (int)round(MaxHp * 1.1);
+	dmg = (int)round(dmg * 1.1);
 	hp = MaxHp;
 	xp -= 100;
+	attackspeed = round(attackspeed * 0.9);
 }
 
 void Player::OnePunch(Character& enemy)
