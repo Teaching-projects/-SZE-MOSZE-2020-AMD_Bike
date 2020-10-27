@@ -25,18 +25,12 @@ double Character::getAttackspeed() const
 	return attackspeed;
 }
 
-void Character::DMGTaken(const Character character)
-{
-	hp -= character.getDmg();
-	if (hp <= 0) { hp = 0; }
-}
-
 bool Character::IsDead() const
 {
 	return hp == 0;
 }
 
-Character Character::parseUnit(const std::string FileName)
+Character Character::parseUnit(const std::string& FileName)
 {
 	std::ifstream file;
 	std::string line, name;
@@ -77,9 +71,21 @@ Character Character::parseUnit(const std::string FileName)
 			i++;
 		}
 	}
+	else {
+		throw 1;
+	}
 	file.close();
 	Character character(name, hp, dmg, attackspeed);
 	return character;
-
 }
 
+void Character::DMGTaken(Character& foe)
+{
+	hp -= foe.getDmg();
+	if (hp <= 0) { hp = 0; }
+}
+
+void Character::OnePunch(Character& foe)
+{
+	foe.DMGTaken(*this);
+}
