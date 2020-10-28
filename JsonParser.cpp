@@ -50,15 +50,12 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 		}
 		else {
 			x = 0;
-			while ((isdigit(String[x]) || akt2 == "") && (x != String.size())) {
+			while ((x < String.size()) && (String[x] != '"') && (String[x] != ',')) {
 				if (isdigit(String[x])) {
 					akt2 += String[x];
 				}
-				x++;	
-			}
-			while ((String[x+1] <= String.size()) && (String[x+1] != '"') && (String[x + 1] != ',')) {
-				if (isdigit(String[x + 1])) {
-					throw std::runtime_error("Only digit adat is acceptable!");
+				if (!((String[x] == ':') || (isspace(String[x])) || (isdigit(String[x])) || (String[x]=='}'))) {
+					throw std::runtime_error("Only digit data is acceptable!");
 				}
 				x++;
 			}
