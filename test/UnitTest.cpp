@@ -38,9 +38,15 @@ TEST(ParserTest, InputIstream) {
 }
 
 TEST(ParserTest, WrongInputFile) {
-	std::string InputFileName = "test/units/WrongLuke.json";
+	std::string WrongInputFileName = "test/units/WrongLuke.json";
 
-	ASSERT_THROW(JsonParser::Parser(InputFileName), std::runtime_error);
+	ASSERT_THROW(JsonParser::Parser(WrongInputFileName), std::runtime_error);
+}
+
+TEST(ParserTest, WrongInputString) {
+	std::string WrongInputString = "\"name\":\"DarthVader\",\"hp\":38k0,\"dmg\":270";
+
+	ASSERT_THROW(JsonParser::Parser(WrongInputString), std::runtime_error);
 }
 
 int main(int argc, char** argv) {

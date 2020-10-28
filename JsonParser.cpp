@@ -54,6 +54,12 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 				if (isdigit(String[x])) {
 					akt2 += String[x];
 				}
+				x++;	
+			}
+			while ((String[x+1] <= String.size()) && (String[x+1] != '"') && (String[x + 1] != ',')) {
+				if (isdigit(String[x + 1])) {
+					throw std::runtime_error("Only digit adat is acceptable!");
+				}
 				x++;
 			}
 			String.erase(0, x + 1);
