@@ -14,7 +14,7 @@ std::map<std::string, std::string> JsonParser::Parser(std::string FileName)
 	}
 	return JsonParser::ParserFromString(FileName);
 }
-	
+
 std::map<std::string, std::string> JsonParser::Parser(std::istream& Istream)
 {
 	std::string Data, line;
@@ -35,7 +35,7 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 		if (x == String.rfind(sign) - 1) {
 			sign = ' ';
 		}
-		while ((String[x] != sign) && (x!=String.size())) {
+		while ((String[x] != sign) && (x != String.size())) {
 			akt1 += String[x];
 			x++;
 		}
@@ -51,10 +51,10 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 		else {
 			x = 0;
 			while ((x < String.size()) && (String[x] != '"') && (String[x] != ',')) {
-				if (isdigit(String[x])) {
+				if (isdigit(String[x]) || (String[x] == '.')) {
 					akt2 += String[x];
 				}
-				if (!((String[x] == ':') || (isspace(String[x])) || (isdigit(String[x])) || (String[x]=='}'))) {
+				if (!((String[x] == ':') || (isspace(String[x])) || (isdigit(String[x])) || (String[x] == '}') || (String[x] == '.'))) {
 					throw std::runtime_error("Only digit data is acceptable!");
 				}
 				x++;
@@ -65,7 +65,7 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 		akt1 = "";
 		akt2 = "";
 	}
-	if (toReturn.size() != 3) {
+	if (toReturn.size() != 4) {
 		throw std::runtime_error("Not enough parameters!");
 	}
 	return toReturn;
