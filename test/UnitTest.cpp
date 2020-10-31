@@ -10,7 +10,7 @@ TEST(ParserTest, InputString) {
 	ASSERT_TRUE(TestMap["name"] == "DarthVader");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 380);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 44);
-	ASSERT_TRUE(stoi(TestMap["attackspeed"]) == 3.2);
+	ASSERT_TRUE(stod(TestMap["attackspeed"]) == 3.2);
 }
 
 TEST(ParserTest, InputFileName) {
@@ -22,7 +22,7 @@ TEST(ParserTest, InputFileName) {
 	ASSERT_TRUE(TestMap["name"] == "Luke Skywalker");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 250);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 27);
-	ASSERT_TRUE(stoi(TestMap["attackspeed"]) == 1.2);
+	ASSERT_TRUE(stod(TestMap["attackspeed"]) == 1.2);
 }
 
 TEST(ParserTest, InputIstream) {
@@ -37,7 +37,7 @@ TEST(ParserTest, InputIstream) {
 	ASSERT_TRUE(TestMap["name"] == "Yoda");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 190);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 57);
-	ASSERT_TRUE(stoi(TestMap["attackspeed"]) == 2);
+	ASSERT_TRUE(stod(TestMap["attackspeed"]) == 2);
 }
 
 TEST(ParserTest, WrongInputFile) {
