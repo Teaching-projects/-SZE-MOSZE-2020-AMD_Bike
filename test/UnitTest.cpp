@@ -83,43 +83,43 @@ TEST(NewUnitTests, DifferentOrder) {
 TEST(NewUnitTests, getNameFunction) {
 	Player Unit = Player::parsePlayer("test/units/Yoda.json");
 
-	ASSERT_TRUE(Unit.Player::getName() == "Yoda");
+	ASSERT_TRUE(Unit.getName() == "Yoda");
 }
 
 TEST(NewUnitTests, getHpFunction) {
 	Player Unit = Player::parsePlayer("test/units/Vader.json");
 
-	ASSERT_TRUE(Unit.Player::getHp() == 380);
+	ASSERT_TRUE(Unit.getHp() == 380);
 }
 
 TEST(NewUnitTests, getDmgFunction) {
 	Player Unit = Player::parsePlayer("test/units/Luke.json");
 
-	ASSERT_TRUE(Unit.Player::getDmg() == 27);
+	ASSERT_TRUE(Unit.getDmg() == 27);
 }
 
 TEST(NewUnitTests, getAttackspeedFunction) {
 	Player Unit = Player::parsePlayer("\"name\":\"Obi-Wan\",\"hp\":235,\"dmg\":34,\"attackspeed\":1.7");
 
-	ASSERT_TRUE(Unit.Player::getAttackspeed() == 1.7);
+	ASSERT_TRUE(Unit.getAttackspeed() == 1.7);
 }
 
 TEST(NewUnitTests, IsDeadTrueFunction) {
 	Player Unit = Player::parsePlayer("\"name\":\"DarthVader\",\"hp\":0,\"dmg\":44,\"attackspeed\":3.2");
 
-	ASSERT_TRUE(Unit.Player::IsDead());
+	ASSERT_TRUE(Unit.IsDead());
 }
 
 TEST(NewUnitTests, IsDeadFalseFunction) {
 	Player Unit = Player::parsePlayer("test/units/Yoda.json");
 
-	ASSERT_FALSE(Unit.Player::IsDead());
+	ASSERT_FALSE(Unit.IsDead());
 }
 
 TEST(NewUnitTests, DMGTakenFunction) {
 	Player Unit1 = Player::parsePlayer("test/units/Yoda.json");
 	Character Unit2 = Character::parseUnit("test/units/Vader.json");
-	Unit1.Player::DMGTaken(Unit2);
+	Unit1.DMGTaken(Unit2);
 
 	ASSERT_TRUE(Unit1.getHp() == 146);
 }
@@ -127,7 +127,7 @@ TEST(NewUnitTests, DMGTakenFunction) {
 TEST(NewUnitTests, OnePunchFunction) {
 	Player Unit1 = Player::parsePlayer("test/units/Luke.json");
 	Character Unit2 = Character::parseUnit("\"name\":\"Obi-Wan\",\"hp\":235,\"dmg\":34,\"attackspeed\":1.7");
-	Unit1.Player::OnePunch(Unit2);
+	Unit1.OnePunch(Unit2);
 
 	ASSERT_TRUE(Unit2.getHp() == 208);
 }
@@ -135,12 +135,12 @@ TEST(NewUnitTests, OnePunchFunction) {
 TEST(NewUnitTests, LevelUpFunction) {
 	Player Unit1 = Player::parsePlayer("\"name\":\"MaceWindu\",\"hp\":290,\"dmg\":100,\"attackspeed\":6.4");
 	Character Unit2 = Character::parseUnit("test/units/Luke.json");
-	Unit1.Player::OnePunch(Unit2);
+	Unit1.OnePunch(Unit2);
 	
-	ASSERT_TRUE(Unit1.Player::getName() == "MaceWindu");
-	ASSERT_TRUE(Unit1.Player::getHp() == 319);
-	ASSERT_TRUE(Unit1.Player::getDmg() == 110);
-	ASSERT_TRUE(Unit1.Player::getAttackspeed() == 5.76);
+	ASSERT_TRUE(Unit1.getName() == "MaceWindu");
+	ASSERT_TRUE(Unit1.getHp() == 319);
+	ASSERT_TRUE(Unit1.getDmg() == 110);
+	ASSERT_TRUE(Unit1.getAttackspeed() == 5.76);
 }
 
 TEST(NewUnitTests, NoKeyError) {
