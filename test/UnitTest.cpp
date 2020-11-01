@@ -9,7 +9,7 @@ TEST(ParserTest, InputString) {
 
 	TestMap = j.ParserFromString("\"name\":\"DarthVader\",\"hp\":380,\"dmg\":44,\"attackspeed\":3.2");
 
-	ASSERT_TRUE(TestMap["name"] == "DarthVader");
+	ASSERT_TRUE(TestMap["name"] == "Darth Vader");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 380);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 44);
 	ASSERT_TRUE(stod(TestMap["attackspeed"]) == 3.2);
@@ -126,7 +126,7 @@ TEST(NewUnitTests, DMGTakenFunction) {
 
 TEST(NewUnitTests, OnePunchFunction) {
 	Player Unit1 = Player::parsePlayer("test/units/Luke.json");
-	Character Unit2 = Character::parseUnit("\"name\":\"Obi-Wan\",\"hp\":235,\"dmg\":34,\"attackspeed\":1.7");
+	Character Unit2 = Character::parseUnit("\"name\":\"Obi-WanKenobi\",\"hp\":235,\"dmg\":34,\"attackspeed\":1.7");
 	Unit1.OnePunch(Unit2);
 
 	ASSERT_TRUE(Unit2.getHp() == 208);
@@ -137,7 +137,7 @@ TEST(NewUnitTests, LevelUpFunction) {
 	Character Unit2 = Character::parseUnit("test/units/Luke.json");
 	Unit1.OnePunch(Unit2);
 	
-	ASSERT_TRUE(Unit1.getName() == "MaceWindu");
+	ASSERT_TRUE(Unit1.getName() == "Mace Windu");
 	ASSERT_TRUE(Unit1.getHp() == 319);
 	ASSERT_TRUE(Unit1.getDmg() == 110);
 	ASSERT_TRUE(Unit1.getAttackspeed() == 5.76);

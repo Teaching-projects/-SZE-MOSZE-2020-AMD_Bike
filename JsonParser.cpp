@@ -46,7 +46,7 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 		if (akt1 == "name") {
 			size_t x = String.find(sign) + 1;
 			while ((String[x] != sign) && (x != String.size())) {
-				if ((isupper(String[x])) && (akt2 != "")) {
+				if ((isupper(String[x]) && (String[x-1] != '-')) && (akt2 != "")) {
 					akt2 = akt2 + ' ' + String[x];
 				}
 				else if (String[x] != ' ') {
