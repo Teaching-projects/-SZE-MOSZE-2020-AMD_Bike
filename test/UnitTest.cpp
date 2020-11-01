@@ -1,5 +1,6 @@
 #include "../JsonParser.h"
 #include "../Player.h"
+#include "../Character.h"
 #include <gtest/gtest.h>
 
 TEST(ParserTest, InputString) {
