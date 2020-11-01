@@ -140,7 +140,7 @@ TEST(NewUnitTests, LevelUpFunction) {
 	ASSERT_TRUE(Unit1.getName() == "Mace Windu");
 	ASSERT_TRUE(Unit1.getHp() == 319);
 	ASSERT_TRUE(Unit1.getDmg() == 110);
-	ASSERT_TRUE(Unit1.getAttackspeed() == 5.76);
+	ASSERT_DOUBLE_EQ(Unit1.getAttackspeed() == 5.76);
 }
 
 TEST(NewUnitTests, NoKeyError) {
