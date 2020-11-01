@@ -1,6 +1,6 @@
 Darth Vader wins. Remaining HP: 406
 Darth Vader wins. Remaining HP: 247
 Yoda wins. Remaining HP: 176
-Yoda wins. Remaining HP: 209
+Yoda wins. Remaining HP: 253
 Luke Skywalker wins. Remaining HP: 161
 Luke Skywalker wins. Remaining HP: 333
