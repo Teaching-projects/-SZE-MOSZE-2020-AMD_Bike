@@ -136,10 +136,10 @@ TEST(NewUnitTests, LevelUpFunction) {
 	Character Unit2 = Character::parseUnit("test/units/Luke.json");
 	Unit1.OnePunch(Unit2);
 	
-	ASSERT_TRUE(Unit.getName() == "MaceWindu");
-	ASSERT_TRUE(Unit.getHp() == 319);
-	ASSERT_TRUE(Unit.getDmg() == 110);
-	ASSERT_TRUE(Unit.getAttackspeed() == 5.76);
+	ASSERT_TRUE(Unit1.getName() == "MaceWindu");
+	ASSERT_TRUE(Unit1.getHp() == 319);
+	ASSERT_TRUE(Unit1.getDmg() == 110);
+	ASSERT_TRUE(Unit1.getAttackspeed() == 5.76);
 }
 
 TEST(NewUnitTests, NoKeyError) {
