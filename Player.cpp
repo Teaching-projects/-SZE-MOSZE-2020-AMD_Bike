@@ -18,7 +18,7 @@ void Player::LevelUp()
 	dmg = (int)round(dmg * 1.1);
 	hp = MaxHp;
 	xp -= 100;
-	attackspeed = round(attackspeed * 0.9);
+	attackspeed = attackspeed * 0.9;
 }
 
 void Player::OnePunch(Character& enemy)
