@@ -63,7 +63,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classCharacter-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Character Class Reference</div>  </div>
@@ -74,10 +74,18 @@ $(function() {
  <a href="classCharacter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Character_8h_source.html">Character.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Character:</div>
+<div class="dyncontent">
+<div class="center"><img src="classCharacter__inherit__graph.png" border="0" usemap="#Character_inherit__map" alt="Inheritance graph"/></div>
+<map name="Character_inherit__map" id="Character_inherit__map">
+<area shape="rect" id="node2" href="classPlayer.html" title="Player class. " alt="" coords="15,80,74,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a137515cc5a378f8adbc70bbd286c7697"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a137515cc5a378f8adbc70bbd286c7697">Character</a> (const std::string name, const int hp, const int dmg, const double attackspeed)</td></tr>
+<tr class="memitem:a137515cc5a378f8adbc70bbd286c7697"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a137515cc5a378f8adbc70bbd286c7697">Character</a> (const std::string <a class="el" href="classCharacter.html#a1cbd8bdd76b3f41ec82315e95e5bcacd">name</a>, const int <a class="el" href="classCharacter.html#a273353643988a87a0ce03cff3870b2d9">hp</a>, const int <a class="el" href="classCharacter.html#a1aeb2895a7857268dc1550bdb14a3d52">dmg</a>, const double <a class="el" href="classCharacter.html#a508bca037680328e9786d0a48cf1d350">attackspeed</a>)</td></tr>
 <tr class="memdesc:a137515cc5a378f8adbc70bbd286c7697"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor function initializes a specific <a class="el" href="classCharacter.html" title="Character class. ">Character</a> object, with the given parameters.  <a href="#a137515cc5a378f8adbc70bbd286c7697">More...</a><br /></td></tr>
 <tr class="separator:a137515cc5a378f8adbc70bbd286c7697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad79f892fe576c7ef0804cad502d94517"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#ad79f892fe576c7ef0804cad502d94517">getName</a> () const</td></tr>
@@ -95,27 +103,46 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab864f281e8d70a4787cc8e092f3c158d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#ab864f281e8d70a4787cc8e092f3c158d">IsDead</a> () const</td></tr>
 <tr class="memdesc:ab864f281e8d70a4787cc8e092f3c158d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a bool function, that returns 'true', when one of the champions dies, and 'false', if it lives.  <a href="#ab864f281e8d70a4787cc8e092f3c158d">More...</a><br /></td></tr>
 <tr class="separator:ab864f281e8d70a4787cc8e092f3c158d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83a1486290631892cf35a99f1309e4e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a83a1486290631892cf35a99f1309e4e1">DMGTaken</a> (<a class="el" href="classCharacter.html">Character</a> &amp;foe)</td></tr>
+<tr class="memdesc:a83a1486290631892cf35a99f1309e4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reduces the <a class="el" href="classCharacter.html" title="Character class. ">Character</a>'s hitpoint.  <a href="#a83a1486290631892cf35a99f1309e4e1">More...</a><br /></td></tr>
+<tr class="separator:a83a1486290631892cf35a99f1309e4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abafe21e234c5f5a81e852b75864a5942"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#abafe21e234c5f5a81e852b75864a5942">OnePunch</a> (<a class="el" href="classCharacter.html">Character</a> &amp;foe)</td></tr>
+<tr class="memdesc:abafe21e234c5f5a81e852b75864a5942"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calls the <a class="el" href="classCharacter.html#a83a1486290631892cf35a99f1309e4e1" title="This function reduces the Character&#39;s hitpoint. ">DMGTaken()</a> function.  <a href="#abafe21e234c5f5a81e852b75864a5942">More...</a><br /></td></tr>
+<tr class="separator:abafe21e234c5f5a81e852b75864a5942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a59dba7d76eb2de71a8bcfdef92da613a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCharacter.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a59dba7d76eb2de71a8bcfdef92da613a">parseUnit</a> (const std::string FileName)</td></tr>
-<tr class="memdesc:a59dba7d76eb2de71a8bcfdef92da613a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads the Characters specific datas, from a file.  <a href="#a59dba7d76eb2de71a8bcfdef92da613a">More...</a><br /></td></tr>
-<tr class="separator:a59dba7d76eb2de71a8bcfdef92da613a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4801ba6eb60e622892fc17486fa05e2c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCharacter.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a4801ba6eb60e622892fc17486fa05e2c">parseUnit</a> (const std::string &amp;FileName)</td></tr>
+<tr class="memdesc:a4801ba6eb60e622892fc17486fa05e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads the Characters specific datas, from a file.  <a href="#a4801ba6eb60e622892fc17486fa05e2c">More...</a><br /></td></tr>
+<tr class="separator:a4801ba6eb60e622892fc17486fa05e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:aeb8a5a072e24a4adbccedca499b79fbd"><td class="memItemLeft" align="right" valign="top"><a id="aeb8a5a072e24a4adbccedca499b79fbd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Fight</b> (<a class="el" href="classCharacter.html">Character</a> character1, <a class="el" href="classCharacter.html">Character</a> character2)</td></tr>
-<tr class="separator:aeb8a5a072e24a4adbccedca499b79fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a1cbd8bdd76b3f41ec82315e95e5bcacd"><td class="memItemLeft" align="right" valign="top"><a id="a1cbd8bdd76b3f41ec82315e95e5bcacd"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a1cbd8bdd76b3f41ec82315e95e5bcacd">name</a></td></tr>
+<tr class="memdesc:a1cbd8bdd76b3f41ec82315e95e5bcacd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the name of an existing champion. <br /></td></tr>
+<tr class="separator:a1cbd8bdd76b3f41ec82315e95e5bcacd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a273353643988a87a0ce03cff3870b2d9"><td class="memItemLeft" align="right" valign="top"><a id="a273353643988a87a0ce03cff3870b2d9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a273353643988a87a0ce03cff3870b2d9">hp</a></td></tr>
+<tr class="memdesc:a273353643988a87a0ce03cff3870b2d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the hitpoint of an existing champion. <br /></td></tr>
+<tr class="separator:a273353643988a87a0ce03cff3870b2d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aeb2895a7857268dc1550bdb14a3d52"><td class="memItemLeft" align="right" valign="top"><a id="a1aeb2895a7857268dc1550bdb14a3d52"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a1aeb2895a7857268dc1550bdb14a3d52">dmg</a></td></tr>
+<tr class="memdesc:a1aeb2895a7857268dc1550bdb14a3d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the damage of an existing champion. <br /></td></tr>
+<tr class="separator:a1aeb2895a7857268dc1550bdb14a3d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a508bca037680328e9786d0a48cf1d350"><td class="memItemLeft" align="right" valign="top"><a id="a508bca037680328e9786d0a48cf1d350"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCharacter.html#a508bca037680328e9786d0a48cf1d350">attackspeed</a></td></tr>
+<tr class="memdesc:a508bca037680328e9786d0a48cf1d350"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the attack cooldown of an existing champion. <br /></td></tr>
+<tr class="separator:a508bca037680328e9786d0a48cf1d350"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classCharacter.html" title="Character class. ">Character</a> class. </p>
 <p>This class contains all the data what an existing champion requires. Like the hp, the damage, and the attack cooldown. <br />
  With theese parameters, we made some functions, to modell a figth, where 2 characters are hitting each other, until one of them dies. <br />
  The one, who still stands after the fight, is the winner!</p>
-<dl class="section author"><dt>Author</dt><dd>skrobi12</dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0</dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2020/10/06 18:17 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>skrobi12, hajdunorbi, Szabi1104</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2020/10/26 19:17 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a137515cc5a378f8adbc70bbd286c7697"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a137515cc5a378f8adbc70bbd286c7697">&#9670;&nbsp;</a></span>Character()</h2>
@@ -169,6 +196,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Fight</b> (<a class="
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a83a1486290631892cf35a99f1309e4e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83a1486290631892cf35a99f1309e4e1">&#9670;&nbsp;</a></span>DMGTaken()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Character::DMGTaken </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCharacter.html">Character</a> &amp;&#160;</td>
+          <td class="paramname"><em>foe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function reduces the <a class="el" href="classCharacter.html" title="Character class. ">Character</a>'s hitpoint. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">foe</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a0405fa66f7ac4e1a6a7faf1bffe2c5c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0405fa66f7ac4e1a6a7faf1bffe2c5c7">&#9670;&nbsp;</a></span>getAttackspeed()</h2>
 
@@ -294,8 +347,44 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Fight</b> (<a class="
 
 </div>
 </div>
-<a id="a59dba7d76eb2de71a8bcfdef92da613a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59dba7d76eb2de71a8bcfdef92da613a">&#9670;&nbsp;</a></span>parseUnit()</h2>
+<a id="abafe21e234c5f5a81e852b75864a5942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abafe21e234c5f5a81e852b75864a5942">&#9670;&nbsp;</a></span>OnePunch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Character::OnePunch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCharacter.html">Character</a> &amp;&#160;</td>
+          <td class="paramname"><em>foe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function calls the <a class="el" href="classCharacter.html#a83a1486290631892cf35a99f1309e4e1" title="This function reduces the Character&#39;s hitpoint. ">DMGTaken()</a> function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">foe</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classPlayer.html#a3d8dd980044f2d1b75907cb399454090">Player</a>.</p>
+
+</div>
+</div>
+<a id="a4801ba6eb60e622892fc17486fa05e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4801ba6eb60e622892fc17486fa05e2c">&#9670;&nbsp;</a></span>parseUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,7 +395,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Fight</b> (<a class="
         <tr>
           <td class="memname"><a class="el" href="classCharacter.html">Character</a> Character::parseUnit </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>FileName</em></td><td>)</td>
           <td></td>
         </tr>
