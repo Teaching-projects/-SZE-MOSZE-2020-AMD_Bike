@@ -29,7 +29,7 @@ documentation:
 cppcheck:
 	cppcheck $(CPPOBJECTS) --enable=all --output-file=cppcheck_output.txt && $(CHMD) $(CFW) && ./$(CFW) && $(CHMD) $(CFE) && ./$(CFE)
 
-sca-test: sca-build valgrind-check io-test
+sca-test: sca-build valgrind-check io-tests
 
 sca-build:
 	$(CC) $(CFLAGS) -Werror -Wextra $(CPPOBJECTS) -o main
