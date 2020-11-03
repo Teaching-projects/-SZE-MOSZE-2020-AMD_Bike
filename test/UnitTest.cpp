@@ -47,7 +47,7 @@ TEST(ParserTest, WrongInputFile) {
 	const std::string expectedErrorMsg = "Not enough parameters!";
 
 	try {
-		std::map<std::string, std::string> data = JsonParser::Parser(WrongInputString);
+		std::map<std::string, std::string> data = JsonParser::Parser(WrongInputFileName);
 	}
 	catch (std::runtime_error &e) {
 		ASSERT_EQ(e.what(), expectedErrorMsg);
