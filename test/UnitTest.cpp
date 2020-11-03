@@ -44,14 +44,26 @@ TEST(ParserTest, InputIstream) {
 
 TEST(ParserTest, WrongInputFile) {
 	std::string WrongInputFileName = "test/units/WrongLuke.json";
+	const std::string expectedErrorMsg = "Not enough parameters!";
 
-	ASSERT_THROW(JsonParser::Parser(WrongInputFileName), std::runtime_error);
+	try {
+		std::map<std::string, std::string> data = JsonParser::Parser(WrongInputString);
+	}
+	catch (std::runtime_error &e) {
+		ASSERT_EQ(e.what(), expectedErrorMsg);
+	}
 }
 
 TEST(ParserTest, WrongInputString) {
 	std::string WrongInputString = "\"name\":\"DarthVader\",\"hp\":38k,\"dmg\":44,\"attackspeed\":3.2";
+	const std::string expectedErrorMsg = "Only digit data is acceptable!";
 
-	ASSERT_THROW(JsonParser::Parser(WrongInputString), std::runtime_error);
+	try {
+		std::map<std::string, std::string> data = JsonParser::Parser(WrongInputString);
+	}
+	catch (std::runtime_error &e) {
+		ASSERT_EQ(e.what(), expectedErrorMsg);
+	}
 }
 
 
@@ -145,14 +157,26 @@ TEST(NewUnitTests, LevelUpFunction) {
 
 TEST(NewUnitTests, NoKeyError) {
 	std::string NoKey = "test/units/NoKeyLuke.json";
+	const std::string expectedErrorMsg = "No key given!";
 
-	ASSERT_THROW(JsonParser::Parser(NoKey), std::runtime_error);
+	try {
+		std::map<std::string, std::string> data = JsonParser::Parser(NoKey);
+	}
+	catch (std::runtime_error &e) {
+		ASSERT_EQ(e.what(), expectedErrorMsg);
+	}
 }
 
 TEST(NewUnitTests, NoValueError) {
 	std::string NoValue = "test/units/NoValueLuke.json";
+	const std::string expectedErrorMsg = "No value given to the \"dmg\" key!";
 
-	ASSERT_THROW(JsonParser::Parser(NoValue), std::runtime_error);
+	try {
+		std::map<std::string, std::string> data = JsonParser::Parser(NoValue);
+	}
+	catch (std::runtime_error &e) {
+		ASSERT_EQ(e.what(), expectedErrorMsg);
+	}
 }
 
 int main(int argc, char** argv) {
