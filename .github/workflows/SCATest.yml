@@ -11,7 +11,7 @@ jobs:
       - name: Install cppcheck and valgrind
         run: sudo apt install -y cppcheck && sudo apt install -y valgrind 
       - name: Run code analysis with cppcheck
-        run: make cppcheck
+        run: make sca
       - name: Upload Cppcheck result 
         uses: actions/upload-artifact@v2  
         with:

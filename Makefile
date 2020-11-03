@@ -26,7 +26,7 @@ JsonParser.o: JsonParser.cpp JsonParser.h
 documentation:
 	doxygen doxconf
 
-cppcheck:
+sca:
 	cppcheck $(CPPOBJECTS) --enable=all --output-file=cppcheck_output.txt && $(CHMD) $(CFW) && ./$(CFW) && $(CHMD) $(CFE) && ./$(CFE)
 
 sca-test: sca-build valgrind-check io-tests
