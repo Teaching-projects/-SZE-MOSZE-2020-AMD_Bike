@@ -41,36 +41,42 @@ public:
 	/**
 	* \brief This is a getter function, that returns the champion name.
 	* \param none
+	* \return Returns the character's name.
 	*
 	*/
 	std::string getName() const;
 	/**
 	* \brief This is a getter function, that returns the champion hitpoint.
 	* \param none
+	* \return Returns the character's hitpoint.
 	*
 	*/
 	int getHp() const;
 	/**
 	* \brief This is a getter function, that returns the champion damage.
 	* \param none
+	* \return Returns the character's damage.
 	*
 	*/
 	int getDmg() const;
 	/**
 	* \brief This is a getter function, that returns the champion attack cooldown.
 	* \param none
+	* \return Returns the character's attacspeed.
 	*
 	*/
 	double getAttackspeed() const;
 	/**
 	* \brief This is a bool function, that returns 'true', when one of the champions dies, and 'false', if it lives.
 	* \param none
+	* \return Returns true, if the target Character's hp=0, and false if it is not.
 	*
 	*/
 	bool IsDead() const;
 	/**
 	* \brief This function reads the Characters specific datas, from a file.
 	* \param FileName
+	* \return Returns the parsed character's data.
 	*
 	*/
 	static Character parseUnit(const std::string& FileName);
