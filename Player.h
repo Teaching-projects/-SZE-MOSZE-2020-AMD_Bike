@@ -44,13 +44,14 @@ public:
 	/**
 	* \brief This function reads the Players specific datas, from a file.
 	* \param FileName
+	* \return Returns the parsed player's data.
 	*
 	*/
 	static Player parsePlayer(const std::string& FileName);
 	/**
 	* \brief This function calls the DMGTaken() function and makes the levelup.
 	* \param foe
-	*
+	* 
 	*/
 	void OnePunch(Character& enemy) override;
 };
