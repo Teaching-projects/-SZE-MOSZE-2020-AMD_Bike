@@ -19,7 +19,7 @@ Hero::Hero(std::map<std::string, std::string> HeroData) :
 
 std::map<std::string, std::string> Hero::parse(std::string String)
 {
-	String = "test/" + String;
+	String = "test/units/" + String;
 	JSON scenario = JSON::parseFromFile(String);
 
 	return scenario.getMap();
