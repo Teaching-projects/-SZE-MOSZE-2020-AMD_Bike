@@ -1,6 +1,5 @@
 #include "Hero.h"
 #include "JSON.h"
-#include <iostream>
 
 Hero::Hero(std::map<std::string, std::string> HeroData) :
 	name(HeroData["name"]),
@@ -21,6 +20,9 @@ std::map<std::string, std::string> Hero::parse(std::string String)
 {
 	String = "test/units/" + String;
 	JSON scenario = JSON::parseFromFile(String);
+	if (scenario.getMap().size() != 8) {
+		throw std::runtime_error("Not enough parameters!");
+	}
 
 	return scenario.getMap();
 }
@@ -49,6 +51,7 @@ void Hero::OnePunch(Monster& monster)
 	aktxp += CurrentXP;
 	if (aktxp >= expperlvl) {
 		LevelUp();
+		//std::cout << "LEVELUPPPPPPPPPPPPPPPPPPPPP" << std::endl;
 	}
 }
 
@@ -68,26 +71,43 @@ void Hero::fightTilDeath(Monster& monster)
 	double aktAS1 = acd;
 	double aktAS2 = monster.getAttackCoolDown();
 
+	/*std::cout << "Monster acd: " << monster.getAttackCoolDown() << std::endl;
+	std::cout << "Hero attack" << std::endl;*/
+	/*this->OnePunch(monster);
+	if (monster.isAlive()) {
+		std::cout << "monster attack" << std::endl;
+		this->DMGTaken(monster);
+	}*/
+	/*std::cout << "HP: " << hp << "/" << maxhp << "\t" << "DMG:" << dmg << "\t" << "XP:" << aktxp << std::endl;
+	std::cout << "HP: " << monster.getHealthPoints() << "\t" << "DMG:" << monster.getDamage() << std::endl;*/
 	while (this->isAlive() && monster.isAlive()) {
 		if ((aktAS1 - gameprogress) < (aktAS2 - gameprogress)) {
+			//std::cout << "Hero attack" << std::endl;
 			this->OnePunch(monster);
 			gameprogress = aktAS1;
 			aktAS1 += acd;
 		}
 		else if ((aktAS1 - gameprogress) > (aktAS2 - gameprogress)) {
+			//std::cout << "monster attack" << std::endl;
 			this->DMGTaken(monster);
 			gameprogress = aktAS2;
 			aktAS2 += monster.getAttackCoolDown();
 		}
 		else {
+			//std::cout << "Hero attack" << std::endl;
 			this->OnePunch(monster);
 			if (monster.isAlive()) {
+				//std::cout << "monster attack" << std::endl;
 				this->DMGTaken(monster);
 			}
 			aktAS1 += acd;
 			aktAS2 += monster.getAttackCoolDown();
 			gameprogress = aktAS1;
 		}
+		/*std::cout << "HP: " << hp << "/" << maxhp << "\t" << "DMG:" << dmg << "\t" << "XP:" << aktxp << std::endl;
+		std::cout << "HP: " << monster.getHealthPoints() << "\t" << monster.getDamage() << std::endl;
+		std::cout << "Hero attackspeed" << acd << "\t" << "AKTAS2:" << aktAS2 << std::endl;*/
+
 	}
 }
 

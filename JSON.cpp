@@ -1,5 +1,4 @@
 #include "JSON.h"
-#include <iostream>
 
 JSON::JSON(std::map<std::string, std::string> scenario) : scenario(scenario)
 {
@@ -47,9 +46,12 @@ JSON JSON::parseFromString(std::string String)
 			akt1 += String[x];
 			x++;
 		}
+		if (akt1 == "") {
+			throw std::runtime_error("No key given!");
+		}
 		String.erase(0, x + 1);
 
-		if ((akt1 == "name") || (akt1 == "hero") || (akt1 == "monsters") || (akt1 == "lore") || (akt1 == "race")) {
+		if ((akt1 == "name") || (akt1 == "hero") || (akt1 == "monsters") || (akt1 == "lore") || (akt1 == "race") || (akt1 == "additional_info")) {
 			size_t x = String.find('"') + 1;
 			while (String[x] != '"') {
 				akt2 += String[x];
@@ -63,9 +65,15 @@ JSON JSON::parseFromString(std::string String)
 				if ((isdigit(String[x])) || (String[x]=='.')) {
 					akt2 += String[x];
 				}
+				if (!((String[x] == ':') || (isspace(String[x])) || (isdigit(String[x])) || (String[x] == '}') || (String[x] == '.'))) {
+					throw std::runtime_error("Only digit data is acceptable!");
+				}
 				x++;
 			}
 			String.erase(0, x + 1);
+		}
+		if (akt2 == "") {
+			throw std::runtime_error("No value given to the \"" + akt1 + "\" key!");
 		}
 
 		scenario.insert(std::pair<std::string, std::string>(akt1, akt2));

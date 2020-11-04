@@ -13,7 +13,7 @@ lore(MonsterData["lore"])
 
 std::map<std::string, std::string> Monster::parse(std::string String)
 {
-	String = "test/" + String;
+	String = "test/units/" + String;
 	JSON scenario = JSON::parseFromFile(String);
 
 	return scenario.getMap();
