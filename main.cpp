@@ -35,17 +35,6 @@ int main(int argc, char** argv){
     std::string hero_file;
     std::list<std::string> monster_files;
 
-	/*JSON scenario = JSON::parseFromFile(argv[1]);
-	
-		hero_file = scenario.get<std::string>("hero");
-		std::istringstream monsters(scenario.get<std::string>("monsters"));
-		std::copy(std::istream_iterator<std::string>(monsters),
-			std::istream_iterator<std::string>(),
-			std::back_inserter(monster_files));
-	
-	Hero hero{ Hero::parse(hero_file) };
-	hero.print();*/
-
   try {
         JSON scenario = JSON::parseFromFile(argv[1]); 
 		if (!(scenario.count("hero") && scenario.count("monsters"))) bad_exit(3);
