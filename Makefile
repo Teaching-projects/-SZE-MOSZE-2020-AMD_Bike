@@ -35,7 +35,7 @@ sca-build:
 	$(CC) $(CFLAGS) $(CPPOBJECTS) -o main
 
 valgrind-check:
-	valgrind --leak-check=full --error-exitcode=1 ./main $(T)/units/Blood_Raven.json $(T)/units/Dark_Wanderer.json
+	valgrind --leak-check=full --error-exitcode=1 ./main $(T)/scenarios/scenario1.json
 
 io-tests:
 	$(CHMD) $(TSH) && ./$(TSH)
