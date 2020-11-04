@@ -39,11 +39,19 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 			akt1 += String[x];
 			x++;
 		}
+		if (akt1 == "") {
+			throw std::runtime_error("No key given!");
+		}
 		String.erase(0, x + 1);
 		if (akt1 == "name") {
 			size_t x = String.find(sign) + 1;
 			while ((String[x] != sign) && (x != String.size())) {
-				akt2 += String[x];
+				if ((isupper(String[x]) && (String[x-1] != '-')) && (akt2 != "")) {
+					akt2 = akt2 + ' ' + String[x];
+				}
+				else if (String[x] != ' ') {
+					akt2 += String[x];
+				}
 				x++;
 			}
 			String.erase(0, x + 1);
@@ -61,6 +69,10 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 			}
 			String.erase(0, x + 1);
 		}
+		if (akt2 == "") {
+			throw std::runtime_error("No value given to the \"" + akt1 + "\" key!" );
+		}
+
 		toReturn.insert(std::pair<std::string, std::string>(akt1, akt2));
 		akt1 = "";
 		akt2 = "";

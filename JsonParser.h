@@ -23,7 +23,7 @@ class JsonParser {
 public:
 	/**
 	* \brief This function opens the given input (in the current case a FileName). After a FileName is given, this function makes a string from it, and calls the ParserFromString() function, whit the created string as parameter.
-	* \param FileName
+	* \param FileNam
 	* \return Returns a <string, string> type map, which contains all the necessary data, what a Player, or Character has.
 	*
 	*/
