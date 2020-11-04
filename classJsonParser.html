@@ -67,136 +67,19 @@ $(function() {
 <div class="title">JsonParser Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><a class="el" href="classJsonParser.html" title="JsonParser class. ">JsonParser</a> class.  
- <a href="classJsonParser.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="JsonParser_8h_source.html">JsonParser.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ab71c696fb049f515481bef8b140417b5"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJsonParser.html#ab71c696fb049f515481bef8b140417b5">Parser</a> (std::string FileName)</td></tr>
-<tr class="memdesc:ab71c696fb049f515481bef8b140417b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function opens the given input (in the current case a FileName). After a FileName is given, this function makes a string from it, and calls the <a class="el" href="classJsonParser.html#a15c56338a04324f745f7b95ae14d3092" title="This function gets a String as an argument, or from the listed functions before. Then the function lo...">ParserFromString()</a> function, whit the created string as parameter.  <a href="#ab71c696fb049f515481bef8b140417b5">More...</a><br /></td></tr>
+<tr class="memitem:ab71c696fb049f515481bef8b140417b5"><td class="memItemLeft" align="right" valign="top"><a id="ab71c696fb049f515481bef8b140417b5"></a>
+static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Parser</b> (std::string FileName)</td></tr>
 <tr class="separator:ab71c696fb049f515481bef8b140417b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0540174a9b75ba05f274a20f0539f8f9"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJsonParser.html#a0540174a9b75ba05f274a20f0539f8f9">Parser</a> (std::istream &amp;Istream)</td></tr>
-<tr class="memdesc:a0540174a9b75ba05f274a20f0539f8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function opens the given input (in the current case an Istream). After an Istream is given, this function makes a string from it, and calls the <a class="el" href="classJsonParser.html#a15c56338a04324f745f7b95ae14d3092" title="This function gets a String as an argument, or from the listed functions before. Then the function lo...">ParserFromString()</a> function, whit the created string as parameter.  <a href="#a0540174a9b75ba05f274a20f0539f8f9">More...</a><br /></td></tr>
+<tr class="memitem:a0540174a9b75ba05f274a20f0539f8f9"><td class="memItemLeft" align="right" valign="top"><a id="a0540174a9b75ba05f274a20f0539f8f9"></a>
+static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Parser</b> (std::istream &amp;Istream)</td></tr>
 <tr class="separator:a0540174a9b75ba05f274a20f0539f8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15c56338a04324f745f7b95ae14d3092"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJsonParser.html#a15c56338a04324f745f7b95ae14d3092">ParserFromString</a> (std::string String)</td></tr>
-<tr class="memdesc:a15c56338a04324f745f7b95ae14d3092"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function gets a String as an argument, or from the listed functions before. Then the function loads the parameters, which it gets from the String, into a Map, and returns this Map.  <a href="#a15c56338a04324f745f7b95ae14d3092">More...</a><br /></td></tr>
+<tr class="memitem:a15c56338a04324f745f7b95ae14d3092"><td class="memItemLeft" align="right" valign="top"><a id="a15c56338a04324f745f7b95ae14d3092"></a>
+static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ParserFromString</b> (std::string String)</td></tr>
 <tr class="separator:a15c56338a04324f745f7b95ae14d3092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classJsonParser.html" title="JsonParser class. ">JsonParser</a> class. </p>
-<p>This class's role is, to prepare the <a class="el" href="classCharacter.html" title="Character class. ">Character</a> class's parseUnit() function for 3 types of input. These input's are the istream, filename and string.</p>
-<dl class="section author"><dt>Author</dt><dd>skrobi12, hajdunorbi, Szabi1104</dd></dl>
-<dl class="section version"><dt>Version</dt><dd>3.0</dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2020/11/01 19:17 </dd></dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab71c696fb049f515481bef8b140417b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab71c696fb049f515481bef8b140417b5">&#9670;&nbsp;</a></span>Parser() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt; std::string, std::string &gt; JsonParser::Parser </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>FileName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This function opens the given input (in the current case a FileName). After a FileName is given, this function makes a string from it, and calls the <a class="el" href="classJsonParser.html#a15c56338a04324f745f7b95ae14d3092" title="This function gets a String as an argument, or from the listed functions before. Then the function lo...">ParserFromString()</a> function, whit the created string as parameter. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">FileName</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns a &lt;string, string&gt; type map, which contains all the necessary data, what a <a class="el" href="classPlayer.html" title="Player class. ">Player</a>, or <a class="el" href="classCharacter.html" title="Character class. ">Character</a> has. </dd></dl>
-
-</div>
-</div>
-<a id="a0540174a9b75ba05f274a20f0539f8f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0540174a9b75ba05f274a20f0539f8f9">&#9670;&nbsp;</a></span>Parser() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt; std::string, std::string &gt; JsonParser::Parser </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>Istream</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This function opens the given input (in the current case an Istream). After an Istream is given, this function makes a string from it, and calls the <a class="el" href="classJsonParser.html#a15c56338a04324f745f7b95ae14d3092" title="This function gets a String as an argument, or from the listed functions before. Then the function lo...">ParserFromString()</a> function, whit the created string as parameter. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Istream</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns a &lt;string, string&gt; type map, which contains all the necessary data, what a <a class="el" href="classPlayer.html" title="Player class. ">Player</a>, or <a class="el" href="classCharacter.html" title="Character class. ">Character</a> has. </dd></dl>
-
-</div>
-</div>
-<a id="a15c56338a04324f745f7b95ae14d3092"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15c56338a04324f745f7b95ae14d3092">&#9670;&nbsp;</a></span>ParserFromString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt; std::string, std::string &gt; JsonParser::ParserFromString </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>String</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This function gets a String as an argument, or from the listed functions before. Then the function loads the parameters, which it gets from the String, into a Map, and returns this Map. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">String</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns a &lt;string, string&gt; type map, which contains all the necessary data, what a <a class="el" href="classPlayer.html" title="Player class. ">Player</a>, or <a class="el" href="classCharacter.html" title="Character class. ">Character</a> has. </dd></dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="JsonParser_8h_source.html">JsonParser.h</a></li>
 <li>JsonParser.cpp</li>
