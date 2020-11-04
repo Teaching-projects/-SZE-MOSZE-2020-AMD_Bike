@@ -1,5 +1,5 @@
 OBJS := main.o Hero.o Monster.o JSON.o
-CLFLAGS := -Wall -std=c++17
+CLFLAGS := -Wall -Werror -Wextra -std=c++17
 CC := g++
 CHMD := chmod +x
 CPPOBJECTS:=JSON.cpp main.cpp Hero.cpp Monster.cpp
