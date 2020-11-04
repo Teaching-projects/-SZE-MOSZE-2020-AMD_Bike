@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+	  - refactor
       - gh-pages
 
 jobs:
