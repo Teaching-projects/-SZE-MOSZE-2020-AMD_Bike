@@ -1,6 +1,6 @@
 OBJS := main.o Hero.o Monster.o JSON.o
 CFLAGS := -Wall -Werror -Wextra -std=c++17
-CC := g++
+CC := g++-10
 CHMD := chmod +x
 CPPOBJECTS:=JSON.cpp main.cpp Hero.cpp Monster.cpp
 CFW := check_for_warning.sh
@@ -32,7 +32,7 @@ sca:
 sca-test: sca-build valgrind-check io-tests
 
 sca-build:
-	$(CC) $(CFLAGS) -Werror -Wextra $(CPPOBJECTS) -o main
+	$(CC) $(CFLAGS) $(CPPOBJECTS) -o main
 
 valgrind-check:
 	valgrind --leak-check=full --error-exitcode=1 ./main $(T)/units/Blood_Raven.json $(T)/units/Dark_Wanderer.json
