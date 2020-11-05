@@ -90,7 +90,19 @@ JSON JSON::parseFromString(std::string String)
 			throw std::runtime_error("No value given to the \"" + akt1 + "\" key!");
 		}
 
-		scenario.insert(std::pair<std::string, std::string>(akt1, akt2));
+		if ((akt1 == "name") || (akt1 == "hero") || (akt1 == "monsters") || (akt1 == "lore") || (akt1 == "race") || (akt1 == "additional_info")) scenario[akt1] = akt2;
+		else if (akt1 == "base_health_points") scenario[akt1] = std::stoi(akt2);
+		else if (akt1 == "base_damage") scenario[akt1] = std::stoi(akt2);
+		else if (akt1 == "base_attack_cooldown") scenario[akt1] = std::stod(akt2);
+		else if (akt1 == "experience_per_level") scenario[akt1] = std::stoi(akt2);
+		else if (akt1 == "health_point_bonus_per_level") scenario[akt1] = std::stoi(akt2);
+		else if (akt1 == "damage_bonus_per_level") scenario[akt1] = std::stoi(akt2);
+		else if (akt1 == "cooldown_multiplier_per_level") scenario[akt1] = std::stod(akt2);
+		else if (akt1 == "health_points")scenario[akt1] = std::stoi(akt2);
+		else if (akt1 == "damage") scenario[akt1] = std::stoi(akt2);
+		else if (akt1 == "attack_cooldown") scenario[akt1] = std::stod(akt2);
+
+
 		akt1 = "";
 		akt2 = "";
 	}
@@ -102,4 +114,3 @@ bool JSON::count(std::string String)
 {
 	return scenario.count(String);
 }
-
