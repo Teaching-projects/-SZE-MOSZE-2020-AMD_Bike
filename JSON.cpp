@@ -101,12 +101,12 @@ JSON JSON::parseFromString(std::string String)
 	return JSON(scenario);
 }
 
-bool JSON::count(std::string String)
+bool JSON::count(std::string String) const
 {
 	return scenario.count(String);
 }
 
-int JSON::getMapSize()
+int JSON::getMapSize() const
 {
 	return scenario.size();
 }

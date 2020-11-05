@@ -63,7 +63,7 @@ public:
 	* \return Returns true if there is a Hero and Monster(s) in the actual scenario, and false if there is not.
 	*
 	*/
-	bool count(std::string String);
+	bool count(std::string String) const;
 	/**
 	* \brief This is a getter function, that returns the map type scenario.
 	* \param none
@@ -81,7 +81,7 @@ public:
 	* \return Returns the JSON class's map size.
 	*
 	*/
-	int getMapSize();
+	int getMapSize() const;
 
 	class ParseException : public std::runtime_error {
 	public:

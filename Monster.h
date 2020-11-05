@@ -22,12 +22,12 @@
 
 class Monster {
 private:
-	std::string name;				///< This is the name of the Monster.
+	const std::string name;				///< This is the name of the Monster.
 	int hp;				///< This is the hitpoints of the Monster.
 	int dmg;				///< This is the Monster's damage.
 	double acd;				///< This is the Monster's attack cooldown.
-	std::string race;				///< This marks the Monster's race.
-	std::string lore;				///< This is the lore of the Monster.
+	const std::string race;				///< This marks the Monster's race.
+	const std::string lore;				///< This is the lore of the Monster.
 
 public:
 	/**
@@ -35,7 +35,7 @@ public:
 	* \param MonsterData
 	* [in] This map contains all the specific data of the Monster
 	*/
-	Monster(std::string name, int hp, int dmg, double acd);
+	Monster(const std::string name, int hp, int dmg, double acd);
 	/**
 	* \brief This function reads the Monster's specific datas, from a file.
 	* \param String
@@ -49,35 +49,35 @@ public:
 	* \return Returns the Monster's name.
 	*
 	*/
-	std::string getName();
+	std::string getName() const;
 	/**
 	* \brief This is a getter function, that returns the Monster's actual damage.
 	* \param none
 	* \return Returns the Monster's actual damage.
 	*
 	*/
-	int getDamage();
+	int getDamage() const;
 	/**
 	* \brief This is a getter function, that returns the actual hitpoints of the Monster.
 	* \param none
 	* \return Returns the actual hitpoints of the Monster.
 	*
 	*/
-	int getHealthPoints();
+	int getHealthPoints() const;
 	/**
 	* \brief This is a getter function, that returns the actual attack cooldown of the Monster.
 	* \param none
 	* \return Returns the actual attack cooldown of the Monster.
 	*
 	*/
-	double getAttackCoolDown();
+	double getAttackCoolDown() const;
 	/**
 	* \brief This function checks whether the Monster's hitpoints is above zero or not.
 	* \param none
 	* \return Returns true if the Monster's hitpoints is above zero, and false if it's not.
 	*
 	*/
-	bool isAlive();
+	bool isAlive() const;
 	/**
 	* \brief This function reduces the Monster's hitpoints by the Hero's damage.
 	* \param dmg

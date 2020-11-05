@@ -2,7 +2,7 @@
 #include "JSON.h"
 #include <iostream>
 
-Hero::Hero(const std::string& name, int hp, int dmg, double acd, int expperlvl, int hpperlvl, int dmgperlvl, double acdperlvl) : 
+Hero::Hero(const std::string& name, int hp, int dmg, double acd, const int expperlvl, const int hpperlvl, const int dmgperlvl, const double acdperlvl) :
 	name(name), hp(hp), dmg(dmg), acd(acd),
 	expperlvl(expperlvl),
 	hpperlvl(hpperlvl),
@@ -13,9 +13,6 @@ Hero::Hero(const std::string& name, int hp, int dmg, double acd, int expperlvl, 
 	aktxp = 0;
 	level = 1;
 }
-
-
-
 
 Hero Hero::parse(const std::string& String)
 {
@@ -33,7 +30,7 @@ Hero Hero::parse(const std::string& String)
 		scenario.get<double>("cooldown_multiplier_per_level"));
 }
 
-bool Hero::isAlive()
+bool Hero::isAlive() const
 {
 	return (hp > 0);
 }
@@ -99,32 +96,32 @@ void Hero::fightTilDeath(Monster& monster)
 	}
 }
 
-int Hero::getLevel()
+int Hero::getLevel() const
 {
 	return level;
 }
 
-std::string Hero::getName()
+std::string Hero::getName() const
 {
 	return name;
 }
 
-int Hero::getHealthPoints()
+int Hero::getHealthPoints() const
 {
 	return hp;
 }
 
-int Hero::getDamage()
+int Hero::getDamage() const
 {
 	return dmg;
 }
 
-double Hero::getAttackCoolDown()
+double Hero::getAttackCoolDown() const
 {
 	return acd;
 }
 
-int Hero::getMaxHealthPoints()
+int Hero::getMaxHealthPoints() const
 {
 	return maxhp;
 }

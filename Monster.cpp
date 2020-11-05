@@ -1,7 +1,7 @@
 #include "Monster.h"
 #include "JSON.h"
 
-Monster::Monster(std::string name, int hp, int dmg, double acd) : name(name), hp(hp), dmg(dmg), acd(acd)
+Monster::Monster(const std::string name, int hp, int dmg,double acd) : name(name), hp(hp), dmg(dmg), acd(acd)
 {
 }
 
@@ -17,27 +17,27 @@ Monster Monster::parse(const std::string& String)
 		scenario.get<double>("attack_cooldown"));
 }
 
-bool Monster::isAlive()
+bool Monster::isAlive() const
 {
 	return (hp > 0);
 }
 
-std::string Monster::getName()
+std::string Monster::getName() const
 {
 	return name;
 }
 
-int Monster::getDamage()
+int Monster::getDamage() const
 {
 	return dmg;
 }
 
-int Monster::getHealthPoints()
+int Monster::getHealthPoints() const
 {
 	return hp;
 }
 
-double Monster::getAttackCoolDown()
+double Monster::getAttackCoolDown() const
 {
 	return acd;
 }

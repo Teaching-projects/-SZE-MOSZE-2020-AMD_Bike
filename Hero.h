@@ -29,10 +29,10 @@ private:
 	int maxhp;				///< This is the Hero's maximum hitpoints.
 	int dmg;				///< This is the damage of the Hero.
 	double acd;				///< This is the attack cooldown of the Hero.
-	int expperlvl;				///< This is the amount of xp, which the Hero gains by each level up.
-	int hpperlvl;				///< This is the amount of hitpoints, which the Hero gains by each level up.
-	int dmgperlvl;				///< This is the amount of damage, which the Hero gains by each level up.
-	double acdperlvl;				///< This is a multiplier for the Hero's attack cooldown by each level up.
+	const int expperlvl;				///< This is the amount of xp, which the Hero gains by each level up.
+	const int hpperlvl;				///< This is the amount of hitpoints, which the Hero gains by each level up.
+	const int dmgperlvl;				///< This is the amount of damage, which the Hero gains by each level up.
+	const double acdperlvl;				///< This is a multiplier for the Hero's attack cooldown by each level up.
 	int level;				///< This number shows the Hero's actual level.
 	int aktxp;				///< This is the Hero's actual amount of experience points.
 
@@ -42,7 +42,7 @@ public:
 	* \param HeroData
 	* [in] This map contains all the specific data of the Hero
 	*/
-	Hero(const std::string& name, int hp, int dmg, double acd, int expperlvl, int hpperlvl, int dmgperlvl, double acdperlvl);
+	Hero(const std::string& name, int hp, int dmg, double acd, const int expperlvl, const int hpperlvl, const int dmgperlvl, const double acdperlvl);
 	/**
 	* \brief This function reads the Hero's specific datas, from a file.
 	* \param String
@@ -55,49 +55,49 @@ public:
 	* \return Returns the Hero's name.
 	*
 	*/
-	std::string getName();
+	std::string getName() const;
 	/**
 	* \brief This is a getter function, that returns the Hero's actual hitpoints.
 	* \param none
 	* \return Returns the Hero's actual hitpoints.
 	*
 	*/
-	int getHealthPoints();
+	int getHealthPoints() const;
 	/**
 	* \brief This is a getter function, that returns the actual damage of the Hero.
 	* \param none
 	* \return Returns the actual damage of the Hero.
 	*
 	*/
-	int getDamage();
+	int getDamage() const;
 	/**
 	* \brief This is a getter function, that returns the Hero's actual attack cooldown.
 	* \param none
 	* \return Returns the Hero's actual attack cooldown.
 	*
 	*/
-	double getAttackCoolDown();
+	double getAttackCoolDown() const;
 	/**
 	* \brief This is a getter function, that returns the maximum hitpoints of the Hero.
 	* \param none
 	* \return Returns the maximum hitpoints of the Hero.
 	*
 	*/
-	int getMaxHealthPoints();
+	int getMaxHealthPoints() const;
 	/**
 	* \brief This is a getter function, that returns the Hero's actual level.
 	* \param none
 	* \return Returns the Hero's actual level.
 	*
 	*/
-	int getLevel();
+	int getLevel() const;
 	/**
 	* \brief This function checks whether the Hero's hitpoints is above zero or not.
 	* \param none
 	* \return Returns true if the Hero's hitpoints is above zero, and false if it's not.
 	*
 	*/
-	bool isAlive();
+	bool isAlive() const;
 	/**
 	* \brief This function reduces the Hero's hitpoint.
 	* \param monster
