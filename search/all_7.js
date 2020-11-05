@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['levelup',['LevelUp',['../classPlayer.html#aae180f7a4a011ba1fd485e3d8728f489',1,'Player']]]
+  ['json',['JSON',['../classJSON.html',1,'JSON'],['../classJSON.html#af3ea55c4ff0b0bf61132df95ab4d3063',1,'JSON::JSON()']]],
+  ['jsonparser',['JsonParser',['../classJsonParser.html',1,'']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['player',['Player',['../classPlayer.html',1,'']]]
+  ['json',['JSON',['../classJSON.html',1,'']]],
+  ['jsonparser',['JsonParser',['../classJsonParser.html',1,'']]]
 ];
