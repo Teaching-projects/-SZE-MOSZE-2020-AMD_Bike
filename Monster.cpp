@@ -9,9 +9,9 @@ Monster Monster::parse(const std::string& String)
 {
 	JSON scenario = JSON::parseFromFile("test/units/" + String);
 	return Monster(scenario.get<std::string>("name"),
-		scenario.get<int>("base_health_points"),
-		scenario.get<int>("base_damage"),
-		scenario.get<double>("base_attack_cooldown"));
+		scenario.get<int>("health_points"),
+		scenario.get<int>("damage"),
+		scenario.get<double>("attack_cooldown"));
 }
 
 bool Monster::isAlive()

@@ -20,8 +20,7 @@
 #include <string>
 #include <fstream>
 #include <variant>
-#include <cctype>
-#include <algorithm>
+#include <algorithm> 
 
 
 using VariantMap = std::map <std::string, std::variant<std::string, int, double>>;
