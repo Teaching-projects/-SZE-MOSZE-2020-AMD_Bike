@@ -75,6 +75,13 @@ public:
 	template <typename T> T get(const std::string& type) {
 		return std::get<T>(scenario[type]);
 	}
+	/**
+	* \brief This function returns the JSON class's map size.
+	* \param none
+	* \return Returns the JSON class's map size.
+	*
+	*/
+	int getMapSize();
 
 	class ParseException : public std::runtime_error {
 	public:

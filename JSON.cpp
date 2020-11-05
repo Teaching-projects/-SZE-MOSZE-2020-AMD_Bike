@@ -97,11 +97,16 @@ JSON JSON::parseFromString(std::string String)
 		akt1 = "";
 		akt2 = "";
 	}
-
+	
 	return JSON(scenario);
 }
 
 bool JSON::count(std::string String)
 {
 	return scenario.count(String);
+}
+
+int JSON::getMapSize()
+{
+	return scenario.size();
 }

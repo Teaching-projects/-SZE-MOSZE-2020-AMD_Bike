@@ -20,7 +20,9 @@ Hero::Hero(const std::string& name, int hp, int dmg, double acd, int expperlvl, 
 Hero Hero::parse(const std::string& String)
 {
 	JSON scenario = JSON::parseFromFile("test/units/" + String);
-
+	if (scenario.getMapSize() != 8) {
+		throw std::runtime_error("Not enough parameters!");
+	}
 	return Hero(scenario.get<std::string>("name"),
 		scenario.get<int>("base_health_points"),
 		scenario.get<int>("base_damage"),

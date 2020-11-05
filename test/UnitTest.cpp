@@ -5,12 +5,11 @@
 
 TEST(ParserTest, InputString) {
 	JSON scenario = JSON::parseFromString("\"name\":\"PrinceAidanofKhanduras\",\"hp\":30,\"dmg\":3,\"attackspeed\":1.1");
-	std::map<std::string, std::string> TestMap = scenario.getMap();
 
-	ASSERT_TRUE(TestMap["name"] == "Prince Aidan of Khanduras");
-	ASSERT_TRUE(stoi(TestMap["hp"]) == 30);
-	ASSERT_TRUE(stoi(TestMap["dmg"]) == 3);
-	ASSERT_TRUE(stod(TestMap["attackspeed"]) == 1.1);
+	ASSERT_TRUE(scenario.get<std::string>("name") == "Prince Aidan of Khanduras");
+	ASSERT_TRUE(scenario.get<int>("hp") == 30);
+	ASSERT_TRUE(scenario.get<int>("dmg") == 3);
+	ASSERT_TRUE(scenario.get<double>("attackspeed") == 1.1);
 }
 
 TEST(ParserTest, InputFileName) {
@@ -23,18 +22,16 @@ TEST(ParserTest, InputFileName) {
 }
 
 TEST(ParserTest, InputIstream) {
-	std::map<std::string, std::string> TestMap;
 	std::fstream filename;
 
 	filename.open("test/units/Dark_Wanderer.json");
 	JSON scenario = JSON::parseFromFile(filename);
-	TestMap = scenario.getMap();
 	filename.close();
 
-	ASSERT_TRUE(TestMap["name"] == "Prince Aidan of Khanduras");
-	ASSERT_TRUE(stoi(TestMap["base_health_points"]) == 30);
-	ASSERT_TRUE(stoi(TestMap["base_damage"]) == 3);
-	ASSERT_TRUE(stod(TestMap["atbase_attack_cooldowntackspeed"]) == 1.1);
+	ASSERT_TRUE(scenario.get<std::string>("name") == "Prince Aidan of Khanduras");
+	ASSERT_TRUE(scenario.get<int>("base_health_points") == 30);
+	ASSERT_TRUE(scenario.get<int>("base_damage") == 3);
+	ASSERT_TRUE(scenario.get<double>("base_attack_cooldown") == 1.1);
 }
 
 TEST(ParserTest, WrongInputFile) {
@@ -64,25 +61,21 @@ TEST(ParserTest, WrongInputString) {
 
 
 TEST(NewUnitTests, MoreWhitespace) {
-	std::map<std::string, std::string> TestMap;
 	JSON scenario = JSON::parseFromFile("test/units/WhitespaceLuke.json");
-	TestMap = scenario.getMap();
 
-	ASSERT_TRUE(TestMap["name"] == "Luke Skywalker");
-	ASSERT_TRUE(stoi(TestMap["hp"]) == 250);
-	ASSERT_TRUE(stoi(TestMap["dmg"]) == 27);
-	ASSERT_TRUE(stod(TestMap["attackspeed"]) == 1.2);
+	ASSERT_TRUE(scenario.get<std::string>("name") == "Luke Skywalker");
+	ASSERT_TRUE(scenario.get<int>("hp") == 250);
+	ASSERT_TRUE(scenario.get<int>("dmg") == 27);
+	ASSERT_TRUE(scenario.get<double>("attackspeed") == 1.2);
 }
 
 TEST(NewUnitTests, DifferentOrder) {
-	std::map<std::string, std::string> TestMap;
 	JSON scenario = JSON::parseFromFile("test/units/DifferentLuke.json");
-	TestMap = scenario.getMap();
 
-	ASSERT_TRUE(TestMap["name"] == "Luke Skywalker");
-	ASSERT_TRUE(stoi(TestMap["hp"]) == 250);
-	ASSERT_TRUE(stoi(TestMap["dmg"]) == 27);
-	ASSERT_TRUE(stod(TestMap["attackspeed"]) == 1.2);
+	ASSERT_TRUE(scenario.get<std::string>("name") == "Luke Skywalker");
+	ASSERT_TRUE(scenario.get<int>("hp") == 250);
+	ASSERT_TRUE(scenario.get<int>("dmg") == 27);
+	ASSERT_TRUE(scenario.get<double>("attackspeed") == 1.2);
 }
 
 TEST(NewUnitTests, getNameFunction) {
