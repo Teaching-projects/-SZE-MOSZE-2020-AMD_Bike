@@ -1,30 +1,34 @@
 #include "Hero.h"
 #include "JSON.h"
+#include <iostream>
 
-Hero::Hero(std::map<std::string, std::string> HeroData) :
-	name(HeroData["name"]),
-	maxhp(stoi(HeroData["base_health_points"])),
-	dmg(stoi(HeroData["base_damage"])),
-	acd(stod(HeroData["base_attack_cooldown"])),
-	expperlvl(stoi(HeroData["experience_per_level"])),
-	hpperlvl(stoi(HeroData["health_point_bonus_per_level"])),
-	dmgperlvl(stoi(HeroData["damage_bonus_per_level"])),
-	acdperlvl(stod(HeroData["cooldown_multiplier_per_level"])),
-	level(1),
-	aktxp(0)
+Hero::Hero(const std::string& name, int hp, int dmg, double acd, int expperlvl, int hpperlvl, int dmgperlvl, double acdperlvl) : 
+	name(name), hp(hp), dmg(dmg), acd(acd),
+	expperlvl(expperlvl),
+	hpperlvl(hpperlvl),
+	dmgperlvl(dmgperlvl),
+	acdperlvl(acdperlvl)
 {
-	hp = maxhp;
+	maxhp = hp;
+	aktxp = 0;
+	level = 1;
 }
 
-std::map<std::string, std::string> Hero::parse(std::string String)
-{
-	String = "test/units/" + String;
-	JSON scenario = JSON::parseFromFile(String);
-	if (scenario.getMap().size() != 8) {
-		throw std::runtime_error("Not enough parameters!");
-	}
 
-	return scenario.getMap();
+
+
+Hero Hero::parse(const std::string& String)
+{
+	JSON scenario = JSON::parseFromFile("test/units/" + String);
+
+	return Hero(scenario.get<std::string>("name"),
+		scenario.get<int>("base_health_points"),
+		scenario.get<int>("base_damage"),
+		scenario.get<double>("base_attack_cooldown"),
+		scenario.get<int>("experience_per_level"),
+		scenario.get<int>("health_point_bonus_per_level"),
+		scenario.get<int>("damage_bonus_per_level"),
+		scenario.get<double>("cooldown_multiplier_per_level"));
 }
 
 bool Hero::isAlive()
@@ -51,7 +55,6 @@ void Hero::OnePunch(Monster& monster)
 	aktxp += CurrentXP;
 	if (aktxp >= expperlvl) {
 		LevelUp();
-		//std::cout << "LEVELUPPPPPPPPPPPPPPPPPPPPP" << std::endl;
 	}
 }
 

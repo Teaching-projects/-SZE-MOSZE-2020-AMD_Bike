@@ -48,6 +48,7 @@ int main(int argc, char** argv){
     } catch (const JSON::ParseException& e) {bad_exit(4);}
 
     try { 
+		std::cout << hero_file << std::endl;
         Hero hero{Hero::parse(hero_file)};
 		std::list<Monster> monsters;
         for (const auto& monster_file : monster_files)

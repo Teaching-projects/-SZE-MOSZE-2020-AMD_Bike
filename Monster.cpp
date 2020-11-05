@@ -1,22 +1,17 @@
 #include "Monster.h"
 #include "JSON.h"
 
-Monster::Monster(std::map<std::string, std::string> MonsterData) :
-name(MonsterData["name"]),
-hp(stoi(MonsterData["health_points"])),
-dmg(stoi(MonsterData["damage"])),
-acd(stod(MonsterData["attack_cooldown"])),
-race(MonsterData["race"]),
-lore(MonsterData["lore"])
+Monster::Monster(std::string name, int hp, int dmg, double acd) : name(name), hp(hp), dmg(dmg), acd(acd)
 {
 }
 
-std::map<std::string, std::string> Monster::parse(std::string String)
+Monster Monster::parse(const std::string& String)
 {
-	String = "test/units/" + String;
-	JSON scenario = JSON::parseFromFile(String);
-
-	return scenario.getMap();
+	JSON scenario = JSON::parseFromFile("test/units/" + String);
+	return Monster(scenario.get<std::string>("name"),
+		scenario.get<int>("base_health_points"),
+		scenario.get<int>("base_damage"),
+		scenario.get<double>("base_attack_cooldown"));
 }
 
 bool Monster::isAlive()

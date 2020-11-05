@@ -18,6 +18,7 @@
 
 #include <string>
 #include <map>
+#include <variant>
 
 class Monster {
 private:
@@ -34,14 +35,14 @@ public:
 	* \param MonsterData
 	* [in] This map contains all the specific data of the Monster
 	*/
-	Monster(std::map <std::string, std::string> MonsterData);
+	Monster(std::string name, int hp, int dmg, double acd);
 	/**
 	* \brief This function reads the Monster's specific datas, from a file.
 	* \param String
 	* \return Returns a Monster unit, all of its parameters.
 	*
 	*/
-	static std::map <std::string, std::string> parse(std::string String);
+	static Monster parse(const std::string& String);
 	/**
 	* \brief This is a getter function, that returns the Monster's name.
 	* \param none

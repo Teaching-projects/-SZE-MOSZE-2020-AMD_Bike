@@ -4,18 +4,17 @@
 #include <gtest/gtest.h>
 
 TEST(ParserTest, InputString) {
-	JSON scenario = JSON::parseFromString("\"name\":\"PrinceAidanOfKhanduras\",\"hp\":30,\"dmg\":3,\"attackspeed\":1.1");
+	JSON scenario = JSON::parseFromString("\"name\":\"PrinceAidanofKhanduras\",\"hp\":30,\"dmg\":3,\"attackspeed\":1.1");
 	std::map<std::string, std::string> TestMap = scenario.getMap();
 
-	ASSERT_TRUE(TestMap["name"] == "PrinceAidanOfKhanduras");
+	ASSERT_TRUE(TestMap["name"] == "Prince Aidan of Khanduras");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 30);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 3);
 	ASSERT_TRUE(stod(TestMap["attackspeed"]) == 1.1);
 }
 
 TEST(ParserTest, InputFileName) {
-	Hero hero;
-	hero.parse("test/units/Dark_Wanderer.json");
+	Hero hero = Hero::parse("Dark_Wanderer.json");
 
 	ASSERT_TRUE(hero.getName() == "Prince Aidan of Khanduras");
 	ASSERT_TRUE(hero.getHealthPoints() == 30);
@@ -24,12 +23,12 @@ TEST(ParserTest, InputFileName) {
 }
 
 TEST(ParserTest, InputIstream) {
-	JSON scenario;
 	std::map<std::string, std::string> TestMap;
 	std::fstream filename;
 
 	filename.open("test/units/Dark_Wanderer.json");
-	TestMap = scenario.parseFromFile(filename).getMap();
+	JSON scenario = JSON::parseFromFile(filename);
+	TestMap = scenario.getMap();
 	filename.close();
 
 	ASSERT_TRUE(TestMap["name"] == "Prince Aidan of Khanduras");
@@ -39,7 +38,7 @@ TEST(ParserTest, InputIstream) {
 }
 
 TEST(ParserTest, WrongInputFile) {
-	std::string WrongInputFileName = "test/units/WrongLuke.json";
+	std::string WrongInputFileName = "WrongLuke.json";
 	const std::string expectedErrorMsg = "Not enough parameters!";
 
 	try {
@@ -65,9 +64,9 @@ TEST(ParserTest, WrongInputString) {
 
 
 TEST(NewUnitTests, MoreWhitespace) {
-	JSON scenario;
 	std::map<std::string, std::string> TestMap;
-	TestMap = scenario.parseFromFile("test/units/WhitespaceLuke.json");
+	JSON scenario = JSON::parseFromFile("test/units/WhitespaceLuke.json");
+	TestMap = scenario.getMap();
 
 	ASSERT_TRUE(TestMap["name"] == "Luke Skywalker");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 250);
@@ -76,10 +75,9 @@ TEST(NewUnitTests, MoreWhitespace) {
 }
 
 TEST(NewUnitTests, DifferentOrder) {
-	JSON scenario;
 	std::map<std::string, std::string> TestMap;
-
-	TestMap = scenario.parseFromFile("test/units/DifferentLuke.json");
+	JSON scenario = JSON::parseFromFile("test/units/DifferentLuke.json");
+	TestMap = scenario.getMap();
 
 	ASSERT_TRUE(TestMap["name"] == "Luke Skywalker");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 250);
@@ -88,69 +86,69 @@ TEST(NewUnitTests, DifferentOrder) {
 }
 
 TEST(NewUnitTests, getNameFunction) {
-	Hero Unit = Hero::parse("test/units/Dark_Wanderer.json");
+	Hero Unit = Hero::parse("Dark_Wanderer.json");
 
 	ASSERT_TRUE(Unit.getName() == "Prince Aidan of Khanduras");
 }
 
 TEST(NewUnitTests, getHpFunction) {
-	Hero Unit = Hero::parse("test/units/Dark_Wanderer.json");
+	Hero Unit = Hero::parse("Dark_Wanderer.json");
 
-	ASSERT_TRUE(Unit.getHealthPoints() == "30");
+	ASSERT_TRUE(Unit.getHealthPoints() == 30);
 }
 
 TEST(NewUnitTests, getDmgFunction) {
-	Monster Unit = Monster::parse("test/units/Zombie.json");
+	Monster Unit = Monster::parse("Zombie.json");
 
-	ASSERT_TRUE(Unit.getDamage() == "1");
+	ASSERT_TRUE(Unit.getDamage() == 1);
 }
 
 TEST(NewUnitTests, getAttackspeedFunction) {
-	Monster Unit = Monster::parse("test/units/Zombie.json");
+	Monster Unit = Monster::parse("Zombie.json");
 
-	ASSERT_TRUE(Unit.getAttackCoolDown() == "2.8");
+	ASSERT_TRUE(Unit.getAttackCoolDown() == 2.8);
 }
 
 TEST(NewUnitTests, isAliveTrueFunction) {
-	Monster Unit = Monster::parse("test/units/Zombie.json");
+	Monster Unit = Monster::parse("Zombie.json");
 
 	ASSERT_TRUE(Unit.isAlive());
 }
 
 TEST(NewUnitTests, isAliveFalseFunction) {
-	Monster Unit = Monster::parse("test/units/Zombie.json");
+	Monster Unit = Monster::parse("Zombie.json");
 	Unit.DMGTaken(10);
 
 	ASSERT_FALSE(Unit.isAlive());
 }
 
 TEST(NewUnitTests, DMGTakenFunction) {
-	Monster Unit = Monster::parse("test/units/Zombie.json");
+	Monster Unit = Monster::parse("Zombie.json");
 	Unit.DMGTaken(5);
 
 	ASSERT_TRUE(Unit.getHealthPoints() == 5);
 }
 
 TEST(NewUnitTests, OnePunchFunction) {
-	Hero Unit1 = Hero::parse("test/units/Dark_Wanderer.json");
-	Monster Unit2 = Monster::parse("test/units/Zombie.json");
+	Hero Unit1 = Hero::parse("Dark_Wanderer.json");
+	Monster Unit2 = Monster::parse("Zombie.json");
 	Unit1.OnePunch(Unit2);
 
 	ASSERT_TRUE(Unit2.getHealthPoints() == 7);
 }
 
 TEST(NewUnitTests, LevelUpFunction) {
-	Hero Unit1 = Hero::parse("test/units/Dark_Wanderer.json");
+	Hero Unit1 = Hero::parse("Dark_Wanderer.json");
 	Unit1.LevelUp();
 	
 	ASSERT_TRUE(Unit1.getName() == "Prince Aidan of Khanduras");
-	ASSERT_TRUE(Unit1.getHp() == 35);
-	ASSERT_TRUE(Unit1.getDmg() == 4);
-	ASSERT_DOUBLE_EQ(Unit1.getAttackspeed(), 0.99);
+	ASSERT_TRUE(Unit1.getHealthPoints() == 35);
+	ASSERT_TRUE(Unit1.getDamage() == 4);
+	ASSERT_DOUBLE_EQ(Unit1.getAttackCoolDown(), 0.99);
 }
 
 TEST(NewUnitTests, NoKeyError) {
-	std::string NoKey = "test/units/NoKeyLuke.json";
+	std::string NoKey = "NoKeyLuke.json";
 	const std::string expectedErrorMsg = "No key given!";
 
 	try {
@@ -162,7 +160,7 @@ TEST(NewUnitTests, NoKeyError) {
 }
 
 TEST(NewUnitTests, NoValueError) {
-	std::string NoValue = "test/units/NoValueLuke.json";
+	std::string NoValue = "NoValueLuke.json";
 	const std::string expectedErrorMsg = "No value given to the \"dmg\" key!";
 
 	try {

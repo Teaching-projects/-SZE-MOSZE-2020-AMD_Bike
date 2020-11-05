@@ -19,11 +19,12 @@
 #include <string>
 #include <fstream>
 #include <map>
+#include <variant>
 #include "Monster.h"
 
 class Hero {
 private:
-	std::string name;				///< This is the name of the Hero.
+	const std::string name;				///< This is the name of the Hero.
 	int hp;				///< This is the Hero's actual hitpoints.
 	int maxhp;				///< This is the Hero's maximum hitpoints.
 	int dmg;				///< This is the damage of the Hero.
@@ -41,14 +42,13 @@ public:
 	* \param HeroData
 	* [in] This map contains all the specific data of the Hero
 	*/
-	Hero(std::map <std::string, std::string> HeroData);
+	Hero(const std::string& name, int hp, int dmg, double acd, int expperlvl, int hpperlvl, int dmgperlvl, double acdperlvl);
 	/**
 	* \brief This function reads the Hero's specific datas, from a file.
 	* \param String
 	* \return Returns the Hero, all of its parameters.
 	*
-	*/
-	static std::map <std::string, std::string> parse(std::string String);
+	*/static Hero parse(const std::string& String);
 	/**
 	* \brief This is a getter function, that returns the Hero's name.
 	* \param none

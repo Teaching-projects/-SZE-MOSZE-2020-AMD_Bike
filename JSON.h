@@ -19,10 +19,16 @@
 #include <map>
 #include <string>
 #include <fstream>
+#include <variant>
+#include <cctype>
+#include <algorithm>
+
+
+using VariantMap = std::map <std::string, std::variant<std::string, int, double>>;
 
 class JSON {
 private:
-	std::map<std::string, std::string> scenario;				///< This is a map type variable, which contains the Hero and all the Monsters, that the Hero will fight against.
+	 VariantMap scenario;				///< This is a map type variable, which contains the Hero and all the Monsters, that the Hero will fight against.
 
 public:
 	/**
@@ -30,7 +36,7 @@ public:
 	* \param scenario
 	* [in] This is a map type variable, which contains the Hero and all the Monsters, that the Hero will fight against.
 	*/
-	JSON(std::map <std::string, std::string> scenario);
+	JSON(VariantMap scenario);
 	/**
 	* \brief This function opens the given input (in the current case a FileName). After a FileName is given, this function makes a string from it, and calls the ParserFromString() function, whit the created string as parameter.
 	* \param FileName
@@ -44,7 +50,7 @@ public:
 	* \return Returns a <string, string> type map, which contains all the necessary data, what a Hero or Monster has.
 	*
 	*/
-	static JSON parseFromFile(std::istream Istream);
+	static JSON parseFromFile(std::istream& Istream);
 	/**
 	* \brief This function gets a String as an argument, or from the listed functions before. Then the function loads the parameters, which it gets from the String, into a Map, and returns this Map.
 	* \param String
@@ -65,10 +71,10 @@ public:
 	* \return Returns the actual scenario.
 	*
 	*/
-	std::map <std::string, std::string> getMap();
+	//std::map <std::string, std::string> getMap();
 
-	template <class T> T get(const std::string& type) {
-		return scenario[type];
+	template <typename T> T get(const std::string& type) {
+		return std::get<T>(scenario[type]);
 	}
 
 	class ParseException : public std::runtime_error {
