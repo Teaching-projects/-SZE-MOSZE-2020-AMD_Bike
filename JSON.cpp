@@ -1,7 +1,7 @@
 #include "JSON.h"
 #include <iostream>
 
-JSON::JSON(VariantMap scenario) : scenario(scenario)
+JSON::JSON(VariantMap data) : data(data)
 {
 }
 
@@ -39,7 +39,7 @@ JSON JSON::parseFromFile(std::istream& Istream)
 
 JSON JSON::parseFromString(std::string String)
 {
-	VariantMap scenario;
+	VariantMap StringData;
 	std::string akt2, akt1 = "";
 	while (String.find('"') != std::string::npos) {
 		size_t x = String.find('"') + 1;
@@ -90,23 +90,23 @@ JSON JSON::parseFromString(std::string String)
 			throw std::runtime_error("No value given to the \"" + akt1 + "\" key!");
 		}
 
-		if (!akt2.empty() && std::all_of(akt2.begin(), akt2.end(), [](char c) {return std::isdigit(c); })) scenario[akt1] = std::stoi(akt2);
-		else if (!akt2.empty() && std::all_of(akt2.begin(), akt2.end(), [](char c) {return ((std::isdigit(c) || c == '.') ? true : false); })) scenario[akt1] = std::stod(akt2);
-		else scenario[akt1] = akt2;
+		if (!akt2.empty() && std::all_of(akt2.begin(), akt2.end(), [](char c) {return std::isdigit(c); })) StringData[akt1] = std::stoi(akt2);
+		else if (!akt2.empty() && std::all_of(akt2.begin(), akt2.end(), [](char c) {return ((std::isdigit(c) || c == '.') ? true : false); })) StringData[akt1] = std::stod(akt2);
+		else StringData[akt1] = akt2;
 
 		akt1 = "";
 		akt2 = "";
 	}
 	
-	return JSON(scenario);
+	return JSON(StringData);
 }
 
 bool JSON::count(std::string String) const
 {
-	return scenario.count(String);
+	return data.count(String);
 }
 
 int JSON::getMapSize() const
 {
-	return scenario.size();
+	return data.size();
 }

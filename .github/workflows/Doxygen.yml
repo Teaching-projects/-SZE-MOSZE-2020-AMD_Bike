@@ -3,7 +3,7 @@ name: Create doxygen
 on:
   push:
     branches:
-      - refactor
+      - master
       - gh-pages
 
 jobs:

@@ -27,7 +27,7 @@ using VariantMap = std::map <std::string, std::variant<std::string, int, double>
 
 class JSON {
 private:
-	 VariantMap scenario;				///< This is a map type variable, which contains the Hero and all the Monsters, that the Hero will fight against.
+	 VariantMap data;				///< This is a map type variable, which contains the Hero and all the Monsters, that the Hero will fight against.
 
 public:
 	/**
@@ -35,7 +35,7 @@ public:
 	* \param scenario
 	* [in] This is a map type variable, which contains the Hero and all the Monsters, that the Hero will fight against.
 	*/
-	JSON(VariantMap scenario);
+	JSON(VariantMap data);
 	/**
 	* \brief This function opens the given input (in the current case a FileName). After a FileName is given, this function makes a string from it, and calls the ParserFromString() function, whit the created string as parameter.
 	* \param FileName
@@ -73,7 +73,7 @@ public:
 	//std::map <std::string, std::string> getMap();
 
 	template <typename T> T get(const std::string& type) {
-		return std::get<T>(scenario[type]);
+		return std::get<T>(data[type]);
 	}
 	/**
 	* \brief This function returns the JSON class's map size.

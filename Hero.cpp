@@ -16,18 +16,18 @@ Hero::Hero(const std::string& name, int hp, int dmg, double acd, const int exppe
 
 Hero Hero::parse(const std::string& String)
 {
-	JSON scenario = JSON::parseFromFile("test/units/" + String);
-	if (scenario.getMapSize() != 8) {
+	JSON HeroAttributes = JSON::parseFromFile("test/units/" + String);
+	if (HeroAttributes.getMapSize() != 8) {
 		throw std::runtime_error("Not enough parameters!");
 	}
-	return Hero(scenario.get<std::string>("name"),
-		scenario.get<int>("base_health_points"),
-		scenario.get<int>("base_damage"),
-		scenario.get<double>("base_attack_cooldown"),
-		scenario.get<int>("experience_per_level"),
-		scenario.get<int>("health_point_bonus_per_level"),
-		scenario.get<int>("damage_bonus_per_level"),
-		scenario.get<double>("cooldown_multiplier_per_level"));
+	return Hero(HeroAttributes.get<std::string>("name"),
+		HeroAttributes.get<int>("base_health_points"),
+		HeroAttributes.get<int>("base_damage"),
+		HeroAttributes.get<double>("base_attack_cooldown"),
+		HeroAttributes.get<int>("experience_per_level"),
+		HeroAttributes.get<int>("health_point_bonus_per_level"),
+		HeroAttributes.get<int>("damage_bonus_per_level"),
+		HeroAttributes.get<double>("cooldown_multiplier_per_level"));
 }
 
 bool Hero::isAlive() const

@@ -7,14 +7,14 @@ Monster::Monster(const std::string name, int hp, int dmg,double acd) : name(name
 
 Monster Monster::parse(const std::string& String)
 {
-	JSON scenario = JSON::parseFromFile("test/units/" + String);
-	if (scenario.getMapSize() != 6) {
+	JSON MonsterAttributes = JSON::parseFromFile("test/units/" + String);
+	if (MonsterAttributes.getMapSize() != 6) {
 		throw std::runtime_error("Not enough parameters!");
 	}
-	return Monster(scenario.get<std::string>("name"),
-		scenario.get<int>("health_points"),
-		scenario.get<int>("damage"),
-		scenario.get<double>("attack_cooldown"));
+	return Monster(MonsterAttributes.get<std::string>("name"),
+		MonsterAttributes.get<int>("health_points"),
+		MonsterAttributes.get<int>("damage"),
+		MonsterAttributes.get<double>("attack_cooldown"));
 }
 
 bool Monster::isAlive() const
