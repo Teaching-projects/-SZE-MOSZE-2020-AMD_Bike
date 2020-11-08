@@ -1,6 +1,10 @@
 {
-  "name": "Darth Vader",
-  "hp": 380,
-  "dmg": 44,
-  "attackspeed": 3.2
+    "name": "Darth Vader",
+    "base_health_points": 380,
+    "base_damage": 44,
+    "base_attack_cooldown": 3.2,
+    "experience_per_level": 100,
+    "health_point_bonus_per_level": 25,
+    "damage_bonus_per_level": 5,
+    "cooldown_multiplier_per_level": 0.9
 }
