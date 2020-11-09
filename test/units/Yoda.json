@@ -1,6 +1,10 @@
-{
-  "name": "Yoda",
-  "hp": 190,
-  "dmg": 57,
-  "attackspeed": 2
+ {
+    "name": "Yoda",
+    "base_health_points": 190,
+    "base_damage": 57,
+    "base_attack_cooldown": 2,
+    "experience_per_level": 70,
+    "health_point_bonus_per_level": 8,
+    "damage_bonus_per_level": 9,
+    "cooldown_multiplier_per_level": 0.85
 }

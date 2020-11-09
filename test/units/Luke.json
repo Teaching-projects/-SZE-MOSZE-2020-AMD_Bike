@@ -1,6 +1,10 @@
 {
-  "name": "Luke Skywalker",
-  "hp": 250,
-  "dmg": 27,
-  "attackspeed": 1.2
+    "name": "Luke Skywalker",
+    "base_health_points": 250,
+    "base_damage": 27,
+    "base_attack_cooldown": 1.2,
+    "experience_per_level": 50,
+    "health_point_bonus_per_level": 17,
+    "damage_bonus_per_level": 3,
+    "cooldown_multiplier_per_level": 0.8
 }
