@@ -6,10 +6,9 @@ on:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
+    container: amdbike/mosze:latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install cppcheck and valgrind
-        run: sudo apt install -y cppcheck && sudo apt install -y valgrind 
+      - uses: actions/checkout@v2 
       - name: Run code analysis with cppcheck
         run: make sca
       - name: Upload Cppcheck result 
