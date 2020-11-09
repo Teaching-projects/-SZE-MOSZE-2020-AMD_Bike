@@ -6,7 +6,7 @@ on:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
-	container: amdbike/mosze:latest
+    container: amdbike/mosze:latest
     steps:
       - uses: actions/checkout@v2 
       - name: Run code analysis with cppcheck
