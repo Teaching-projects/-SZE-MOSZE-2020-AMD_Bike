@@ -6,10 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+	container: amdbike/mosze:latest
     steps:
       - uses: actions/checkout@v2
-      - name: Make dependencies
-        run: sudo apt install libgtest-dev && sudo apt install cmake
       - name: Build environment
         run: cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
       - name: Make references
