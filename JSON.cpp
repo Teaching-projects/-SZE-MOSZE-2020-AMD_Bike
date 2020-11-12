@@ -1,5 +1,4 @@
 #include "JSON.h"
-#include <iostream>
 
 JSON::JSON(VariantMap data) : data(data)
 {
