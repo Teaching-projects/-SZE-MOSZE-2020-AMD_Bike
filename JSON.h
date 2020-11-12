@@ -21,6 +21,8 @@
 #include <fstream>
 #include <variant>
 #include <algorithm> 
+#include <list> 
+#include <iterator> 
 
 
 using VariantMap = std::map <std::string, std::variant<std::string, int, double>>;
@@ -64,17 +66,25 @@ public:
 	*
 	*/
 	bool count(std::string String) const;
-	/**
-	* \brief This is a getter function, that returns the map type scenario.
-	* \param none
-	* \return Returns the actual scenario.
-	*
-	*/
-	//std::map <std::string, std::string> getMap();
 
-	template <typename T> T get(const std::string& type) {
+	typedef std::list<std::variant<std::string, int, double>> list;
+
+	template <typename T>
+	inline typename std::enable_if<std::is_same<T, JSON::list>::value, T>::type
+		get(const std::string& type) {
+			list toReturn;
+			std::istringstream objects(std::get<std::string>(data[type]));
+			std::copy(std::istream_iterator<std::string>(objects),
+				std::istream_iterator<std::string>(),
+				std::back_inserter(toReturn));
+			return toReturn;
+	}
+
+	template <typename T> inline typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type 
+		get(const std::string& type) {
 		return std::get<T>(data[type]);
 	}
+
 	/**
 	* \brief This function returns the JSON class's map size.
 	* \param none

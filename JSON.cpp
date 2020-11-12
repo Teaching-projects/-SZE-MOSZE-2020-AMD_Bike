@@ -39,6 +39,7 @@ JSON JSON::parseFromFile(std::istream& Istream)
 
 JSON JSON::parseFromString(std::string String)
 {
+
 	VariantMap StringData;
 	std::string akt2, akt1 = "";
 	while (String.find('"') != std::string::npos) {
@@ -52,7 +53,7 @@ JSON JSON::parseFromString(std::string String)
 		}
 		String.erase(0, x + 1);
 
-		if ((akt1 == "name") || (akt1 == "hero") || (akt1 == "monsters") || (akt1 == "lore") || (akt1 == "race") || (akt1 == "additional_info")) {
+		if ((akt1 == "name") || (akt1 == "hero") || /*(akt1 == "monsters") ||*/ (akt1 == "lore") || (akt1 == "race") || (akt1 == "additional_info")) {
 			size_t x = String.find('"') + 1;
 			while ((String[x] != '"') && (x != String.size())) {
 				if (isupper(String[x]) && (String[x - 1] != '-') && (String[x - 1] != '_') && (akt2 != "")) {
@@ -69,9 +70,27 @@ JSON JSON::parseFromString(std::string String)
 				x++;
 			}
 			String.erase(0, x + 1);
-
-
-
+		}
+		else if (akt1 == "monsters") {
+			size_t x = String.find('[') + 1;
+			while ((String[x] != ']') && (x != String.size())) {
+				size_t x = String.find('"') + 1;
+				while ((String[x] != '"') && (x != String.size())) {
+					if (isupper(String[x]) && (String[x - 1] != '-') && (String[x - 1] != '_') && (akt2 != "")) {
+						akt2 = akt2 + ' ' + String[x];
+					}
+					else if (String[x] != ' ') {
+						if (String[x] == 'o' && String[x + 1] == 'f') {
+							akt2 = akt2 + ' ' + String[x];
+						}
+						else {
+							akt2 += String[x];
+						}
+					}
+					x++;
+				}
+				String.erase(0, x + 1);
+			}	
 		}
 		else {
 			x = 0;
