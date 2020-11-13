@@ -1,4 +1,5 @@
 #include "JSON.h"
+#include <iostream>
 
 JSON::JSON(VariantMap data) : data(data)
 {
@@ -73,7 +74,10 @@ JSON JSON::parseFromString(std::string String)
 		else if (akt1 == "monsters") {
 			size_t x = String.find('[') + 1;
 			while ((String[x] != ']') && (x != String.size())) {
-				size_t x = String.find('"') + 1;
+				if (String.find('"') != std::string::npos) {
+					x = String.find('"') + 1;
+				}
+				else { x = String.size(); }
 				while ((String[x] != '"') && (x != String.size())) {
 					if (isupper(String[x]) && (String[x - 1] != '-') && (String[x - 1] != '_') && (akt2 != "")) {
 						akt2 = akt2 + ' ' + String[x];
