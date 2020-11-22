@@ -36,7 +36,6 @@ JSON JSON::parseFromFile(std::istream& Istream)
 	return parseFromString(Data);
 }
 
-
 JSON JSON::parseFromString(std::string String)
 {
 

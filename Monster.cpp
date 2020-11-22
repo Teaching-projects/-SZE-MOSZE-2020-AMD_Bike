@@ -1,19 +1,20 @@
 #include "Monster.h"
 #include "JSON.h"
 
-Monster::Monster(const std::string name, int hp, int dmg,double acd) : name(name), hp(hp), dmg(dmg), acd(acd)
+Monster::Monster(const std::string name, int hp, int dmg, int def, double acd) : name(name), hp(hp), dmg(dmg), def(def), acd(acd)
 {
 }
 
 Monster Monster::parse(const std::string& String)
 {
 	JSON MonsterAttributes = JSON::parseFromFile("test/units/" + String);
-	if (MonsterAttributes.getMapSize() != 6) {
+	if (MonsterAttributes.getMapSize() != 7) {
 		throw std::runtime_error("Not enough parameters!");
 	}
 	return Monster(MonsterAttributes.get<std::string>("name"),
 		MonsterAttributes.get<int>("health_points"),
 		MonsterAttributes.get<int>("damage"),
+		MonsterAttributes.get<int>("defense"),
 		MonsterAttributes.get<double>("attack_cooldown"));
 }
 
@@ -42,10 +43,10 @@ double Monster::getAttackCoolDown() const
 	return acd;
 }
 
-
 void Monster::DMGTaken(int dmg)
 {
-	hp -= dmg;
+	if (def <= dmg) {
+		hp -= dmg - def;
+	}
 	if (hp <= 0) { hp = 0; }
 }
-

@@ -110,14 +110,14 @@ TEST(NewUnitTests, isAliveTrueFunction) {
 
 TEST(NewUnitTests, isAliveFalseFunction) {
 	Monster Unit = Monster::parse("Zombie.json");
-	Unit.DMGTaken(10);
+	Unit.DMGTaken(11);
 
 	ASSERT_FALSE(Unit.isAlive());
 }
 
 TEST(NewUnitTests, DMGTakenFunction) {
 	Monster Unit = Monster::parse("Zombie.json");
-	Unit.DMGTaken(5);
+	Unit.DMGTaken(6);
 
 	ASSERT_TRUE(Unit.getHealthPoints() == 5);
 }
@@ -127,7 +127,7 @@ TEST(NewUnitTests, OnePunchFunction) {
 	Monster Unit2 = Monster::parse("Zombie.json");
 	Unit1.OnePunch(Unit2);
 
-	ASSERT_TRUE(Unit2.getHealthPoints() == 7);
+	ASSERT_TRUE(Unit2.getHealthPoints() == 8);
 }
 
 TEST(NewUnitTests, LevelUpFunction) {
