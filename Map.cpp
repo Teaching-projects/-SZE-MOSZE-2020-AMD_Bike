@@ -1,7 +1,7 @@
 #include "Map.h"
 
 
-Map::Map(string filename)
+Map::Map(std::string filename)
 {
 	std::ifstream file;
 	file.open(filename);
@@ -23,11 +23,11 @@ Map::Map(string filename)
 
 Map::type Map::get(int x, int y) const
 {
-	if (x > map.size()) {
+	if (x > static_cast<int>(map.size())) {
 		std::string errMsg = "Wrong 'x' coordinate was given!";
 		throw WrongIndexException(errMsg);
 	}
-	if (y > map[x].size()) {
+	if (y > static_cast<int>(map[x].size())) {
 		std::string errMsg = "Wrong 'y' coordinate was given!";
 		throw WrongIndexException(errMsg);
 	}
