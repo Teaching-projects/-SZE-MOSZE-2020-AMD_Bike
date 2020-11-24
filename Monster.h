@@ -7,9 +7,9 @@
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
-* \version 4.0
+* \version 5.0
 *
-* \date 2020/11/04 19:17
+* \date 2020/11/22 15:17
 */
 
 
@@ -25,6 +25,7 @@ private:
 	const std::string name;				///< This is the name of the Monster.
 	int hp;				///< This is the hitpoints of the Monster.
 	int dmg;				///< This is the Monster's damage.
+	int def;				///< This is the Monster's defense.
 	double acd;				///< This is the Monster's attack cooldown.
 	const std::string race;				///< This marks the Monster's race.
 	const std::string lore;				///< This is the lore of the Monster.
@@ -35,7 +36,7 @@ public:
 	* \param MonsterData
 	* [in] This map contains all the specific data of the Monster
 	*/
-	Monster(const std::string name, int hp, int dmg, double acd);
+	Monster(const std::string name, int hp, int dmg, int def, double acd);
 	/**
 	* \brief This function reads the Monster's specific datas, from a file.
 	* \param String
