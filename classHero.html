@@ -79,9 +79,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaa8c43bf5b5e33d426fed78e183368fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#aaa8c43bf5b5e33d426fed78e183368fa">Hero</a> (const std::string &amp;name, int hp, int dmg, double acd, const int expperlvl, const int hpperlvl, const int dmgperlvl, const double acdperlvl)</td></tr>
-<tr class="memdesc:aaa8c43bf5b5e33d426fed78e183368fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor function initializes the <a class="el" href="classHero.html" title="Hero class.">Hero</a>, with the given data in the parameter.  <a href="classHero.html#aaa8c43bf5b5e33d426fed78e183368fa">More...</a><br /></td></tr>
-<tr class="separator:aaa8c43bf5b5e33d426fed78e183368fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac049fc341bbe2be4214c1420cd36bf18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#ac049fc341bbe2be4214c1420cd36bf18">Hero</a> (const std::string &amp;name, int hp, int dmg, int def, double acd, const int expperlvl, const int hpperlvl, const int dmgperlvl, const int defperlvl, const double acdperlvl)</td></tr>
+<tr class="memdesc:ac049fc341bbe2be4214c1420cd36bf18"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor function initializes the <a class="el" href="classHero.html" title="Hero class.">Hero</a>, with the given data in the parameter.  <a href="classHero.html#ac049fc341bbe2be4214c1420cd36bf18">More...</a><br /></td></tr>
+<tr class="separator:ac049fc341bbe2be4214c1420cd36bf18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c7a1cf729e3e36769d20485d17e06dd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a3c7a1cf729e3e36769d20485d17e06dd">getName</a> () const</td></tr>
 <tr class="memdesc:a3c7a1cf729e3e36769d20485d17e06dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a getter function, that returns the <a class="el" href="classHero.html" title="Hero class.">Hero</a>'s name.  <a href="classHero.html#a3c7a1cf729e3e36769d20485d17e06dd">More...</a><br /></td></tr>
 <tr class="separator:a3c7a1cf729e3e36769d20485d17e06dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,11 +130,11 @@ Static Public Member Functions</h2></td></tr>
  By each levelup, there is an amount of absolut increase for xp, maximum hp, damage and the <a class="el" href="classHero.html" title="Hero class.">Hero</a>'s actual hp will be the maximum. Also every time the attack cooldown will decrease by a constant 10%. <br  />
  We have some functions, with them we do the actual fight, hit the opposing <a class="el" href="classMonster.html" title="Monster class.">Monster</a>, check if our <a class="el" href="classHero.html" title="Hero class.">Hero</a> is still alive and do the level up.</p>
 <dl class="section author"><dt>Author</dt><dd>skrobi12, hajdunorbi, Szabi1104</dd></dl>
-<dl class="section version"><dt>Version</dt><dd>4.0</dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2020/11/04 19:17 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>5.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2020/11/04 15:17 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aaa8c43bf5b5e33d426fed78e183368fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa8c43bf5b5e33d426fed78e183368fa">&#9670;&nbsp;</a></span>Hero()</h2>
+<a id="ac049fc341bbe2be4214c1420cd36bf18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac049fc341bbe2be4214c1420cd36bf18">&#9670;&nbsp;</a></span>Hero()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,6 +160,12 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>def</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>acd</em>, </td>
         </tr>
@@ -180,6 +186,12 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>dmgperlvl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>defperlvl</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
