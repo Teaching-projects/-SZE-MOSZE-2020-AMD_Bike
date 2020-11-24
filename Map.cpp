@@ -13,11 +13,8 @@ Map::Map(std::string filename)
 		file.close();
 	}
 	else {
-
-		std::string errMsg = "The file cannot be opened!";
-		throw WrongIndexException(errMsg);
+		throw std::runtime_error("The file cannot be opened!");
 	}
-
 }
 
 
