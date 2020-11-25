@@ -2,6 +2,7 @@
 #include "JSON.h"
 #include <iostream>
 
+
 Hero::Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl) :
 	name(name), hp(hp), dmg{ physicaldmg, magicaldmg }, def(def), acd(acd),
 	expperlvl(expperlvl),
@@ -76,7 +77,6 @@ void Hero::DMGTaken(Monster& monster)
 void Hero::OnePunch(Monster& monster)
 {
 	int HPBeforeDamage = monster.getHealthPoints();
-
 	monster.DMGTaken(dmg.physical, dmg.magical);
 	aktxp += HPBeforeDamage - monster.getHealthPoints();
 	if (aktxp >= expperlvl) {
@@ -155,3 +155,4 @@ int Hero::getMaxHealthPoints() const
 {
 	return maxhp;
 }
+
