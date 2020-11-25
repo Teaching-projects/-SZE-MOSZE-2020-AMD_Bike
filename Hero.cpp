@@ -2,6 +2,7 @@
 #include "JSON.h"
 #include <iostream>
 
+
 Hero::Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl) :
 	name(name), hp(hp), dmg{ physicaldmg, magicaldmg }, def(def), acd(acd),
 	expperlvl(expperlvl),
@@ -23,7 +24,7 @@ Hero Hero::parse(const std::string& String)
 	if (!(HeroAttributes.count("name") && HeroAttributes.count("base_health_points") && HeroAttributes.count("base_defense") && HeroAttributes.count("base_attack_cooldown") && HeroAttributes.count("experience_per_level")
 		&& HeroAttributes.count("health_point_bonus_per_level") && HeroAttributes.count("defense_bonus_per_level") && HeroAttributes.count("cooldown_multiplier_per_level")
 		&& ((HeroAttributes.count("base_damage") && HeroAttributes.count("damage_bonus_per_level")) || (HeroAttributes.count("base_magical_damage") && HeroAttributes.count("magical_damage_bonus_per_level"))))) {
-		throw std::runtime_error("Not enough parameters!");
+
 	}
 	int physicaldmgperlvl, magicaldmgperlvl;
 	Damage dmg;
@@ -70,13 +71,13 @@ void Hero::DMGTaken(Monster& monster)
 		hp -= monster.getDamage().physical - def;
 	}
 	hp -= monster.getDamage().magical;
+
 	if (hp <= 0) { hp = 0; }
 }
 
 void Hero::OnePunch(Monster& monster)
 {
 	int HPBeforeDamage = monster.getHealthPoints();
-
 	monster.DMGTaken(dmg.physical, dmg.magical);
 	aktxp += HPBeforeDamage - monster.getHealthPoints();
 	if (aktxp >= expperlvl) {

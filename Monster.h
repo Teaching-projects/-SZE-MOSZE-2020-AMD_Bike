@@ -38,6 +38,7 @@ public:
 	* [in] This map contains all the specific data of the Monster
 	*/
 	Monster(const std::string name, int hp, int physicaldmg, int magicaldmg, int def, double acd);
+
 	/**
 	* \brief This function reads the Monster's specific datas, from a file.
 	* \param String

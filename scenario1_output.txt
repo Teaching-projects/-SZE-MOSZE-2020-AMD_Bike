@@ -10,4 +10,5 @@ The hero won.
 Prince Aidan of Khanduras: LVL8
    HP: 62/65
   DMG: physical 10, magical 8
+
   ACD: 0.526127

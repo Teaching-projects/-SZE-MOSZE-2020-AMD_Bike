@@ -130,7 +130,7 @@ TEST(NewUnitTests, OnePunchFunction) {
 	Monster Unit2 = Monster::parse("Zombie.json");
 	Unit1.OnePunch(Unit2);
 
-	ASSERT_TRUE(Unit2.getHealthPoints() == 7);
+	ASSERT_TRUE(Unit2.getHealthPoints() == 8);
 }
 
 TEST(NewUnitTests, LevelUpFunction) {

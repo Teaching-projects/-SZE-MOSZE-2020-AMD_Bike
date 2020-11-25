@@ -47,6 +47,7 @@ public:
 	* [in] This map contains all the specific data of the Hero
 	*/
 	Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg , int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl);
+
 	/**
 	* \brief This function reads the Hero's specific datas, from a file.
 	* \param String
