@@ -93,10 +93,10 @@ typedef std::list&lt; std::variant&lt; std::string, int, double &gt; &gt;&#160;<
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a555777edfa842fa61b608ccec8beff9b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#a555777edfa842fa61b608ccec8beff9b">JSON</a> (VariantMap data)</td></tr>
-<tr class="memdesc:a555777edfa842fa61b608ccec8beff9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor function initializes the scenario.  <a href="classJSON.html#a555777edfa842fa61b608ccec8beff9b">More...</a><br /></td></tr>
+<tr class="memdesc:a555777edfa842fa61b608ccec8beff9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor function initializes the data.  <a href="classJSON.html#a555777edfa842fa61b608ccec8beff9b">More...</a><br /></td></tr>
 <tr class="separator:a555777edfa842fa61b608ccec8beff9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed1dab25bc8d192eda84d9abc0df83bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#aed1dab25bc8d192eda84d9abc0df83bc">count</a> (std::string String) const</td></tr>
-<tr class="memdesc:aed1dab25bc8d192eda84d9abc0df83bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function .  <a href="classJSON.html#aed1dab25bc8d192eda84d9abc0df83bc">More...</a><br /></td></tr>
+<tr class="memdesc:aed1dab25bc8d192eda84d9abc0df83bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function checks if there is a monster or a hero, in the actual scenario file.  <a href="classJSON.html#aed1dab25bc8d192eda84d9abc0df83bc">More...</a><br /></td></tr>
 <tr class="separator:aed1dab25bc8d192eda84d9abc0df83bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4628b21f3f66ff8dad9b381be23e82f"><td class="memTemplParams" colspan="2"><a id="ae4628b21f3f66ff8dad9b381be23e82f"></a>
 template&lt;typename T &gt; </td></tr>
@@ -119,7 +119,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac2cc45a296b1f1ecdaf24a38f92936dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function opens the given input (in the current case an Istream). After an Istream is given, this function makes a string from it, and calls the ParserFromString() function, whit the created string as parameter.  <a href="classJSON.html#ac2cc45a296b1f1ecdaf24a38f92936dd">More...</a><br /></td></tr>
 <tr class="separator:ac2cc45a296b1f1ecdaf24a38f92936dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c6eb94a914af079b397c114151e684a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#a2c6eb94a914af079b397c114151e684a">parseFromString</a> (std::string String)</td></tr>
-<tr class="memdesc:a2c6eb94a914af079b397c114151e684a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function gets a String as an argument, or from the listed functions before. Then the function loads the parameters, which it gets from the String, into a Map, and returns this Map.  <a href="classJSON.html#a2c6eb94a914af079b397c114151e684a">More...</a><br /></td></tr>
+<tr class="memdesc:a2c6eb94a914af079b397c114151e684a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function gets a String as an argument, or from the listed functions before. Then the function loads the parameters, which it gets from the String, into a <a class="el" href="classMap.html" title="Map class.">Map</a>, and returns this <a class="el" href="classMap.html" title="Map class.">Map</a>.  <a href="classJSON.html#a2c6eb94a914af079b397c114151e684a">More...</a><br /></td></tr>
 <tr class="separator:a2c6eb94a914af079b397c114151e684a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -145,10 +145,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This constructor function initializes the scenario. </p>
+<p>This constructor function initializes the data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scenario</td><td>[in] This is a map type variable, which contains the <a class="el" href="classHero.html" title="Hero class.">Hero</a> and all the Monsters, that the <a class="el" href="classHero.html" title="Hero class.">Hero</a> will fight against. </td></tr>
+    <tr><td class="paramname">data</td><td>[in] This is a map type variable, which contains the <a class="el" href="classHero.html" title="Hero class.">Hero</a> and all the Monsters, that the <a class="el" href="classHero.html" title="Hero class.">Hero</a> will fight against. </td></tr>
   </table>
   </dd>
 </dl>
@@ -172,7 +172,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This function . </p>
+<p>This function checks if there is a monster or a hero, in the actual scenario file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">String</td><td></td></tr>
@@ -303,7 +303,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This function gets a String as an argument, or from the listed functions before. Then the function loads the parameters, which it gets from the String, into a Map, and returns this Map. </p>
+<p>This function gets a String as an argument, or from the listed functions before. Then the function loads the parameters, which it gets from the String, into a <a class="el" href="classMap.html" title="Map class.">Map</a>, and returns this <a class="el" href="classMap.html" title="Map class.">Map</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">String</td><td></td></tr>

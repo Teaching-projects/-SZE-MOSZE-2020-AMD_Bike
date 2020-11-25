@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xp_39',['xp',['../classPlayer.html#ae61f2ea9b978c907d74338758b27e3d8',1,'Player']]]
+  ['type_42',['type',['../classMap.html#a41697b848ea9a5aad1910714e0196b7b',1,'Map']]]
 ];
