@@ -1,6 +1,7 @@
 #include "../JSON.h"
 #include "../Hero.h"
 #include "../Monster.h"
+#include "../Damage.h"
 #include <gtest/gtest.h>
 
 TEST(ParserTest, InputString) {
@@ -17,7 +18,8 @@ TEST(ParserTest, InputFileName) {
 
 	ASSERT_TRUE(hero.getName() == "Prince Aidan of Khanduras");
 	ASSERT_TRUE(hero.getHealthPoints() == 30);
-	ASSERT_TRUE(hero.getDamage() == 3);
+	ASSERT_TRUE(hero.getDamage().physical == 3);
+	ASSERT_TRUE(hero.getDamage().magical == 1);
 	ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
 }
 
@@ -31,6 +33,7 @@ TEST(ParserTest, InputIstream) {
 	ASSERT_TRUE(scenario.get<std::string>("name") == "Prince Aidan of Khanduras");
 	ASSERT_TRUE(scenario.get<int>("base_health_points") == 30);
 	ASSERT_TRUE(scenario.get<int>("base_damage") == 3);
+	ASSERT_TRUE(scenario.get<int>("base_magical_damage") == 1);
 	ASSERT_TRUE(scenario.get<double>("base_attack_cooldown") == 1.1);
 }
 
@@ -93,7 +96,7 @@ TEST(NewUnitTests, getHpFunction) {
 TEST(NewUnitTests, getDmgFunction) {
 	Monster Unit = Monster::parse("Zombie.json");
 
-	ASSERT_TRUE(Unit.getDamage() == 1);
+	ASSERT_TRUE(Unit.getDamage().physical == 1);
 }
 
 TEST(NewUnitTests, getAttackspeedFunction) {
@@ -110,14 +113,14 @@ TEST(NewUnitTests, isAliveTrueFunction) {
 
 TEST(NewUnitTests, isAliveFalseFunction) {
 	Monster Unit = Monster::parse("Zombie.json");
-	Unit.DMGTaken(11);
+	Unit.DMGTaken(11,0);
 
 	ASSERT_FALSE(Unit.isAlive());
 }
 
 TEST(NewUnitTests, DMGTakenFunction) {
 	Monster Unit = Monster::parse("Zombie.json");
-	Unit.DMGTaken(6);
+	Unit.DMGTaken(6,0);
 
 	ASSERT_TRUE(Unit.getHealthPoints() == 5);
 }
@@ -127,7 +130,7 @@ TEST(NewUnitTests, OnePunchFunction) {
 	Monster Unit2 = Monster::parse("Zombie.json");
 	Unit1.OnePunch(Unit2);
 
-	ASSERT_TRUE(Unit2.getHealthPoints() == 8);
+	ASSERT_TRUE(Unit2.getHealthPoints() == 7);
 }
 
 TEST(NewUnitTests, LevelUpFunction) {
@@ -136,7 +139,8 @@ TEST(NewUnitTests, LevelUpFunction) {
 	
 	ASSERT_TRUE(Unit1.getName() == "Prince Aidan of Khanduras");
 	ASSERT_TRUE(Unit1.getHealthPoints() == 35);
-	ASSERT_TRUE(Unit1.getDamage() == 4);
+	ASSERT_TRUE(Unit1.getDamage().physical == 4);
+	ASSERT_TRUE(Unit1.getDamage().magical == 2);
 	ASSERT_DOUBLE_EQ(Unit1.getAttackCoolDown(), 0.99);
 }
 

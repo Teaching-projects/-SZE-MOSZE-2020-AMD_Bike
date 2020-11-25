@@ -7,9 +7,9 @@
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
-* \version 5.0
+* \version 6.0
 *
-* \date 2020/11/04 15:17
+* \date 2020/11/22 19:17
 */
 
 
@@ -21,22 +21,24 @@
 #include <map>
 #include <variant>
 #include "Monster.h"
+#include "Damage.h"
 
 class Hero {
 private:
-	const std::string name;				///< This is the name of the Hero.
-	int hp;				///< This is the Hero's actual hitpoints.
-	int maxhp;				///< This is the Hero's maximum hitpoints.
-	int dmg;				///< This is the damage of the Hero.
-	int def;				///< This is the defense of the Hero.
-	double acd;				///< This is the attack cooldown of the Hero.
-	const int expperlvl;				///< This is the amount of xp, which the Hero gains by each level up.
-	const int hpperlvl;				///< This is the amount of hitpoints, which the Hero gains by each level up.
-	const int dmgperlvl;				///< This is the amount of damage, which the Hero gains by each level up.
-	const int defperlvl;				///< This is the amount of defense, which the Hero gains by each level up.
-	const double acdperlvl;				///< This is a multiplier for the Hero's attack cooldown by each level up.
-	int level;				///< This number shows the Hero's actual level.
-	int aktxp;				///< This is the Hero's actual amount of experience points.
+	const std::string name;					///< This is the name of the Hero.
+	int hp;									///< This is the Hero's actual hitpoints.
+	int maxhp;								///< This is the Hero's maximum hitpoints.
+	Damage dmg;								///< This is the damage of the Hero. It can be physical, or magical.
+	int def;								///< This is the defense of the Hero.
+	double acd;								///< This is the attack cooldown of the Hero.
+	const int expperlvl;					///< This is the amount of xp, which the Hero gains by each level up.
+	const int hpperlvl;						///< This is the amount of hitpoints, which the Hero gains by each level up.
+	const int physicaldmgperlvl;			///< This is the amount of physical damage, which the Hero gains by each level up.
+	const int magicaldmgperlvl;				///< This is the amount of magical damage, which the Hero gains by each level up.
+	const int defperlvl;					///< This is the amount of defense point, which the Hero gains by each level up.
+	const double acdperlvl;					///< This is a multiplier for the Hero's attack cooldown by each level up.
+	int level;								///< This number shows the Hero's actual level.
+	int aktxp;								///< This is the Hero's actual amount of experience points.
 
 public:
 	/**
@@ -44,7 +46,8 @@ public:
 	* \param HeroData
 	* [in] This map contains all the specific data of the Hero
 	*/
-	Hero(const std::string& name, int hp, int dmg, int def, double acd, const int expperlvl, const int hpperlvl, const int dmgperlvl, const int defperlvl, const double acdperlvl);
+	Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg , int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl);
+
 	/**
 	* \brief This function reads the Hero's specific datas, from a file.
 	* \param String
@@ -66,12 +69,12 @@ public:
 	*/
 	int getHealthPoints() const;
 	/**
-	* \brief This is a getter function, that returns the actual damage of the Hero.
+	* \brief This is a getter function, that returns the actual damage of the Hero. It can be physical or magical.
 	* \param none
-	* \return Returns the actual damage of the Hero.
+	* \return Returns the actual physical/magical damage of the Hero.
 	*
 	*/
-	int getDamage() const;
+	Damage getDamage() const;
 	/**
 	* \brief This is a getter function, that returns the Hero's actual attack cooldown.
 	* \param none

@@ -7,15 +7,16 @@
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
-* \version 5.0
+* \version 6.0
 *
-* \date 2020/11/22 15:17
+* \date 2020/11/22 19:17
 */
 
 
 #ifndef MONSTER_H
 #define MONSTER_H
 
+#include "Damage.h"
 #include <string>
 #include <map>
 #include <variant>
@@ -23,10 +24,10 @@
 class Monster {
 private:
 	const std::string name;				///< This is the name of the Monster.
-	int hp;				///< This is the hitpoints of the Monster.
-	int dmg;				///< This is the Monster's damage.
-	int def;				///< This is the Monster's defense.
-	double acd;				///< This is the Monster's attack cooldown.
+	int hp;								///< This is the hitpoints of the Monster.
+	Damage dmg;							///< This is the damage of the Monster. It can be physical, or magical.								
+	int def;							///< This is the defense of the Monster.
+	double acd;							///< This is the Monster's attack cooldown.
 	const std::string race;				///< This marks the Monster's race.
 	const std::string lore;				///< This is the lore of the Monster.
 
@@ -36,7 +37,8 @@ public:
 	* \param MonsterData
 	* [in] This map contains all the specific data of the Monster
 	*/
-	Monster(const std::string name, int hp, int dmg, int def, double acd);
+	Monster(const std::string name, int hp, int physicaldmg, int magicaldmg, int def, double acd);
+
 	/**
 	* \brief This function reads the Monster's specific datas, from a file.
 	* \param String
@@ -52,12 +54,12 @@ public:
 	*/
 	std::string getName() const;
 	/**
-	* \brief This is a getter function, that returns the Monster's actual damage.
+	* \brief This is a getter function, that returns the actual damage of the Monster. It can be physical or magical.
 	* \param none
-	* \return Returns the Monster's actual damage.
+	* \return Returns the actual physical/magical damage of the Monster.
 	*
 	*/
-	int getDamage() const;
+	Damage getDamage() const;
 	/**
 	* \brief This is a getter function, that returns the actual hitpoints of the Monster.
 	* \param none
@@ -84,7 +86,7 @@ public:
 	* \param dmg
 	*
 	*/
-	void DMGTaken(int dmg);
+	void DMGTaken(int physicaldmg, int magicaldmg);
 };
 
 #endif
