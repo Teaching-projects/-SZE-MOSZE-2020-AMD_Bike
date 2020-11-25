@@ -33,11 +33,12 @@ private:
 
 public:
 	/**
-	* \brief This constructor function initializes the scenario.
-	* \param scenario
+	* \brief This constructor function initializes the data.
+	* \param data
 	* [in] This is a map type variable, which contains the Hero and all the Monsters, that the Hero will fight against.
 	*/
 	JSON(VariantMap data);
+
 	/**
 	* \brief This function opens the given input (in the current case a FileName). After a FileName is given, this function makes a string from it, and calls the ParserFromString() function, whit the created string as parameter.
 	* \param FileName
@@ -45,6 +46,7 @@ public:
 	*
 	*/
 	static JSON parseFromFile(std::string FileName);
+
 	/**
 	* \brief This function opens the given input (in the current case an Istream). After an Istream is given, this function makes a string from it, and calls the ParserFromString() function, whit the created string as parameter.
 	* \param Istream
@@ -52,6 +54,7 @@ public:
 	*
 	*/
 	static JSON parseFromFile(std::istream& Istream);
+
 	/**
 	* \brief This function gets a String as an argument, or from the listed functions before. Then the function loads the parameters, which it gets from the String, into a Map, and returns this Map.
 	* \param String
@@ -59,8 +62,9 @@ public:
 	*
 	*/
 	static JSON parseFromString(std::string String);
+
 	/**
-	* \brief This function .
+	* \brief This function checks if there is a monster or a hero, in the actual scenario file.
 	* \param String
 	* \return Returns true if there is a Hero and Monster(s) in the actual scenario, and false if there is not.
 	*

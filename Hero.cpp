@@ -71,7 +71,6 @@ void Hero::DMGTaken(Monster& monster)
 		hp -= monster.getDamage().physical - def;
 	}
 	hp -= monster.getDamage().magical;
-
 	if (hp <= 0) { hp = 0; }
 }
 
@@ -156,3 +155,4 @@ int Hero::getMaxHealthPoints() const
 {
 	return maxhp;
 }
+

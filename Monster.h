@@ -46,6 +46,7 @@ public:
 	*
 	*/
 	static Monster parse(const std::string& String);
+
 	/**
 	* \brief This is a getter function, that returns the Monster's name.
 	* \param none
@@ -53,6 +54,7 @@ public:
 	*
 	*/
 	std::string getName() const;
+
 	/**
 	* \brief This is a getter function, that returns the actual damage of the Monster. It can be physical or magical.
 	* \param none
@@ -60,6 +62,7 @@ public:
 	*
 	*/
 	Damage getDamage() const;
+
 	/**
 	* \brief This is a getter function, that returns the actual hitpoints of the Monster.
 	* \param none
@@ -67,6 +70,7 @@ public:
 	*
 	*/
 	int getHealthPoints() const;
+
 	/**
 	* \brief This is a getter function, that returns the actual attack cooldown of the Monster.
 	* \param none
@@ -74,6 +78,7 @@ public:
 	*
 	*/
 	double getAttackCoolDown() const;
+
 	/**
 	* \brief This function checks whether the Monster's hitpoints is above zero or not.
 	* \param none
@@ -81,9 +86,11 @@ public:
 	*
 	*/
 	bool isAlive() const;
+
 	/**
 	* \brief This function reduces the Monster's hitpoints by the Hero's damage.
-	* \param dmg
+	* \param physicaldmg
+	* \param magicaldmg
 	*
 	*/
 	void DMGTaken(int physicaldmg, int magicaldmg);
