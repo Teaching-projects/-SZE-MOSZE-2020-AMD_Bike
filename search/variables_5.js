@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xp_79',['xp',['../classPlayer.html#ae61f2ea9b978c907d74338758b27e3d8',1,'Player']]]
+  ['physical_84',['physical',['../structDamage.html#aee70c6c924eac810d02f61efbc90c719',1,'Damage']]]
 ];
