@@ -96,7 +96,7 @@ TEST(NewUnitTests, getHpFunction) {
 TEST(NewUnitTests, getDmgFunction) {
 	Monster Unit = Monster::parse("Zombie.json");
 
-	ASSERT_TRUE(Unit.getDamage().physical == 1);
+	ASSERT_TRUE(Unit.getDamage().physical == 6);
 }
 
 TEST(NewUnitTests, getAttackspeedFunction) {

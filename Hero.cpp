@@ -77,6 +77,7 @@ void Hero::DMGTaken(Monster& monster)
 void Hero::OnePunch(Monster& monster)
 {
 	int HPBeforeDamage = monster.getHealthPoints();
+
 	monster.DMGTaken(dmg.physical, dmg.magical);
 	aktxp += HPBeforeDamage - monster.getHealthPoints();
 	if (aktxp >= expperlvl) {
@@ -155,4 +156,3 @@ int Hero::getMaxHealthPoints() const
 {
 	return maxhp;
 }
-

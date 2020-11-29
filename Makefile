@@ -1,8 +1,8 @@
-OBJS := main.o Hero.o Monster.o JSON.o
+OBJS := main.o Hero.o Monster.o JSON.o Game.o Map.o
 CFLAGS := -Wall -Werror -Wextra -std=c++17
 CC := g++-10
 CHMD := chmod +x
-CPPOBJECTS:=JSON.cpp main.cpp Hero.cpp Monster.cpp
+CPPOBJECTS:=JSON.cpp main.cpp Hero.cpp Monster.cpp Map.cpp Game.cpp
 CFW := check_for_warning.sh
 CFE := check_for_error.sh
 TSH := test.sh
@@ -22,6 +22,12 @@ Monster.o: Monster.cpp Monster.h JSON.h
 
 JsonParser.o: JSON.cpp JSON.h
 	$(CC) $(CFLAGS) -c JSON.cpp
+	
+Map.o: Map.cpp Map.h
+	$(CC) $(CFLAGS) -c Map.cpp
+	
+Game.o: Game.h Game.cpp Monster.h Map.h Hero.h
+	$(CC) $(CFLAGS) -c Game.cpp
 
 documentation:
 	doxygen doxconf
@@ -35,7 +41,7 @@ sca-build:
 	$(CC) $(CFLAGS) $(CPPOBJECTS) -o main
 
 valgrind-check:
-	valgrind --leak-check=full --error-exitcode=1 ./main $(T)/scenarios/scenario1.json
+	valgrind --leak-check=full --error-exitcode=1 cat $(T)/scenarios/scenario1game.txt | ./main
 
 io-tests:
 	$(CHMD) $(TSH) && ./$(TSH)

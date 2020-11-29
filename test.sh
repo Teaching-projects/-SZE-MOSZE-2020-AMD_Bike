@@ -1,13 +1,9 @@
 #!/bin/bash
-
 IFS=$'\n'
-
 rm output.txt
+cat test/scenarios/scenario1game.txt | ./main >> output.txt
 
-./main test/scenarios/scenario1.json >> output.txt
-
-cat output.txt
-DIFF=$(diff output.txt scenario1_output.txt) 
+DIFF=$(diff output.txt scenario1game_output.txt) 
 
 if [ "$DIFF" != "" ] 
 then

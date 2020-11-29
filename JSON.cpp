@@ -36,6 +36,7 @@ JSON JSON::parseFromFile(std::istream& Istream)
 	return parseFromString(Data);
 }
 
+
 JSON JSON::parseFromString(std::string String)
 {
 
@@ -70,14 +71,15 @@ JSON JSON::parseFromString(std::string String)
 			}
 			String.erase(0, x + 1);
 		}
-		else if (akt1 == "monsters") {
+		else if (akt1 == "monsters" || akt1 == "heroes" || akt1 == "maps") {
 			size_t x = String.find('[') + 1;
 			while ((String[x] != ']') && (x != String.size())) {
-				if (String.find('"') != std::string::npos) {
-					x = String.find('"') + 1;
+				if (String.find('"') != std::string::npos && String.find(']') != std::string::npos) {
+					if (String.find('"') < String.find(']')) x = String.find('"') + 1;
+					else x = String.find(']');
 				}
 				else { x = String.size(); }
-				while ((String[x] != '"') && (x != String.size())) {
+				while ((String[x] != ']') && (String[x] != '"') && (x != String.size())) {
 					if (isupper(String[x]) && (String[x - 1] != '-') && (String[x - 1] != '_') && (akt2 != "")) {
 						akt2 = akt2 + ' ' + String[x];
 					}
@@ -91,7 +93,8 @@ JSON JSON::parseFromString(std::string String)
 					}
 					x++;
 				}
-				String.erase(0, x + 1);
+				if (String[x] == ']') String.erase(0, x - 1);
+				else String.erase(0, x+1);
 			}	
 		}
 		else {
