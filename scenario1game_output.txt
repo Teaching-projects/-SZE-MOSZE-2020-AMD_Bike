@@ -7,11 +7,6 @@ Choose one of the commands below, using their numbers (or exit to exit):
 4 - run
 exit - exit
 
-==161== Memcheck, a memory error detector
-==161== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==161== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==161== Command: cat test/scenarios/scenario1game.txt
-==161== 
 
 Choose a map, using their numbers (or back to go back):
 1 - Map1.json
