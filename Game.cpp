@@ -55,13 +55,13 @@ void Game::putMonster(Monster monster, int x, int y)
 void Game::printMap()
 {
 	std::cout << "╔";
-	for (int i = 1; i < GamesMap.GetTheLongestRow(); i++) {
+	for (int i = 0; i < GamesMap.GetTheLongestRow(); i++) {
 		std::cout << "══";
 	}
 	std::cout << "╗" << std::endl;
 	for (int y = 0; y < GamesMap.GetMapSize(); y++) {
 		std::cout << "║";
-		for (int x = 0; x < static_cast<int>(GamesMap.GetRow(y).size() - 1); x++) {
+		for (int x = 0; x < static_cast<int>(GamesMap.GetRow(y).size()); x++) {
 			if (GamesMap.get(x, y) == GamesMap.Wall) { std::cout << "██"; }
 			else if (MyHero.x == x && MyHero.y == y) { std::cout << "┣┫"; }
 			else if (countMonsters(x, y) >= 1) {
@@ -78,7 +78,7 @@ void Game::printMap()
 		std::cout << "║" << std::endl;
 	}
 	std::cout << "╚";
-	for (int i = 1; i < GamesMap.GetTheLongestRow(); i++) {
+	for (int i = 0; i < GamesMap.GetTheLongestRow(); i++) {
 		std::cout << "══";
 	}
 	std::cout << "╝" << std::endl;
