@@ -24,7 +24,7 @@ void Game::putHero(Hero hero, int x, int y)
 	if (isTheGameRunning) { throw GameAlreadyStartedException("The game is already running!"); }
 	if (GamesMap.GetMapSize() != 0) {
 		if (GamesMap.get(x, y) == GamesMap.Wall) {
-			throw OccupiedException("There is a Wall, can not place a Monster on it!");
+			throw OccupiedException("There is a Wall, can not place a Hero on it!");
 		}
 		else if (GamesMap.get(x, y) == GamesMap.Free) {
 			if (MyHero.x == -1 && MyHero.y == -1) {

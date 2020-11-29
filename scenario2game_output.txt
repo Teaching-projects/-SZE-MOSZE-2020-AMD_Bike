@@ -37,7 +37,9 @@ Choose a hero, which you want to put on the map, using their numbers (or back to
 1 - Prince Aidan of Khanduras
 back - back
 Give the x, y coordinates of the hero! (The upper left corner is 1, 1.)
-X: Y: Prince Aidan of Khanduras
+X: 
+Y: 
+Prince Aidan of Khanduras
 ╔════════════════════════════╗
 ║████████████████████████████║
 ║██░░░░░░██░░░░████████░░░░██║
@@ -62,7 +64,9 @@ Choose a monster, which you want to put on the map, using their numbers (or back
 3 - Zombie
 back - back
 Give the x, y coordinates of the monster! (The upper left corner is 1, 1.)
-X: Y: ╔════════════════════════════╗
+X: 
+Y: 
+╔════════════════════════════╗
 ║████████████████████████████║
 ║██░░░░░░██░░░░████████░░░░██║
 ║██░░████████░░░░████░░░░████║
@@ -201,3 +205,4 @@ Choose one of the commands below, using their numbers (or exit to exit):
 3 - put monsters
 4 - run
 exit - exit
+
