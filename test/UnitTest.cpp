@@ -2,6 +2,8 @@
 #include "../Hero.h"
 #include "../Monster.h"
 #include "../Damage.h"
+#include "../Map.h"
+#include "../Game.h"
 #include <gtest/gtest.h>
 
 TEST(ParserTest, InputString) {
@@ -162,6 +164,75 @@ TEST(NewUnitTests, NoValueError) {
 
 	try {
 		Hero::parse(NoValue);
+	}
+	catch (std::runtime_error &e) {
+		ASSERT_EQ(e.what(), expectedErrorMsg);
+	}
+}
+
+
+TEST(NewGameUnitTests, WrongIndexException) {
+	Hero Unit = Hero::parse("Dark_Wanderer.json");
+	Game TheGame;
+	const std::string expectedErrorMsg = "The map does not exists.";
+
+	try {
+		TheGame.putHero(Unit, 1, 1);
+	}
+	catch (std::runtime_error &e) {
+		ASSERT_EQ(e.what(), expectedErrorMsg);
+	}
+}
+
+TEST(NewGameUnitTests, OccupiedException) {
+	Hero Unit = Hero::parse("Dark_Wanderer.json");
+	Game TheGame("test/maps/Map1.json");
+	const std::string expectedErrorMsg = "There is a Wall, can not place a Hero on it!";
+
+	try {
+		TheGame.putHero(Unit, 0, 0);
+	}
+	catch (std::runtime_error &e) {
+		ASSERT_EQ(e.what(), expectedErrorMsg);
+	}
+}
+
+TEST(NewGameUnitTests, AlreadyHasHeroException) {
+	Hero Unit1 = Hero::parse("Dark_Wanderer.json");
+	Hero Unit2 = Hero::parse("Dark_Wanderer.json");
+	Game TheGame("test/maps/Map1.json");
+	TheGame.putHero(Unit1, 1, 1);
+	const std::string expectedErrorMsg = "There is already a Hero on the map!";
+
+	try {
+		TheGame.putHero(Unit2, 1, 1);
+	}
+	catch (std::runtime_error &e) {
+		ASSERT_EQ(e.what(), expectedErrorMsg);
+	}
+}
+
+TEST(NewGameUnitTests, AlreadyHasUnitsException) {
+	Hero Unit = Hero::parse("Dark_Wanderer.json");
+	Game TheGame("test/maps/Map1.json");
+	Map Map("test/maps/Map2.json");
+	TheGame.putHero(Unit, 1, 1);
+	const std::string expectedErrorMsg = "The map has already units on it!";
+
+	try {
+		TheGame.setMap(Map);
+	}
+	catch (std::runtime_error &e) {
+		ASSERT_EQ(e.what(), expectedErrorMsg);
+	}
+}
+
+TEST(NewGameUnitTests, NotInitializedException) {
+	Game TheGame;
+	const std::string expectedErrorMsg = "The map is not set or there is no Hero on the map!";
+
+	try {
+		TheGame.run();
 	}
 	catch (std::runtime_error &e) {
 		ASSERT_EQ(e.what(), expectedErrorMsg);

@@ -2,14 +2,18 @@
 #include "Game.h"
 #include <iostream>
 
-Game::Game() : GamesMap(Map()), Monsters(), isTheGameRunning(false) {
+Game::Game() : GamesMap(Map()), Monsters(), isTheGameRunning(false)
+{
 	MyHero.hero = nullptr;
 	MyHero.x = -1;
 	MyHero.y = -1;
 }
 
-Game::Game(std::string mapfilename) : GamesMap(Map(mapfilename))
+Game::Game(std::string mapfilename) : GamesMap(Map(mapfilename)), Monsters(), isTheGameRunning(false)
 {
+	MyHero.hero = nullptr;
+	MyHero.x = -1;
+	MyHero.y = -1;
 }
 
 void Game::setMap(Map map)

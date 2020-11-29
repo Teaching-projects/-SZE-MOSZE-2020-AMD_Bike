@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
  
-add_library(codeToTest ../JSON.cpp ../Hero.cpp ../Monster.cpp)
+add_library(codeToTest ../JSON.cpp ../Hero.cpp ../Monster.cpp ../Map.cpp ../Game.cpp)
 add_executable(ParserTest UnitTest.cpp)
 
 target_link_libraries(ParserTest ${GTEST_LIBRARIES} pthread codeToTest)
