@@ -1,8 +1,9 @@
 #!/bin/bash
 IFS=$'\n'
-rm aktoutput.txt
-cat test/scenarios/scenario1game.txt | ./main >> aktoutput.txt
-DIFF=$(diff aktoutput.txt scenario1game_output.txt) 
+rm output.txt
+cat test/scenarios/scenario1game.txt | ./main >> output.txt
+cat output.txt
+DIFF=$(diff output.txt scenario1game_output.txt) 
 
 if [ "$DIFF" != "" ] 
 then
