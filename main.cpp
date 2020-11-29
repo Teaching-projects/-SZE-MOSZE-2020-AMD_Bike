@@ -103,9 +103,9 @@ int main(int argc, char** argv) {
 					i = 1;
 					int x, y;
 					std::cout << "Give the x, y coordinates of the hero! (The upper left corner is 1, 1.)" << std::endl;
-					std::cout << "X: ";
+					std::cout << "X: " << std::endl;
 					std::cin >> x;
-					std::cout << "Y: ";
+					std::cout << "Y: " << std::endl;
 					std::cin >> y;
 					for (auto &AktHero : HeroMap) {
 						std::cout << AktHero.second.getName() << std::endl;
@@ -132,9 +132,9 @@ int main(int argc, char** argv) {
 					i = 1;
 					int x, y;
 					std::cout << "Give the x, y coordinates of the monster! (The upper left corner is 1, 1.)" << std::endl;
-					std::cout << "X: ";
+					std::cout << "X: " << std::endl;
 					std::cin >> x;
-					std::cout << "Y: ";
+					std::cout << "Y: " << std::endl;
 					std::cin >> y;
 					for (auto &AktMonster : MonsterMap) {
 						if (i == stoi(command)) TheGame.putMonster(AktMonster.second, y, x);
