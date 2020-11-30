@@ -21,6 +21,7 @@
 #include <vector>
 
 class Map{
+protected:
 	std::vector<std::string> map;		///< This is a vector type variable, which contains the map of the game.
 
 public:

@@ -5,21 +5,21 @@
 Game::Game() : GamesMap(Map()), Monsters(), isTheGameRunning(false)
 {
 	MyHero.hero = nullptr;
-	MyHero.x = -1;
-	MyHero.y = -1;
+	MyHero.coord.x = -1;
+	MyHero.coord.y = -1;
 }
 
 Game::Game(std::string mapfilename) : GamesMap(Map(mapfilename)), Monsters(), isTheGameRunning(false)
 {
 	MyHero.hero = nullptr;
-	MyHero.x = -1;
-	MyHero.y = -1;
+	MyHero.coord.x = -1;
+	MyHero.coord.y = -1;
 }
 
 void Game::setMap(Map map)
 {
 	if (isTheGameRunning) { throw GameAlreadyStartedException("The game is already running!"); }
-	if ((MyHero.x == -1 && MyHero.y == -1) || Monsters.size() == 0) { GamesMap = map; }
+	if ((MyHero.coord.x == -1 && MyHero.coord.y == -1) || Monsters.size() == 0) { GamesMap = map; }
 	else { throw AlreadyHasUnitsException("The map has already units on it!"); }
 }
 
@@ -31,10 +31,10 @@ void Game::putHero(Hero hero, int x, int y)
 			throw OccupiedException("There is a Wall, can not place a Hero on it!");
 		}
 		else if (GamesMap.get(x, y) == GamesMap.Free) {
-			if (MyHero.x == -1 && MyHero.y == -1) {
+			if (MyHero.coord.x == -1 && MyHero.coord.y == -1) {
 				MyHero.hero = new Hero(hero);
-				MyHero.x = x;
-				MyHero.y = y;
+				MyHero.coord.x = x;
+				MyHero.coord.y = y;
 			}
 			else { throw AlreadyHasHeroException("There is already a Hero on the map!"); }
 		}
@@ -49,7 +49,7 @@ void Game::putMonster(Monster monster, int x, int y)
 			throw OccupiedException("There is a Wall, can not place a Monster on it.");
 		}
 		else if (GamesMap.get(x, y) == GamesMap.Free) {
-			MonsterCoordinates AktMonster = { monster, x, y };
+			MonsterCoordinates AktMonster = { monster, {x, y} };
 			Monsters.push_back(AktMonster);
 		}
 		else { throw std::runtime_error("The map does not exists."); }
@@ -67,12 +67,12 @@ void Game::printMap()
 		std::cout << "║";
 		for (int x = 0; x < static_cast<int>(GamesMap.GetRow(y).size()); x++) {
 			if (GamesMap.get(x, y) == GamesMap.Wall) { std::cout << "██"; }
-			else if (MyHero.x == x && MyHero.y == y) { std::cout << "┣┫"; }
+			else if (MyHero.coord.x == x && MyHero.coord.y == y) { std::cout << "┣┫"; }
 			else if (countMonsters(x, y) >= 1) {
 				if (countMonsters(x, y) == 1) { std::cout << "M░"; }
 				else { std::cout << "MM"; }
 			}
-			else if (GamesMap.get(x, y) == GamesMap.Free) { std::cout << "░░"; }
+			else { std::cout << "░░"; }
 		}
 		if (static_cast<int>(GamesMap.GetRow(y).size()) < GamesMap.GetTheLongestRow()) {
 			for (int i = static_cast<int>(GamesMap.GetRow(y).size()); i < GamesMap.GetTheLongestRow(); i++) {
@@ -92,7 +92,7 @@ int Game::countMonsters(int x, int y)
 {
 	int count = 0;
 	for (auto &i : Monsters) {
-		if (i.x == x && i.y == y) {
+		if (i.coord.x == x && i.coord.y == y) {
 			count++;
 		}
 	}
@@ -102,19 +102,19 @@ int Game::countMonsters(int x, int y)
 void Game::moveHero(std::string direction)
 {
 	if (direction == "north") {
-		if (GamesMap.get(MyHero.x, MyHero.y - 1) != GamesMap.Wall) { MyHero.y--; }
+		if (GamesMap.get(MyHero.coord.x, MyHero.coord.y - 1) != GamesMap.Wall) { MyHero.coord.y--; }
 		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
 	}
 	else if (direction == "south") {
-		if (GamesMap.get(MyHero.x, MyHero.y + 1) != GamesMap.Wall) { MyHero.y++; }
+		if (GamesMap.get(MyHero.coord.x, MyHero.coord.y + 1) != GamesMap.Wall) { MyHero.coord.y++; }
 		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
 	}
 	else if (direction == "west") {
-		if (GamesMap.get(MyHero.x - 1, MyHero.y) != GamesMap.Wall) { MyHero.x--; }
+		if (GamesMap.get(MyHero.coord.x - 1, MyHero.coord.y) != GamesMap.Wall) { MyHero.coord.x--; }
 		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
 	}
 	else if (direction == "east") {
-		if (GamesMap.get(MyHero.x + 1, MyHero.y) != GamesMap.Wall) { MyHero.x++; }
+		if (GamesMap.get(MyHero.coord.x + 1, MyHero.coord.y) != GamesMap.Wall) { MyHero.coord.x++; }
 		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
 	}
 	else { std::cout << "The only acceptable commands are: north/south/west/east" << std::endl; }
@@ -124,14 +124,14 @@ void Game::isThereAMonster()
 {
 	std::list<MonsterCoordinates>::iterator OneMonster = Monsters.begin();
 	while (OneMonster != Monsters.end()) {
-		if (MyHero.x == OneMonster->x && MyHero.y == OneMonster->y) {
+		if (MyHero.coord.x == OneMonster->coord.x && MyHero.coord.y == OneMonster->coord.y) {
 			std::cout << MyHero.hero->getName() << " vs " << OneMonster->monster.getName() << std::endl;
 			MyHero.hero->fightTilDeath(OneMonster->monster);
 			if (!MyHero.hero->isAlive()) {
 				std::cout << std::endl << "The hero died." << std::endl;
 				isTheGameRunning = false;
-				MyHero.x = -1;
-				MyHero.y = -1;
+				MyHero.coord.x = -1;
+				MyHero.coord.y = -1;
 				break;
 			}
 		}
@@ -142,7 +142,7 @@ void Game::isThereAMonster()
 
 void Game::run()
 {
-	if (GamesMap.GetMapSize() == 0 || (MyHero.x == -1 && MyHero.y == -1)) { throw NotInitializedException("The map is not set or there is no Hero on the map!"); }
+	if (GamesMap.GetMapSize() == 0 || (MyHero.coord.x == -1 && MyHero.coord.y == -1)) { throw NotInitializedException("The map is not set or there is no Hero on the map!"); }
 	bool IsNewGame = true;
 	isTheGameRunning = true;
 	std::string command = "";
