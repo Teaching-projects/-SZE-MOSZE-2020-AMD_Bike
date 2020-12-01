@@ -17,6 +17,7 @@
 #define MONSTER_H
 
 #include "Damage.h"
+#include "JSON.h"
 #include <string>
 #include <map>
 #include <variant>

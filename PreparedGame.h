@@ -13,19 +13,19 @@
 */
 
 
-#ifndef MARKEDMAP_H
-#define MARKEDMAP_H
+#ifndef PREPAREDGAME_H
+#define PREPAREDGAME_H
 
 #include <string>
 #include <fstream>
 #include <vector>
-#include "Map.h"
 #include "Game.h"
 
-class MarkedMap : public Map {
+class PreparedGame : public Game {
 public:
-	Coordinates getHeroPosition() const;
-	std::list<Coordinates> getMonsterPositions(char c) const;
+	PreparedGame(std::string mapfilename);
+	using Game::run;
+
 };
 
 #endif

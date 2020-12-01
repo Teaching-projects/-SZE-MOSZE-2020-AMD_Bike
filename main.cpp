@@ -12,8 +12,8 @@
 #include "Hero.h"
 #include "Monster.h"
 #include "Game.h"
-//tests
 #include "Map.h"
+#include "PreparedGame.h"
 
 
 
@@ -35,7 +35,10 @@ void bad_exit(int exitcode) {
 int main(int argc, char** argv) {
 
 	if (argc == 1) {
-		Game TheGame;
+		PreparedGame Game("preparedgame.json");
+		Game.run();
+
+		/*Game TheGame;
 		std::string command;
 		std::map<std::string, Hero> HeroMap;
 		std::map<std::string, Monster> MonsterMap;
@@ -146,7 +149,7 @@ int main(int argc, char** argv) {
 			else if (command == "4") {
 				TheGame.run();
 			}
-		}
+		}*/
 
 	}
 	else if (argc == 2) {

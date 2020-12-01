@@ -53,7 +53,7 @@ JSON JSON::parseFromString(std::string String)
 		}
 		String.erase(0, x + 1);
 
-		if ((akt1 == "name") || (akt1 == "hero") || (akt1 == "lore") || (akt1 == "race") || (akt1 == "additional_info")) {
+		if ((akt1 == "name") || (akt1 == "hero") || (akt1 == "lore") || (akt1 == "race") || (akt1 == "additional_info") || (akt1=="map") || (akt1 == "monster-1") || (akt1 == "monster-2") || (akt1 == "monster-3")) {
 			size_t x = String.find('"') + 1;
 			while ((String[x] != '"') && (x != String.size())) {
 				if (isupper(String[x]) && (String[x - 1] != '-') && (String[x - 1] != '_') && (akt2 != "")) {
