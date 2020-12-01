@@ -17,10 +17,16 @@
 #define MAP_H
 
 #include <string>
+#include <list>
 #include <fstream>
 #include <vector>
 
-class Map{
+struct Coordinates {
+	int x;			///< This is the x coordinate.
+	int y;			///< This is y the coordinate.
+};
+
+class Map {
 protected:
 	std::vector<std::string> map;		///< This is a vector type variable, which contains the map of the game.
 
@@ -66,5 +72,14 @@ public:
 		WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg) {}
 	};
 };
+
+class MarkedMap : public Map {
+public:
+
+	MarkedMap(std::string filename);
+	Coordinates getHeroPosition() const;
+	std::list<Coordinates> getMonsterPositions(char c) const;
+};
+
 
 #endif

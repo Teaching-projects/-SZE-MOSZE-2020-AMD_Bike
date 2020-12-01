@@ -22,6 +22,7 @@
 #include <variant>
 #include "Monster.h"
 #include "Damage.h"
+#include "JSON.h"
 
 class Hero {
 private:
