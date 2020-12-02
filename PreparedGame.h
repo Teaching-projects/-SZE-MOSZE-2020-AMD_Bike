@@ -1,15 +1,15 @@
 /**
-* \class MarkedMap
+* \class PreparedGame
 *
-* \brief MarkedMap class
+* \brief PreparedGame class
 *
-* This class's role is that it gets a map from a file. In this map the '#' character indicates the wall, and a ' ' indicates the free space, where the Character can move. <br> Also the 'H' shows where our hero starts on the map and numbers indicate the different monsters' positions.
+*  This class's role is to set a prepared game from an existing json file.
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
-* \version 10.0
+* \version 11.0
 *
-* \date 2020/11/30 16:17
+* \date 2020/12/02 14:17
 */
 
 

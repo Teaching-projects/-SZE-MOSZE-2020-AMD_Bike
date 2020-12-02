@@ -1,8 +1,8 @@
 #include "PreparedGame.h"
 
-PreparedGame::PreparedGame(std::string mapfilename)
+PreparedGame::PreparedGame(std::string prepgamename)
 {
-	JSON PreparedGame = JSON::parseFromFile("test/scenarios/" + mapfilename);
+	JSON PreparedGame = JSON::parseFromFile("test/scenarios/" + prepgamename);
 	if (!(PreparedGame.count("map") && PreparedGame.count("hero") && PreparedGame.count("monster-1"))) throw std::runtime_error("Not enough parameters!");
 	else {
 		MarkedMap PreparedMap(PreparedGame.get<std::string>("map"));
