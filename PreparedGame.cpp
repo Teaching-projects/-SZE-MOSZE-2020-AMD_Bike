@@ -16,9 +16,7 @@ PreparedGame::PreparedGame(std::string prepgamename)
 			char monstertype = '0' + i;
 			std::list<Coordinates> ListToLoad = PreparedMap.getMonsterPositions(monstertype);
 			while (!ListToLoad.empty()) {
-				std::string monster = "monster-";
-				monster += monstertype;
-				Monster AktMonster = Monster::parse(PreparedGame.get<std::string>(monster));
+				Monster AktMonster = Monster::parse(PreparedGame.get<std::string>(std::string("monster-") += monstertype));
 				Monsters.push_back({ AktMonster, ListToLoad.front()});
 				ListToLoad.pop_front();
 			}
