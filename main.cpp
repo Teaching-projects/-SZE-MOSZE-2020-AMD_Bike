@@ -91,7 +91,7 @@ int main(int argc, char** argv) {
 						bad_exit(5);
 					else if (command != "back") {
 						if (stoi(command) > static_cast<int>(MapList.size()) || stoi(command) < 0) { bad_exit(5); }
-						TheGame.setMap("test/maps/" + MapList[stoi(command) - 1]);
+						TheGame.setMap(MapList[stoi(command) - 1]);
 						std::cout << "The chosen map: " << std::endl;
 						TheGame.printMap();
 					}
