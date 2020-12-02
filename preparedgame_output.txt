@@ -233,4 +233,3 @@ Prince Aidan of Khanduras: LVL2
    HP: 0/35
   DMG: physical 4, magical 2
   ACD: 0.99
-

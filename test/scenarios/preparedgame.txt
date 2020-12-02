@@ -13,6 +13,3 @@ west
 north
 north
 east
-north
-east
-exit
