@@ -1,15 +1,15 @@
 /**
-* \class MarkedMap
+* \class PreparedGame
 *
-* \brief MarkedMap class
+* \brief PreparedGame class
 *
-*  ----  This class's role is that it gets a map from a file. In this map the '#' character indicates the wall, and a ' ' indicates the free space, where the Character can move.
+*  This class's role is to set a prepared game from an existing json file. 
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
-* \version 7.0  ----
+* \version 11.0
 *
-* \date 2020/11/22 19:17 ----
+* \date 2020/12/02 14:17
 */
 
 
@@ -21,11 +21,15 @@
 #include <vector>
 #include "Game.h"
 
-class PreparedGame : public Game {
+class PreparedGame : protected Game {
 public:
-	PreparedGame(std::string mapfilename);
+	/**
+	* \brief This constructor function initializes the PreparedGame, with the given data in the parameter.
+	* \param prepgamename
+	* [in] It contains the name of the given map, hero and monsters files.
+	*/
+	PreparedGame(std::string prepgamename);
 	using Game::run;
-
 };
 
 #endif
