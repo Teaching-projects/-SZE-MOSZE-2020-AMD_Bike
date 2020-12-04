@@ -526,3 +526,5 @@ Prince Aidan of Khanduras: LVL9
 ║████████░░░░░░░░██████████║
 ║██████████████████████████║
 ╚══════════════════════════╝
+
+Prince Aidan of Khanduras cleared the map.

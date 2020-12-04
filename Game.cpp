@@ -58,6 +58,38 @@ void Game::putMonster(Monster monster, int x, int y)
 
 void Game::printMap()
 {
+	std::cout << "╔";
+	for (int i = 0; i < GamesMap.GetTheLongestRow(); i++) {
+		std::cout << "══";
+	}
+	std::cout << "╗" << std::endl;
+	for (int y = 0; y < GamesMap.GetMapSize(); y++) {
+		std::cout << "║";
+		for (int x = 0; x < static_cast<int>(GamesMap.GetRow(y).size()); x++) {
+			if (GamesMap.get(x, y) == GamesMap.Wall) { std::cout << "██"; }
+			else if (MyHero.coord.x == x && MyHero.coord.y == y) { std::cout << "┣┫"; }
+			else if (countMonsters(x, y) >= 1) {
+				if (countMonsters(x, y) == 1) { std::cout << "M░"; }
+				else { std::cout << "MM"; }
+			}
+			else { std::cout << "░░"; }
+		}
+		if (static_cast<int>(GamesMap.GetRow(y).size()) < GamesMap.GetTheLongestRow()) {
+			for (int i = static_cast<int>(GamesMap.GetRow(y).size()); i < GamesMap.GetTheLongestRow(); i++) {
+				std::cout << "██";
+			}
+		}
+		std::cout << "║" << std::endl;
+	}
+	std::cout << "╚";
+	for (int i = 0; i < GamesMap.GetTheLongestRow(); i++) {
+		std::cout << "══";
+	}
+	std::cout << "╝" << std::endl;
+}
+
+void Game::printMapOnRun()
+{
 	int diff1, diff2, diff3, diff4;
 	std::cout << "╔";
 	diff1 = ((MyHero.coord.x - MyHero.hero->getLightRadius()) > 0 ? (MyHero.coord.x - MyHero.hero->getLightRadius()) : 0);
@@ -150,7 +182,7 @@ void Game::run()
 	isTheGameRunning = true;
 	std::string command = "";
 	while (isTheGameRunning) {
-		printMap();
+		printMapOnRun();
 		if (IsNewGame) {
 			isThereAMonster();
 			IsNewGame = false;
@@ -166,7 +198,7 @@ void Game::run()
 			<< "  DMG: " << MyHero.hero->getDamage() << std::endl
 			<< "  ACD: " << MyHero.hero->getAttackCoolDown() << std::endl;
 		if (Monsters.empty()) {
-			printMap();
+			printMapOnRun();
 			std::cout << std::endl << MyHero.hero->getName() << " cleared the map." << std::endl;
 			isTheGameRunning = false;
 		}

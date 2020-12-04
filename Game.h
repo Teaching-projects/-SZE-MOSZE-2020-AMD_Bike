@@ -75,10 +75,16 @@ public:
 	void putMonster(Monster monster, int x, int y);
 
 	/**
+	* \brief This function prints the blank map.
+	*
+	*/
+	void printMap()
+
+	/**
 	* \brief This function prints the given map.
 	*
 	*/
-	void printMap();
+	void printMapOnRun();
 
 	/**
 	* \brief This function counts the monsters.
