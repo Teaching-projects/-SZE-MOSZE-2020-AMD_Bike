@@ -42,17 +42,8 @@ int main(int argc, char** argv) {
 		std::cout << "2 - Set your own game" << std::endl;
 		std::cin >> command;
 		if (command == "1") {
-			std::cout << "Choose level:" << std::endl;
-			std::cout << "1 - Level 1" << std::endl;
-			std::cout << "2 - Level 2" << std::endl;
-			if (command == "1") {
-				PreparedGame Game("preparedgame1.json");
-				Game.run();
-			}
-			else if (command == "2") {
-				PreparedGame Game("preparedgame2.json");
-				Game.run();
-			}
+			PreparedGame Game("preparedgame2.json");
+			Game.run();
 		}
 		else if (command == "2") {
 			Game TheGame;

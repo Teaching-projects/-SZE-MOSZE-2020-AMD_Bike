@@ -41,7 +41,7 @@ documentation:
 sca:
 	cppcheck $(CPPOBJECTS) --output-file=cppcheck_output.txt && $(CHMD) $(CFW) && ./$(CFW) && $(CHMD) $(CFE) && ./$(CFE)
 
-sca-test: sca-build valgrind-check valgrind-check-two valgrind-check-three io-tests
+sca-test: sca-build valgrind-check valgrind-check-two io-tests
 
 sca-build:
 	$(CC) $(CFLAGS) $(CPPOBJECTS) -o main
@@ -51,9 +51,6 @@ valgrind-check:
 	valgrind --leak-check=full --error-exitcode=1 cat $(T)/scenarios/scenario1game.txt | ./main
 
 valgrind-check-two:
-	valgrind --leak-check=full --error-exitcode=1 cat $(T)/scenarios/preparedgame.txt | ./main
-
-valgrind-check-three:
 	valgrind --leak-check=full --error-exitcode=1 cat $(T)/scenarios/preparedgame2.txt | ./main
 
 io-tests:
