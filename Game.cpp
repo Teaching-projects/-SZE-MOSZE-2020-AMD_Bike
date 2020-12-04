@@ -58,31 +58,34 @@ void Game::putMonster(Monster monster, int x, int y)
 
 void Game::printMap()
 {
+	int diff1, diff2, diff3, diff4;
 	std::cout << "╔";
-	for (int i = 0; i < GamesMap.GetTheLongestRow(); i++) {
+	diff1 = ((MyHero.coord.x - MyHero.hero->getLightRadius()) > 0 ? (MyHero.coord.x - MyHero.hero->getLightRadius()) : 0);
+	diff2 = ((MyHero.coord.x + MyHero.hero->getLightRadius()) < GamesMap.GetTheLongestRow()-1 ? (MyHero.coord.x + MyHero.hero->getLightRadius()) : GamesMap.GetTheLongestRow()-1);
+	diff3 = ((MyHero.coord.y - MyHero.hero->getLightRadius()) > 0 ? (MyHero.coord.y - MyHero.hero->getLightRadius()) : 0);
+	diff4 = ((MyHero.coord.y + MyHero.hero->getLightRadius()) < GamesMap.GetMapSize()-1 ? (MyHero.coord.y + MyHero.hero->getLightRadius()) : GamesMap.GetMapSize()-1);
+	for (int i = diff1; i <= diff2; i++) {
 		std::cout << "══";
 	}
 	std::cout << "╗" << std::endl;
-	for (int y = 0; y < GamesMap.GetMapSize(); y++) {
+	for (int y = diff3; y <= diff4; y++) {
 		std::cout << "║";
-		for (int x = 0; x < static_cast<int>(GamesMap.GetRow(y).size()); x++) {
-			if (GamesMap.get(x, y) == GamesMap.Wall) { std::cout << "██"; }
-			else if (MyHero.coord.x == x && MyHero.coord.y == y) { std::cout << "┣┫"; }
-			else if (countMonsters(x, y) >= 1) {
-				if (countMonsters(x, y) == 1) { std::cout << "M░"; }
-				else { std::cout << "MM"; }
+		for (int x = diff1; x <= diff2; x++) {
+			if (x < static_cast<int>(GamesMap.GetRow(y).size())) {
+				if (MyHero.coord.x == x && MyHero.coord.y == y) { std::cout << "┣┫"; }
+				else if (countMonsters(x, y) >= 1) {
+					if (countMonsters(x, y) == 1) { std::cout << "M░"; }
+					else { std::cout << "MM"; }
+				}
+				else if (GamesMap.get(x, y) == GamesMap.Free) { std::cout << "░░"; }
+				else { std::cout << "██"; }
 			}
-			else { std::cout << "░░"; }
-		}
-		if (static_cast<int>(GamesMap.GetRow(y).size()) < GamesMap.GetTheLongestRow()) {
-			for (int i = static_cast<int>(GamesMap.GetRow(y).size()); i < GamesMap.GetTheLongestRow(); i++) {
-				std::cout << "██";
-			}
+			else { std::cout << "██"; }
 		}
 		std::cout << "║" << std::endl;
 	}
 	std::cout << "╚";
-	for (int i = 0; i < GamesMap.GetTheLongestRow(); i++) {
+	for (int i = diff1; i <= diff2; i++) {
 		std::cout << "══";
 	}
 	std::cout << "╝" << std::endl;

@@ -1,5 +1,6 @@
 #include "JSON.h"
 #include <iostream>
+#include <vector>
 
 JSON::JSON(VariantMap data) : data(data)
 {
@@ -39,7 +40,9 @@ JSON JSON::parseFromFile(std::istream& Istream)
 
 JSON JSON::parseFromString(std::string String)
 {
-
+	std::vector<std::string> Check1 = { "name", "hero", "lore", "race", "additional_info", "map", "monster-1", "monster-2", "monster-3" };
+	std::vector<std::string> Check2 = { "monsters", "heroes", "maps" };
+	
 	VariantMap StringData;
 	std::string akt2, akt1 = "";
 	while (String.find('"') != std::string::npos) {
@@ -53,7 +56,7 @@ JSON JSON::parseFromString(std::string String)
 		}
 		String.erase(0, x + 1);
 
-		if ((akt1 == "name") || (akt1 == "hero") || (akt1 == "lore") || (akt1 == "race") || (akt1 == "additional_info") || (akt1=="map") || (akt1 == "monster-1") || (akt1 == "monster-2") || (akt1 == "monster-3")) {
+		if (std::find(Check1.begin(), Check1.end(), akt1) != Check1.end()){
 			size_t x = String.find('"') + 1;
 			while ((String[x] != '"') && (x != String.size())) {
 				if (isupper(String[x]) && (String[x - 1] != '-') && (String[x - 1] != '_') && (akt2 != "")) {
@@ -71,7 +74,7 @@ JSON JSON::parseFromString(std::string String)
 			}
 			String.erase(0, x + 1);
 		}
-		else if (akt1 == "monsters" || akt1 == "heroes" || akt1 == "maps") {
+		else if (std::find(Check2.begin(), Check2.end(), akt1) != Check2.end()) {
 			size_t x = String.find('[') + 1;
 			while ((String[x] != ']') && (x != String.size())) {
 				if (String.find('"') != std::string::npos && String.find(']') != std::string::npos) {
