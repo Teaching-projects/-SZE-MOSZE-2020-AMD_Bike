@@ -15,7 +15,7 @@ Monster Monster::parse(const std::string& String)
 		if (!MonsterAttributes.count(i)) IsOK = false;
 	}
 	
-	if (!IsOK && (MonsterAttributes.count("damage") || MonsterAttributes.count("magical_damage"))) {
+	if (!IsOK && (!MonsterAttributes.count("damage") || !MonsterAttributes.count("magical_damage"))) {
 		throw std::runtime_error("Not enough parameters!");
 	}
 	Damage dmg;

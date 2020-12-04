@@ -28,7 +28,7 @@ Hero Hero::parse(const std::string& String)
 		if (!HeroAttributes.count(i)) IsOK = false;
 	}
 
-	if (!IsOK && ((HeroAttributes.count("base_damage") && HeroAttributes.count("damage_bonus_per_level")) || (HeroAttributes.count("base_magical_damage") && HeroAttributes.count("magical_damage_bonus_per_level")))) {
+	if (!IsOK && ((!HeroAttributes.count("base_damage") && !HeroAttributes.count("damage_bonus_per_level")) || (!HeroAttributes.count("base_magical_damage") && !HeroAttributes.count("magical_damage_bonus_per_level")))) {
 		throw std::runtime_error("Not enough parameters!");
 	}
 	int physicaldmgperlvl, magicaldmgperlvl;
