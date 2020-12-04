@@ -78,7 +78,7 @@ public:
 	* \brief This function prints the blank map.
 	*
 	*/
-	void printMap()
+	void printMap();
 
 	/**
 	* \brief This function prints the given map.
