@@ -16,9 +16,6 @@
 #ifndef PREPAREDGAME_H
 #define PREPAREDGAME_H
 
-#include <string>
-#include <fstream>
-#include <vector>
 #include "Game.h"
 
 class PreparedGame : protected Game {
@@ -30,6 +27,8 @@ public:
 	*/
 	PreparedGame(std::string prepgamename);
 	using Game::run;
+	using Game::registerRenderer;
+	using Game::getTextures;
 };
 
 #endif

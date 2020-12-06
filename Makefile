@@ -1,8 +1,8 @@
-OBJS := main.o Hero.o Monster.o JSON.o Game.o Map.o PreparedGame.o
+OBJS := main.o Hero.o Monster.o JSON.o Game.o Map.o PreparedGame.o MarkedMap.o TextRenderer.o SVGRenderer.o
 CFLAGS := -Wall -Werror -Wextra -std=c++17
 CC := g++-10
 CHMD := chmod +x
-CPPOBJECTS:=JSON.cpp main.cpp Hero.cpp Monster.cpp Map.cpp Game.cpp PreparedGame.cpp
+CPPOBJECTS:=JSON.cpp main.cpp Hero.cpp Monster.cpp Map.cpp Game.cpp PreparedGame.cpp MarkedMap.cpp TextRenderer.cpp SVGRenderer.cpp
 CFW := check_for_warning.sh
 CFE := check_for_error.sh
 TSH := test.sh
@@ -26,7 +26,7 @@ JsonParser.o: JSON.cpp JSON.h
 Map.o: Map.cpp Map.h
 	$(CC) $(CFLAGS) -c Map.cpp
 
-MarkedMap.o: Game.h Map.h MarkedMap.h MarkedMap.cpp
+MarkedMap.o: MarkedMap.h MarkedMap.cpp Map.h
 	$(CC) $(CFLAGS) -c MarkedMap.cpp
 
 PreparedGame.o: Game.h Map.h PreparedGame.h
@@ -34,6 +34,12 @@ PreparedGame.o: Game.h Map.h PreparedGame.h
 	
 Game.o: Game.h Game.cpp Monster.h Map.h Hero.h
 	$(CC) $(CFLAGS) -c Game.cpp
+
+TextRenderer.o: TextRenderer.h TextRenderer.cpp Renderer.h
+	$(CC) $(CFLAGS) -c TextRenderer.cpp
+
+SVGRenderer.o: SVGRenderer.h SVGRenderer.cpp Renderer.h
+	$(CC) $(CFLAGS) -c SVGRenderer.cpp
 
 documentation:
 	doxygen doxconf

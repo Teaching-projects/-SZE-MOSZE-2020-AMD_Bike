@@ -36,7 +36,7 @@ Map::type Map::get(int x, int y) const
 	else return Map::type::Free;
 }
 
-int Map::GetTheLongestRow()
+int Map::GetTheLongestRow() const
 {
 	int Max = 0;
 	for (int i = 0; i < static_cast<int>(map.size()); i++) {
@@ -47,50 +47,12 @@ int Map::GetTheLongestRow()
 	return Max;
 }
 
-int Map::GetMapSize()
+int Map::GetMapSize() const
 {
 	return static_cast<int> (map.size());
 }
 
-std::string Map::GetRow(int xRow)
+std::string Map::GetRow(int xRow) const
 {
 	return map[xRow];
-}
-
-MarkedMap::MarkedMap(std::string filename)
-{
-	std::ifstream file;
-	file.open("test/maps/" + filename);
-	std::string line;
-	if (file.is_open()) {
-		while (getline(file, line)) {
-			map.push_back(line);
-		}
-		file.close();
-	}
-	else {
-		throw std::runtime_error("The file cannot be opened!");
-	}
-
-}
-
-Coordinates MarkedMap::getHeroPosition() const
-{
-	for (int y = 0; y < static_cast<int> (map.size()); y++) {
-		for (int x = 0; x < static_cast<int>(map[y].size()); x++) {
-			if (map[y][x] == 'H') return { x, y };
-		}
-	}
-	throw std::runtime_error("There was no hero given in the map file.");
-}
-
-std::list<Coordinates> MarkedMap::getMonsterPositions(char c) const
-{
-	std::list<Coordinates> MonsterCoordList;
-	for (int y = 0; y < static_cast<int> (map.size()); y++) {
-		for (int x = 0; x < static_cast<int>(map[y].size()); x++) {
-			if (map[y][x] == c) MonsterCoordList.push_back({ x, y });
-		}
-	}
-	return MonsterCoordList;
 }

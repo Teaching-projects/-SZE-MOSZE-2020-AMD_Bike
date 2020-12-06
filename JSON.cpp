@@ -18,7 +18,6 @@ JSON JSON::parseFromFile(std::string FileName)
 		file.close();
 	}
 	else {
-		
 		std::string errMsg = "The file cannot be opened!";
 		throw ParseException(errMsg);
 	}
@@ -40,7 +39,7 @@ JSON JSON::parseFromFile(std::istream& Istream)
 
 JSON JSON::parseFromString(std::string String)
 {
-	std::vector<std::string> Check1 = { "name", "hero", "lore", "race", "additional_info", "map", "monster-1", "monster-2", "monster-3" };
+	std::vector<std::string> Check1 = { "name", "hero", "lore", "race", "additional_info", "map", "monster-1", "monster-2", "monster-3", "wall_texture", "free_texture", "texture" };
 	std::vector<std::string> Check2 = { "monsters", "heroes", "maps" };
 	
 	VariantMap StringData;

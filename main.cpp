@@ -12,9 +12,10 @@
 #include "Hero.h"
 #include "Monster.h"
 #include "Game.h"
-#include "Map.h"
+#include "MarkedMap.h"
 #include "PreparedGame.h"
-
+#include "TextRenderer.h"
+#include "SVGRenderer.h"
 
 
 const std::map<int, std::string> error_messages = {
@@ -42,9 +43,16 @@ int main(int argc, char** argv) {
 		std::cout << "2 - Set your own game" << std::endl;
 		std::cin >> command;
 		if (command == "1") {
-			PreparedGame Game("preparedgame2.json");
+			PreparedGame Game("[prepared]game.json");
+			//std::ofstream stream = std::ofstream("log.txt");
+			Game.registerRenderer(new ObserverTextRenderer());
+			Game.registerRenderer(new HeroTextRenderer());
+			Game.registerRenderer(new ObserverSVGRenderer("ObserverOutput.svg"));
+			Game.registerRenderer(new CharacterSVGRenderer("CharacterOutput.svg"));
 			Game.run();
 		}
+
+		/*
 		else if (command == "2") {
 			Game TheGame;
 			std::map<std::string, Hero> HeroMap;
@@ -93,7 +101,7 @@ int main(int argc, char** argv) {
 						if (stoi(command) > static_cast<int>(MapList.size()) || stoi(command) < 0) { bad_exit(5); }
 						TheGame.setMap(MapList[stoi(command) - 1]);
 						std::cout << "The chosen map: " << std::endl;
-						TheGame.printMap();
+						//HeroTextRenderer::render(TheGame);
 					}
 				}
 				else if (command == "2") {
@@ -122,7 +130,7 @@ int main(int argc, char** argv) {
 							i++;
 						}
 					}
-					TheGame.printMap();
+					//HeroTextRenderer::render(TheGame);
 				}
 
 				else if (command == "3") {
@@ -150,14 +158,14 @@ int main(int argc, char** argv) {
 							i++;
 						}
 					}
-					TheGame.printMap();
+					//HeroTextRenderer::render(TheGame);
 				}
 				else if (command == "4") {
 					TheGame.run();
 				}
 			}
 		}
-
+		*/
 	}
 	else if (argc == 2) {
 

@@ -61,14 +61,14 @@ public:
 	* \return Returns the longest row of the map.
 	*
 	*/
-	int GetTheLongestRow();
+	int GetTheLongestRow() const;
 
 	/**
 	* \brief This function counts the rows of the given map.
 	* \return Returns the count of the rows.
 	*
 	*/
-	int GetMapSize();
+	int GetMapSize() const;
 
 	/**
 	* \brief This function gets the given row.
@@ -76,7 +76,7 @@ public:
 	* \return Returns the xRow-th row.
 	*
 	*/
-	std::string GetRow(int xRow);
+	std::string GetRow(int xRow) const;
 
 	class WrongIndexException : public std::runtime_error {
 	public:
@@ -88,31 +88,6 @@ public:
 		*/
 		WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg) {}
 	};
-};
-
-class MarkedMap : public Map {
-public:
-	/**
-	* \brief This constructor function initializes the map, with the given data in the parameter.
-	* \param filename
-	* [in] It contains the name of the given marked map.
-	*/
-	MarkedMap(std::string filename);
-
-	/**
-	* \brief This function search for the 'H' on the given map, so for the Hero.
-	* \return Returns the x and y coordinates of the Hero.
-	*
-	*/
-	Coordinates getHeroPosition() const;
-
-	/**
-	* \brief This function search for the diggerent kind of monsters on the map.
-	* \param c
-	* \return Returns the x and y coordinates of the monsters in a list.
-	*
-	*/
-	std::list<Coordinates> getMonsterPositions(char c) const;
 };
 
 #endif

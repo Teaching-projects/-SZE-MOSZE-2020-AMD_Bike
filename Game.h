@@ -19,13 +19,18 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <list>
+#include <map>
 #include "Hero.h"
-#include "Map.h"
+#include "MarkedMap.h"
+#include "Renderer.h"
+
+class Renderer;
 
 struct HeroCoordinates {
 	Hero* hero;		///< This is pointer variable, that points to a Hero type.
 	Coordinates coord;			///< This is a coordinate type variable.
-	~HeroCoordinates() { delete hero; }		///< This is the destructor for the hero pointer.
+	//~HeroCoordinates() { delete hero; }		///< This is the destructor for the hero pointer.
 };
 
 struct MonsterCoordinates {
@@ -35,10 +40,12 @@ struct MonsterCoordinates {
 
 class Game {
 protected:
-	Map GamesMap;								///< This is a Map type variable.
-	HeroCoordinates MyHero;						///< This is a HeroCoordinates type variable.
-	std::list<MonsterCoordinates> Monsters;		///< This is a MonsterCoordinates list, where the monsters are stored.
-	bool isTheGameRunning;						///< This bool type variable, which is true, if the game runs.
+	Map GamesMap;									///< This is a Map type variable.
+	HeroCoordinates MyHero;							///< This is a HeroCoordinates type variable.
+	std::list<MonsterCoordinates> Monsters;			///< This is a MonsterCoordinates list, where the monsters are stored.
+	bool isTheGameRunning;							///< This bool type variable, which is true, if the game runs.
+	std::list<Renderer*> renderers;					///< This is a list for all the Renderers.
+	std::map<std::string, std::string> Textures;	///< This is a map for all the Textures.
 public:
 	Game();
 
@@ -48,6 +55,37 @@ public:
 	* [in] It contains the given maps name.
 	*/
 	Game(std::string mapfilename);
+
+	/**
+	* \brief This is a getter function, which returns the textures.
+	* \param none
+	*
+	*/
+	std::map<std::string, std::string> getTextures() const;
+
+	/**
+	* \brief This is a getter function, which returns the map.
+	* \param none
+	*
+	*/
+	Map getMap() const;
+
+	/**
+	* \brief This is a getter function, which returns the value of the actual coordinate.
+	* \param x
+	* \param y
+	*
+	*/
+	char getMapValue(int x, int y) const;
+
+	/**
+	* \brief This is a getter function, which returns a hero.
+	* \param none
+	*
+	*/
+	HeroCoordinates getHero() const;
+
+	std::list<MonsterCoordinates> getMonsters() const;
 
 	/**
 	* \brief This function sets the map for the game.
@@ -75,25 +113,13 @@ public:
 	void putMonster(Monster monster, int x, int y);
 
 	/**
-	* \brief This function prints the blank map.
-	*
-	*/
-	void printMap();
-
-	/**
-	* \brief This function prints the given map.
-	*
-	*/
-	void printMapOnRun();
-
-	/**
 	* \brief This function counts the monsters.
 	* \param x
 	* \param y
 	* \return Returns the count of the monsters, which are on the same x, y coordinate.
 	*
 	*/
-	int countMonsters(int x, int y);
+	int countMonsters(int x, int y) const;
 
 	/**
 	* \brief This function runs the game.
@@ -113,6 +139,14 @@ public:
 	*
 	*/
 	void isThereAMonster();
+
+	/**
+	* \brief This function adds a new rendering method to the game.
+	* \param renderer
+	*
+	*/
+	void registerRenderer(Renderer* renderer);
+
 
 	class OccupiedException : public std::runtime_error {
 	public:
@@ -168,6 +202,7 @@ public:
 		*/
 		GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg) {}
 	};
+
 };
 
 #endif
