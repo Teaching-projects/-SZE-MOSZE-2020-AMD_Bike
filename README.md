@@ -176,9 +176,12 @@ Illetve egy példa arra, amikor a játék nehezítve van:
 ```
 
 #### SVG fájlba inportálás
-Példa, mikor az egész térkép látható:
+Példa, mikor az egész térkép látható:<br/>
+
 ![ Példa, mikor az egész térkép látható: ](/test/examples/Observer.JPG?raw=true "Példa, mikor az egész térkép látható:")
-Illetve, mikor csak egy része:
+
+Illetve, mikor csak egy része:<br/>
+
 ![ Illetve, mikor csak egy része: ](/test/examples/Character.JPG?raw=true "Illetve, mikor csak egy része:")
 ## Scenario
 
