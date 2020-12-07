@@ -1,5 +1,4 @@
 #include "MarkedMap.h"
-#include <iostream>
 
 MarkedMap::MarkedMap(std::string filename)
 {

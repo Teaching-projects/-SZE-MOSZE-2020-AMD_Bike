@@ -1,5 +1,4 @@
 ﻿#include "TextRenderer.h"
-#include <iostream>
 
 void TextRenderer::setOutputStream(std::ostream& Stream)
 {

@@ -1,5 +1,4 @@
-﻿//#include "Map.h"
-#include "Game.h"
+﻿#include "Game.h"
 #include <iostream>
 
 Game::Game() : GamesMap(Map()), Monsters(), isTheGameRunning(false)
@@ -16,11 +15,6 @@ Game::Game(std::string mapfilename) : GamesMap(Map(mapfilename)), Monsters(), is
 	MyHero.coord.y = -1;
 }
 
-std::map<std::string, std::string> Game::getTextures() const 
-{ 
-	return Textures;
-}
-
 Map Game::getMap() const 
 { 
 	return GamesMap;
@@ -31,14 +25,24 @@ char Game::getMapValue(int x, int y) const
 	return GamesMap.GetRow(x)[y];
 }
 
-std::list<MonsterCoordinates> Game::getMonsters() const 
-{ 
-	return Monsters;
-}
-
 HeroCoordinates Game::getHero() const 
 { 
 	return MyHero;
+}
+
+std::map<std::string, std::string> Game::getTextures() const
+{
+	return Textures;
+}
+
+bool Game::isMonsterAlive(int x, int y) const
+{
+	for (auto& i : Monsters) {
+		if (i.coord.x == x && i.coord.y == y && i.monster.isAlive()) {
+			return true;
+		}
+	}
+	return false;
 }
 
 void Game::setMap(Map map)
@@ -67,6 +71,27 @@ void Game::putHero(Hero hero, int x, int y)
 	else { throw std::runtime_error("The map does not exists."); }
 }
 
+void Game::moveHero(std::string direction)
+{
+	if (direction == "north") {
+		if (GamesMap.get(MyHero.coord.x, MyHero.coord.y - 1) != GamesMap.Wall) { MyHero.coord.y--; }
+		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
+	}
+	else if (direction == "south") {
+		if (GamesMap.get(MyHero.coord.x, MyHero.coord.y + 1) != GamesMap.Wall) { MyHero.coord.y++; }
+		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
+	}
+	else if (direction == "west") {
+		if (GamesMap.get(MyHero.coord.x - 1, MyHero.coord.y) != GamesMap.Wall) { MyHero.coord.x--; }
+		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
+	}
+	else if (direction == "east") {
+		if (GamesMap.get(MyHero.coord.x + 1, MyHero.coord.y) != GamesMap.Wall) { MyHero.coord.x++; }
+		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
+	}
+	else { std::cout << "The only acceptable commands are: north/south/west/east (or ff if you want to surrender)" << std::endl; }
+}
+
 void Game::putMonster(Monster monster, int x, int y)
 {
 	if (GamesMap.GetMapSize() != 0) {
@@ -92,27 +117,6 @@ int Game::countMonsters(int x, int y) const
 	return count;
 }
 
-void Game::moveHero(std::string direction)
-{
-	if (direction == "north") {
-		if (GamesMap.get(MyHero.coord.x, MyHero.coord.y - 1) != GamesMap.Wall) { MyHero.coord.y--; }
-		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
-	}
-	else if (direction == "south") {
-		if (GamesMap.get(MyHero.coord.x, MyHero.coord.y + 1) != GamesMap.Wall) { MyHero.coord.y++; }
-		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
-	}
-	else if (direction == "west") {
-		if (GamesMap.get(MyHero.coord.x - 1, MyHero.coord.y) != GamesMap.Wall) { MyHero.coord.x--; }
-		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
-	}
-	else if (direction == "east") {
-		if (GamesMap.get(MyHero.coord.x + 1, MyHero.coord.y) != GamesMap.Wall) { MyHero.coord.x++; }
-		else { std::cout << "Unfortunatelly, you can not move there!" << std::endl; }
-	}
-	else { std::cout << "The only acceptable commands are: north/south/west/east" << std::endl; }
-}
-
 void Game::isThereAMonster()
 {
 	std::list<MonsterCoordinates>::iterator OneMonster = Monsters.begin();
@@ -133,6 +137,11 @@ void Game::isThereAMonster()
 	}
 }
 
+void Game::registerRenderer(Renderer* renderer)
+{
+	renderers.push_back(renderer);
+}
+
 void Game::run()
 {
 	if (GamesMap.GetMapSize() == 0 || (MyHero.coord.x == -1 && MyHero.coord.y == -1)) { throw NotInitializedException("The map is not set or there is no Hero on the map!"); }
@@ -147,9 +156,14 @@ void Game::run()
 			IsNewGame = false;
 		}
 		if (MyHero.hero->isAlive()) {
-			std::cout << std::endl << "Type north/south/west/east to move your hero in that direction!\n";
+			std::cout << std::endl << "Type north/south/west/east to move your hero in that direction! (or type ff to surrender)\n";
 			std::cin >> command;
-			moveHero(command);
+			if (command != "ff") moveHero(command);
+			else { 
+				std::cout << "Your hero retreated, you lost the game." << std::endl;
+				break;
+			}
+			
 			isThereAMonster();
 		}
 		std::cout << std::endl << MyHero.hero->getName() << ": LVL" << MyHero.hero->getLevel() << std::endl
@@ -163,9 +177,4 @@ void Game::run()
 			isTheGameRunning = false;
 		}
 	}
-}
-
-void Game::registerRenderer(Renderer* renderer)
-{ 
-	renderers.push_back(renderer); 
 }

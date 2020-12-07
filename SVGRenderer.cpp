@@ -1,5 +1,4 @@
 ﻿#include "SVGRenderer.h"
-#include <iostream>
 #include <filesystem>
 
 SVGRenderer::SVGRenderer(const std::string& String) : OString(String)
@@ -30,10 +29,10 @@ void ObserverSVGRenderer::render(const Game& game) const
 				if (game.getHero().coord.x == x && game.getHero().coord.y == y) {
 					svg << "\t<image href=\"" << Textures["HeroTexture"] << "\" width=\"" << Lambda << "\" height=\"" << Lambda << "\" x=\"" << x * Lambda << "\" y=\"" << y * Lambda << "\"/>";
 				}
-				else if (isdigit(game.getMapValue(y, x))) {
+				else if (isdigit(game.getMapValue(y, x)) && game.isMonsterAlive(x, y)) {
 					svg << "\t<image href=\"" << Textures[std::string("MonsterTexture-") += game.getMapValue(y, x)] << "\" width=\"" << Lambda << "\" height=\"" << Lambda << "\" x=\"" << x * Lambda << "\" y=\"" << y * Lambda << "\"/>";
 				}
-				else if (game.getMap().get(x, y) == game.getMap().Free) {
+				else if (game.getMap().get(x, y) == game.getMap().Free  ) {
 					svg << "\t<image href=\"" << Textures["FreeTexture"] << "\" width=\"" << Lambda << "\" height=\"" << Lambda << "\" x=\"" << x * Lambda << "\" y=\"" << y * Lambda << "\"/>";
 				}
 				else {
@@ -69,7 +68,7 @@ void CharacterSVGRenderer::render(const Game& game) const
 		for (int x = diff1; x <= diff2; x++) {
 			if (x < static_cast<int>(game.getMap().GetRow(y).size())) {
 				if (game.getHero().coord.x == x && game.getHero().coord.y == y) { svg << "\t<image href=\"" << Textures["HeroTexture"] << "\" width=\"" << Lambda << "\" height=\"" << Lambda << "\" x=\"" << x * Lambda << "\" y=\"" << y * Lambda << "\"/>"; }
-				else if (isdigit(game.getMapValue(y, x))) {
+				else if (isdigit(game.getMapValue(y, x)) && game.isMonsterAlive(x, y)) {
 					svg << "\t<image href=\"" << Textures[std::string("MonsterTexture-") += game.getMapValue(y, x)] << "\" width=\"" << Lambda << "\" height=\"" << Lambda << "\" x=\"" << x * Lambda << "\" y=\"" << y * Lambda << "\"/>";
 				}
 				else if (game.getMap().get(x, y) == game.getMap().Free) { svg << "\t<image href=\"" << Textures["FreeTexture"] << "\" width=\"" << Lambda << "\" height=\"" << Lambda << "\" x=\"" << x * Lambda << "\" y=\"" << y * Lambda << "\"/>"; }

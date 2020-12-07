@@ -1,5 +1,4 @@
 #include "Hero.h"
-#include <iostream>
 #include <vector>
 
 Hero::Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl) :
@@ -18,16 +17,50 @@ Hero::Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg, int
 	level = 1;
 }
 
+std::string Hero::getName() const
+{
+	return name;
+}
+
+int Hero::getHealthPoints() const
+{
+	return hp;
+}
+
+Damage Hero::getDamage() const
+{
+	return dmg;
+}
+
+double Hero::getAttackCoolDown() const
+{
+	return acd;
+}
+
+int Hero::getMaxHealthPoints() const
+{
+	return maxhp;
+}
+
+int Hero::getLevel() const
+{
+	return level;
+}
+
+int Hero::getLightRadius() const
+{
+	return lightradius;
+}
+
 Hero Hero::parse(const std::string& String)
 {
 	JSON HeroAttributes = JSON::parseFromFile("test/units/" + String);
-
 	std::vector<std::string> Check = { "name", "base_health_points", "base_defense", "base_attack_cooldown", "experience_per_level", "health_point_bonus_per_level", "defense_bonus_per_level", "cooldown_multiplier_per_level", "light_radius" };
 	bool IsOK = true;
+
 	for (auto& i : Check) {
 		if (!HeroAttributes.count(i)) IsOK = false;
 	}
-
 	if (!IsOK && ((!HeroAttributes.count("base_damage") && !HeroAttributes.count("damage_bonus_per_level")) || (!HeroAttributes.count("base_magical_damage") && !HeroAttributes.count("magical_damage_bonus_per_level")))) {
 		throw std::runtime_error("Not enough parameters!");
 	}
@@ -52,7 +85,6 @@ Hero Hero::parse(const std::string& String)
 		dmg.magical = HeroAttributes.get<int>("base_magical_damage");
 		magicaldmgperlvl = HeroAttributes.get<int>("magical_damage_bonus_per_level");
 	}
-
 	if(HeroAttributes.count("light_radius_bonus_per_level")) lightradiusperlvl = HeroAttributes.get<int>("light_radius_bonus_per_level");
 
 	return Hero(HeroAttributes.get<std::string>("name"),
@@ -88,7 +120,6 @@ void Hero::DMGTaken(Monster& monster)
 void Hero::OnePunch(Monster& monster)
 {
 	int HPBeforeDamage = monster.getHealthPoints();
-
 	monster.DMGTaken(dmg.physical, dmg.magical);
 	aktxp += HPBeforeDamage - monster.getHealthPoints();
 	if (aktxp >= expperlvl) {
@@ -134,42 +165,5 @@ void Hero::fightTilDeath(Monster& monster)
 			aktAS2 += monster.getAttackCoolDown();
 			gameprogress = aktAS1;
 		}
-
 	}
-}
-
-int Hero::getLevel() const
-{
-	return level;
-}
-
-int Hero::getLightRadius() const
-{
-	return lightradius;
-}
-
-std::string Hero::getName() const
-{
-	return name;
-}
-
-int Hero::getHealthPoints() const
-{
-	return hp;
-}
-
-Damage Hero::getDamage() const
-{
-	return dmg;
-}
-
-
-double Hero::getAttackCoolDown() const
-{
-	return acd;
-}
-
-int Hero::getMaxHealthPoints() const
-{
-	return maxhp;
 }

@@ -9,15 +9,17 @@
 *
 * \version 12.0
 *
-* \date 2020/12/05 19:17
+* \date 2020/12/07 19:17
 */
 
 
 #ifndef RENDERER_H
 #define RENDERER_H
+
 #include "Game.h"
 
 class Game;
+
 class Renderer {
 public:
 	/**

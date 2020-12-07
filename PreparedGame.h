@@ -7,9 +7,9 @@
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
-* \version 11.0
+* \version 12.0
 *
-* \date 2020/12/02 14:17
+* \date 2020/12/07 20:17
 */
 
 
@@ -26,6 +26,7 @@ public:
 	* [in] It contains the name of the given map, hero and monsters files.
 	*/
 	PreparedGame(std::string prepgamename);
+
 	using Game::run;
 	using Game::registerRenderer;
 	using Game::getTextures;

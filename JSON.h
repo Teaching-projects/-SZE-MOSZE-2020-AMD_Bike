@@ -24,7 +24,6 @@
 #include <list> 
 #include <iterator> 
 
-
 using VariantMap = std::map <std::string, std::variant<std::string, int, double>>;
 
 class JSON {

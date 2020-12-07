@@ -3,21 +3,19 @@
 *
 * \brief TextRenderer class
 *
-* This class 
+* This class prints the map to the command output.
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
 * \version 12.0
 *
-* \date 2020/12/05 19:17
+* \date 2020/12/07 19:17
 */
 
 
 #ifndef TEXTRENDERER_H
 #define TEXTRENDERER_H
 
-#include <string>
-#include <iostream>
 #include <ostream>
 #include "Renderer.h"
 

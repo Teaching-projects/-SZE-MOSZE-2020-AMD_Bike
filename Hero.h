@@ -52,13 +52,6 @@ public:
 	Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg , int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl);
 
 	/**
-	* \brief This function reads the Hero's specific datas, from a file.
-	* \param String
-	* \return Returns the Hero, all of its parameters.
-	*
-	*/static Hero parse(const std::string& String);
-
-	/**
 	* \brief This is a getter function, that returns the Hero's name.
 	* \param none
 	* \return Returns the Hero's name.
@@ -113,6 +106,13 @@ public:
 	*
 	*/
 	int getLightRadius() const;
+
+	/**
+	* \brief This function reads the Hero's specific datas, from a file.
+	* \param String
+	* \return Returns the Hero, all of its parameters.
+	*
+	*/static Hero parse(const std::string& String);
 
 	/**
 	* \brief This function checks whether the Hero's hitpoints is above zero or not.

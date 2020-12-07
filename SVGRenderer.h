@@ -3,21 +3,19 @@
 *
 * \brief SVGRenderer class
 *
-* This class 
+* This class prints the map into an svg file.
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
 * \version 12.0
 *
-* \date 2020/12/06 19:17
+* \date 2020/12/07 19:17
 */
 
 
 #ifndef SVGRENDERER_H
 #define SVGRENDERER_H
 
-#include <string>
-#include <iostream>
 #include <fstream>
 #include "Renderer.h"
 

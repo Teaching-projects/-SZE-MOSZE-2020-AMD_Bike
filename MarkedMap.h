@@ -3,7 +3,7 @@
 *
 * \brief MarkedMap class
 *
-* -----  This class's role is that it gets a map from a file. In this map the '#' character indicates the wall, and a ' ' indicates the free space, where the Character can move.
+* This class's role is that it gets a map from a file. In this map the '#' character indicates the wall, and a ' ' indicates the free space, where the Character can move. <br> In addition, the H marks the Hero's position on the map and the numbers indicate the different monsters' positions.
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *

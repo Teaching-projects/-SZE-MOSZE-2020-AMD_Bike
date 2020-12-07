@@ -12,10 +12,10 @@
 * \date 2020/11/22 19:17
 */
 
+
 #ifndef DAMAGE_H
 #define DAMAGE_H
 
-#include <string>
 #include <iostream>
 
 struct Damage {
@@ -47,7 +47,6 @@ struct Damage {
 		o << "physical " << dmg.physical << ", magical " << dmg.magical;
 		return o;
 	}
-
 };
 
 #endif

@@ -7,9 +7,9 @@
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
-* \version 9.0
+* \version 12.0
 *
-* \date 2020/11/29 19:17
+* \date 2020/12/07 19:17
 */
 
 
@@ -17,7 +17,6 @@
 #define GAME_H
 
 #include <string>
-#include <iostream>
 #include <fstream>
 #include <list>
 #include <map>
@@ -30,7 +29,6 @@ class Renderer;
 struct HeroCoordinates {
 	Hero* hero;		///< This is pointer variable, that points to a Hero type.
 	Coordinates coord;			///< This is a coordinate type variable.
-	//~HeroCoordinates() { delete hero; }		///< This is the destructor for the hero pointer.
 };
 
 struct MonsterCoordinates {
@@ -44,9 +42,10 @@ protected:
 	HeroCoordinates MyHero;							///< This is a HeroCoordinates type variable.
 	std::list<MonsterCoordinates> Monsters;			///< This is a MonsterCoordinates list, where the monsters are stored.
 	bool isTheGameRunning;							///< This bool type variable, which is true, if the game runs.
-	std::list<Renderer*> renderers;					///< This is a list for all the Renderers.
 	std::map<std::string, std::string> Textures;	///< This is a map for all the Textures.
 public:
+	std::list<Renderer*> renderers;					///< This is a list for all the Renderers.
+
 	Game();
 
 	/**
@@ -55,13 +54,6 @@ public:
 	* [in] It contains the given maps name.
 	*/
 	Game(std::string mapfilename);
-
-	/**
-	* \brief This is a getter function, which returns the textures.
-	* \param none
-	*
-	*/
-	std::map<std::string, std::string> getTextures() const;
 
 	/**
 	* \brief This is a getter function, which returns the map.
@@ -85,7 +77,20 @@ public:
 	*/
 	HeroCoordinates getHero() const;
 
-	std::list<MonsterCoordinates> getMonsters() const;
+	/**
+	* \brief This is a getter function, which returns the textures.
+	* \param none
+	*
+	*/
+	std::map<std::string, std::string> getTextures() const;
+
+	/**
+	* \brief This is a getter function, which returns a monster.
+	* \param x
+	* \param y
+	*
+	*/
+	bool isMonsterAlive(int x, int y) const;
 
 	/**
 	* \brief This function sets the map for the game.
@@ -102,6 +107,13 @@ public:
 	*
 	*/
 	void putHero(Hero hero, int x, int y);
+
+	/**
+	* \brief This function moves the hero on the map, in the given direction (north/east/south/west).
+	* \param direction
+	*
+	*/
+	void moveHero(std::string direction);
 
 	/**
 	* \brief This function puts a monster on the given coordinates.
@@ -122,19 +134,6 @@ public:
 	int countMonsters(int x, int y) const;
 
 	/**
-	* \brief This function runs the game.
-	*
-	*/
-	void run();
-
-	/**
-	* \brief This function moves the hero on the map, in the given direction (north/east/south/west).
-	* \param direction
-	*
-	*/
-	void moveHero(std::string direction);
-
-	/**
 	* \brief This function checks if there are monsters in the hero's way, and if yes, then the hero figths with them.
 	*
 	*/
@@ -147,6 +146,11 @@ public:
 	*/
 	void registerRenderer(Renderer* renderer);
 
+	/**
+	* \brief This function runs the game.
+	*
+	*/
+	void run();
 
 	class OccupiedException : public std::runtime_error {
 	public:

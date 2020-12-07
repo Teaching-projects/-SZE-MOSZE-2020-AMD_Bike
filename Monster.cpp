@@ -5,16 +5,35 @@ Monster::Monster(const std::string name, int hp, int physicaldmg, int magicaldmg
 {
 }
 
+std::string Monster::getName() const
+{
+	return name;
+}
+
+Damage Monster::getDamage() const {
+	return dmg;
+}
+
+int Monster::getHealthPoints() const
+{
+	return hp;
+}
+
+double Monster::getAttackCoolDown() const
+{
+	return acd;
+}
+
 Monster Monster::parse(const std::string& String)
 {
 	JSON MonsterAttributes = JSON::parseFromFile("test/units/" + String);
 
-	std::vector<std::string> Check = {"name", "health_points", "defense", "attack_cooldown" };
+	std::vector<std::string> Check = { "name", "health_points", "defense", "attack_cooldown" };
 	bool IsOK = true;
 	for (auto& i : Check) {
 		if (!MonsterAttributes.count(i)) IsOK = false;
 	}
-	
+
 	if (!IsOK && (!MonsterAttributes.count("damage") || !MonsterAttributes.count("magical_damage"))) {
 		throw std::runtime_error("Not enough parameters!");
 	}
@@ -43,25 +62,6 @@ Monster Monster::parse(const std::string& String)
 bool Monster::isAlive() const
 {
 	return (hp > 0);
-}
-
-std::string Monster::getName() const
-{
-	return name;
-}
-
-Damage Monster::getDamage() const {
-	return dmg;
-}
-
-int Monster::getHealthPoints() const
-{
-	return hp;
-}
-
-double Monster::getAttackCoolDown() const
-{
-	return acd;
 }
 
 void Monster::DMGTaken(int physicaldmg, int magicaldmg)
