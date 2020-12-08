@@ -31,5 +31,5 @@ public:
 	PreparedGame(std::string prepgamename);
 	using Game::run;
 };
-
 #endif
+

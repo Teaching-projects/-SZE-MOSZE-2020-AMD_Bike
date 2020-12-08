@@ -10,7 +10,7 @@ PreparedGame::PreparedGame(std::string prepgamename)
 		Hero PreparedHero = Hero::parse(PreparedGame.get<std::string>("hero"));
 		MyHero.hero = new Hero(PreparedHero);
 		MyHero.coord = PreparedMap.getHeroPosition();
-
+    
 		for (int i = 1; i < PreparedGame.getMapSize() - 1; i++) {
 			char monstertype = '0' + i;
 			std::list<Coordinates> ListToLoad = PreparedMap.getMonsterPositions(monstertype);
