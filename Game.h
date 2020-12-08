@@ -19,15 +19,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <list>
-#include "Map.h"
-#include "Monster.h"
 #include "Hero.h"
-
-struct Coordinates {
-	int x;			///< This is the x coordinate.
-	int y;			///< This is y the coordinate.
-};
+#include "Map.h"
 
 struct HeroCoordinates {
 	Hero* hero;		///< This is pointer variable, that points to a Hero type.
@@ -41,7 +34,7 @@ struct MonsterCoordinates {
 };
 
 class Game {
-private:
+protected:
 	Map GamesMap;								///< This is a Map type variable.
 	HeroCoordinates MyHero;						///< This is a HeroCoordinates type variable.
 	std::list<MonsterCoordinates> Monsters;		///< This is a MonsterCoordinates list, where the monsters are stored.

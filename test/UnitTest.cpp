@@ -186,7 +186,7 @@ TEST(NewGameUnitTests, WrongIndexException) {
 
 TEST(NewGameUnitTests, OccupiedException) {
 	Hero Unit = Hero::parse("Dark_Wanderer.json");
-	Game TheGame("test/maps/Map1.json");
+	Game TheGame("Map1.json");
 	const std::string expectedErrorMsg = "There is a Wall, can not place a Hero on it!";
 
 	try {
@@ -200,7 +200,7 @@ TEST(NewGameUnitTests, OccupiedException) {
 TEST(NewGameUnitTests, AlreadyHasHeroException) {
 	Hero Unit1 = Hero::parse("Dark_Wanderer.json");
 	Hero Unit2 = Hero::parse("Dark_Wanderer.json");
-	Game TheGame("test/maps/Map1.json");
+	Game TheGame("Map1.json");
 	TheGame.putHero(Unit1, 1, 1);
 	const std::string expectedErrorMsg = "There is already a Hero on the map!";
 
@@ -214,8 +214,8 @@ TEST(NewGameUnitTests, AlreadyHasHeroException) {
 
 TEST(NewGameUnitTests, AlreadyHasUnitsException) {
 	Hero Unit = Hero::parse("Dark_Wanderer.json");
-	Game TheGame("test/maps/Map1.json");
-	Map Map("test/maps/Map2.json");
+	Game TheGame("Map1.json");
+	Map Map("Map2.json");
 	TheGame.putHero(Unit, 1, 1);
 	const std::string expectedErrorMsg = "The map has already units on it!";
 

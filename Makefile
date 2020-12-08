@@ -1,8 +1,8 @@
-OBJS := main.o Hero.o Monster.o JSON.o Game.o Map.o MarkedMap.o
+OBJS := main.o Hero.o Monster.o JSON.o Game.o Map.o PreparedGame.o
 CFLAGS := -Wall -Werror -Wextra -std=c++17
 CC := g++-10
 CHMD := chmod +x
-CPPOBJECTS:=JSON.cpp main.cpp Hero.cpp Monster.cpp Map.cpp Game.cpp MarkedMap.cpp
+CPPOBJECTS:=JSON.cpp main.cpp Hero.cpp Monster.cpp Map.cpp Game.cpp PreparedGame.cpp
 CFW := check_for_warning.sh
 CFE := check_for_error.sh
 TSH := test.sh
@@ -28,6 +28,9 @@ Map.o: Map.cpp Map.h
 
 MarkedMap.o: Game.h Map.h MarkedMap.h MarkedMap.cpp
 	$(CC) $(CFLAGS) -c MarkedMap.cpp
+
+PreparedGame.o: Game.h Map.h PreparedGame.h
+	$(CC) $(CFLAGS) -c PreparedGame.cpp
 	
 Game.o: Game.h Game.cpp Monster.h Map.h Hero.h
 	$(CC) $(CFLAGS) -c Game.cpp
@@ -38,13 +41,16 @@ documentation:
 sca:
 	cppcheck $(CPPOBJECTS) --output-file=cppcheck_output.txt && $(CHMD) $(CFW) && ./$(CFW) && $(CHMD) $(CFE) && ./$(CFE)
 
-sca-test: sca-build valgrind-check io-tests
+sca-test: sca-build valgrind-check valgrind-check-two io-tests
 
 sca-build:
 	$(CC) $(CFLAGS) $(CPPOBJECTS) -o main
 
 valgrind-check:
 	valgrind --leak-check=full --error-exitcode=1 cat $(T)/scenarios/scenario1game.txt | ./main
+
+valgrind-check-two:
+	valgrind --leak-check=full --error-exitcode=1 cat $(T)/scenarios/preparedgame.txt | ./main
 
 io-tests:
 	$(CHMD) $(TSH) && ./$(TSH)

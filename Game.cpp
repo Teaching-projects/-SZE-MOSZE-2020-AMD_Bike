@@ -91,7 +91,7 @@ void Game::printMap()
 int Game::countMonsters(int x, int y)
 {
 	int count = 0;
-	for (auto &i : Monsters) {
+	for (auto& i : Monsters) {
 		if (i.coord.x == x && i.coord.y == y) {
 			count++;
 		}
@@ -135,7 +135,7 @@ void Game::isThereAMonster()
 				break;
 			}
 		}
-		if(!OneMonster->monster.isAlive())OneMonster = Monsters.erase(OneMonster);
+		if (!OneMonster->monster.isAlive())OneMonster = Monsters.erase(OneMonster);
 		else OneMonster++;
 	}
 }

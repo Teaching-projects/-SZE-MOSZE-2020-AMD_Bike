@@ -1,5 +1,4 @@
 #include "Monster.h"
-#include "JSON.h"
 
 Monster::Monster(const std::string name, int hp, int physicaldmg, int magicaldmg, int def, double acd) : name(name), hp(hp), dmg{ physicaldmg, magicaldmg }, def(def), acd(acd)
 {
@@ -8,9 +7,6 @@ Monster::Monster(const std::string name, int hp, int physicaldmg, int magicaldmg
 Monster Monster::parse(const std::string& String)
 {
 	JSON MonsterAttributes = JSON::parseFromFile("test/units/" + String);
-	/*if (MonsterAttributes.getMapSize() != 8) {
-		throw std::runtime_error("Not enough parameters!");
-	}*/
 	if (!(MonsterAttributes.count("name") && MonsterAttributes.count("health_points") && MonsterAttributes.count("defense") && MonsterAttributes.count("attack_cooldown")
 		&& (MonsterAttributes.count("damage") || MonsterAttributes.count("magical_damage")))) {
 		throw std::runtime_error("Not enough parameters!");
