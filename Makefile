@@ -1,8 +1,8 @@
-OBJS := main.o Hero.o Monster.o JSON.o Game.o Map.o
+OBJS := main.o Hero.o Monster.o JSON.o Game.o Map.o MarkedMap.o
 CFLAGS := -Wall -Werror -Wextra -std=c++17
 CC := g++-10
 CHMD := chmod +x
-CPPOBJECTS:=JSON.cpp main.cpp Hero.cpp Monster.cpp Map.cpp Game.cpp
+CPPOBJECTS:=JSON.cpp main.cpp Hero.cpp Monster.cpp Map.cpp Game.cpp MarkedMap.cpp
 CFW := check_for_warning.sh
 CFE := check_for_error.sh
 TSH := test.sh
@@ -14,10 +14,10 @@ main: $(OBJS)
 main.o: main.cpp Hero.h Monster.h JSON.h
 	$(CC) $(CFLAGS) -c main.cpp
 	
-Hero.o: Hero.cpp Hero.h JSON.h
+Hero.o: Hero.cpp Hero.h JSON.h Damage.h
 	$(CC) $(CFLAGS) -c Hero.cpp
 
-Monster.o: Monster.cpp Monster.h JSON.h
+Monster.o: Monster.cpp Monster.h JSON.h Damage.h
 	$(CC) $(CFLAGS) -c Monster.cpp
 
 JsonParser.o: JSON.cpp JSON.h
@@ -25,6 +25,9 @@ JsonParser.o: JSON.cpp JSON.h
 	
 Map.o: Map.cpp Map.h
 	$(CC) $(CFLAGS) -c Map.cpp
+
+MarkedMap.o: Game.h Map.h MarkedMap.h MarkedMap.cpp
+	$(CC) $(CFLAGS) -c MarkedMap.cpp
 	
 Game.o: Game.h Game.cpp Monster.h Map.h Hero.h
 	$(CC) $(CFLAGS) -c Game.cpp

@@ -24,17 +24,20 @@
 #include "Monster.h"
 #include "Hero.h"
 
+struct Coordinates {
+	int x;			///< This is the x coordinate.
+	int y;			///< This is y the coordinate.
+};
+
 struct HeroCoordinates {
 	Hero* hero;		///< This is pointer variable, that points to a Hero type.
-	int x;			///< This is the x coordinate, for the put() function.
-	int y;			///< This is y the coordinate, for the put() function.
+	Coordinates coord;			///< This is a coordinate type variable.
 	~HeroCoordinates() { delete hero; }		///< This is the destructor for the hero pointer.
 };
 
 struct MonsterCoordinates {
 	Monster monster;	///< This is Monster type variable.
-	int x;				///< This is the x coordinate, for the put() function.
-	int y;				///< This is y the coordinate, for the put() function.
+	Coordinates coord;			///< This is a coordinate type variable.
 };
 
 class Game {
