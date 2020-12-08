@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_42',['type',['../classMap.html#a41697b848ea9a5aad1910714e0196b7b',1,'Map']]]
+  ['run_56',['run',['../classGame.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]]
 ];

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['dmgtaken_58',['DMGTaken',['../classCharacter.html#a83a1486290631892cf35a99f1309e4e1',1,'Character::DMGTaken()'],['../classHero.html#a34a81dae2c1c04aba295764dd3b2f273',1,'Hero::DMGTaken()'],['../classMonster.html#abde657983417229dbbc5d85b5ca54a65',1,'Monster::DMGTaken()']]]
+  ['character_84',['Character',['../classCharacter.html#a137515cc5a378f8adbc70bbd286c7697',1,'Character']]],
+  ['count_85',['count',['../classJSON.html#aed1dab25bc8d192eda84d9abc0df83bc',1,'JSON']]],
+  ['countmonsters_86',['countMonsters',['../classGame.html#acae313d5cac0d687eacfd46cde604d03',1,'Game']]]
 ];

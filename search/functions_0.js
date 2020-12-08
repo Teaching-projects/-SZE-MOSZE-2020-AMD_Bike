@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['character_56',['Character',['../classCharacter.html#a137515cc5a378f8adbc70bbd286c7697',1,'Character']]],
-  ['count_57',['count',['../classJSON.html#aed1dab25bc8d192eda84d9abc0df83bc',1,'JSON']]]
+  ['alreadyhasheroexception_82',['AlreadyHasHeroException',['../classGame_1_1AlreadyHasHeroException.html#a9b0a02f7849b2c850b128f0e6fc8774a',1,'Game::AlreadyHasHeroException']]],
+  ['alreadyhasunitsexception_83',['AlreadyHasUnitsException',['../classGame_1_1AlreadyHasUnitsException.html#ad3e17c9886980b7105714ce71ad4596d',1,'Game::AlreadyHasUnitsException']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['wall_43',['Wall',['../classMap.html#a41697b848ea9a5aad1910714e0196b7ba874474147b8fcfcec145b20926fc83bf',1,'Map']]],
-  ['wrongindexexception_44',['WrongIndexException',['../classMap_1_1WrongIndexException.html',1,'Map::WrongIndexException'],['../classMap_1_1WrongIndexException.html#a8ea5eab01831367477f695d80b8b1b2e',1,'Map::WrongIndexException::WrongIndexException()']]]
+  ['setmap_57',['setMap',['../classGame.html#ab83e25f737717d7bb4ec95b22efc82d9',1,'Game']]]
 ];

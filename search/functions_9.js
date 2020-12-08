@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['onepunch_78',['OnePunch',['../classCharacter.html#abafe21e234c5f5a81e852b75864a5942',1,'Character::OnePunch()'],['../classHero.html#a06e37ca0842a5859be17f6bc247726bb',1,'Hero::OnePunch()'],['../classPlayer.html#a3d8dd980044f2d1b75907cb399454090',1,'Player::OnePunch()']]]
+  ['map_108',['Map',['../classMap.html#ab124c12c6c9dec693aedb1a4b6384ecd',1,'Map']]],
+  ['monster_109',['Monster',['../classMonster.html#ae0157fa4e91fdbc0df5d417b8a238892',1,'Monster']]],
+  ['movehero_110',['moveHero',['../classGame.html#a2a835b4513d5d55938ce8c3670c7bf38',1,'Game']]]
 ];
