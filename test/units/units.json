@@ -1,0 +1,10 @@
+{
+  "heroes": [
+    "Dark_Wanderer.json"
+  ],
+  "monsters": [
+    "Fallen.json",
+    "Zombie.json",
+    "Blood_Raven.json"
+  ]
+}

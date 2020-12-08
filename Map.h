@@ -24,6 +24,7 @@ class Map{
 	std::vector<std::string> map;		///< This is a vector type variable, which contains the map of the game.
 
 public:
+	Map();
 	/**
 	* \brief This constructor function gets a the map from the given file.
 	* \param filename
@@ -39,13 +40,19 @@ public:
 	};
 
 	/**
-		* \brief This function returns the coordinates type (Free/Walk).
-		* \param x
-		* \param y
-		* \return Returns a Wall enum type, if there is a '#' character, and Free enum type, if there is a ' ' character, where the Character can move.
-		*
-		*/
+	* \brief This function returns the coordinates type (Free/Walk).
+	* \param x
+	* \param y
+	* \return Returns a Wall enum type, if there is a '#' character, and Free enum type, if there is a ' ' character, where the Character can move.
+	*
+	*/
 	Map::type get(int x, int y) const;
+
+	int GetTheLongestRow();
+
+	int GetMapSize();
+
+	std::string GetRow(int xRow);
 
 	class WrongIndexException : public std::runtime_error {
 	public:
