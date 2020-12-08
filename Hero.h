@@ -38,6 +38,8 @@ private:
 	const int magicaldmgperlvl;				///< This is the amount of magical damage, which the Hero gains by each level up.
 	const int defperlvl;					///< This is the amount of defense point, which the Hero gains by each level up.
 	const double acdperlvl;					///< This is a multiplier for the Hero's attack cooldown by each level up.
+	int lightradius;						///< This is the sight parameter of the Hero.
+	const int lightradiusperlvl;			///< This is the amount of sight parameter, which the Hero gains by each level up.
 	int level;								///< This number shows the Hero's actual level.
 	int aktxp;								///< This is the Hero's actual amount of experience points.
 
@@ -47,7 +49,7 @@ public:
 	* \param HeroData
 	* [in] This map contains all the specific data of the Hero
 	*/
-	Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg , int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl);
+	Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg , int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl);
 
 	/**
 	* \brief This function reads the Hero's specific datas, from a file.
@@ -103,6 +105,14 @@ public:
 	*
 	*/
 	int getLevel() const;
+
+	/**
+	* \brief This is a getter function, that returns the Hero's actual sight parameter.
+	* \param none
+	* \return Returns the Hero's actual sight parameter.
+	*
+	*/
+	int getLightRadius() const;
 
 	/**
 	* \brief This function checks whether the Hero's hitpoints is above zero or not.

@@ -3,7 +3,7 @@
 *
 * \brief PreparedGame class
 *
-*  This class's role is to set a prepared game from an existing json file.
+*  This class's role is to set a prepared game from an existing json file. 
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
@@ -31,5 +31,5 @@ public:
 	PreparedGame(std::string prepgamename);
 	using Game::run;
 };
-
 #endif
+

@@ -88,6 +88,41 @@ void Game::printMap()
 	std::cout << "╝" << std::endl;
 }
 
+void Game::printMapOnRun()
+{
+	int diff1, diff2, diff3, diff4;
+	std::cout << "╔";
+	diff1 = ((MyHero.coord.x - MyHero.hero->getLightRadius()) > 0 ? (MyHero.coord.x - MyHero.hero->getLightRadius()) : 0);
+	diff2 = ((MyHero.coord.x + MyHero.hero->getLightRadius()) < GamesMap.GetTheLongestRow()-1 ? (MyHero.coord.x + MyHero.hero->getLightRadius()) : GamesMap.GetTheLongestRow()-1);
+	diff3 = ((MyHero.coord.y - MyHero.hero->getLightRadius()) > 0 ? (MyHero.coord.y - MyHero.hero->getLightRadius()) : 0);
+	diff4 = ((MyHero.coord.y + MyHero.hero->getLightRadius()) < GamesMap.GetMapSize()-1 ? (MyHero.coord.y + MyHero.hero->getLightRadius()) : GamesMap.GetMapSize()-1);
+	for (int i = diff1; i <= diff2; i++) {
+		std::cout << "══";
+	}
+	std::cout << "╗" << std::endl;
+	for (int y = diff3; y <= diff4; y++) {
+		std::cout << "║";
+		for (int x = diff1; x <= diff2; x++) {
+			if (x < static_cast<int>(GamesMap.GetRow(y).size())) {
+				if (MyHero.coord.x == x && MyHero.coord.y == y) { std::cout << "┣┫"; }
+				else if (countMonsters(x, y) >= 1) {
+					if (countMonsters(x, y) == 1) { std::cout << "M░"; }
+					else { std::cout << "MM"; }
+				}
+				else if (GamesMap.get(x, y) == GamesMap.Free) { std::cout << "░░"; }
+				else { std::cout << "██"; }
+			}
+			else { std::cout << "██"; }
+		}
+		std::cout << "║" << std::endl;
+	}
+	std::cout << "╚";
+	for (int i = diff1; i <= diff2; i++) {
+		std::cout << "══";
+	}
+	std::cout << "╝" << std::endl;
+}
+
 int Game::countMonsters(int x, int y)
 {
 	int count = 0;
@@ -147,7 +182,7 @@ void Game::run()
 	isTheGameRunning = true;
 	std::string command = "";
 	while (isTheGameRunning) {
-		printMap();
+		printMapOnRun();
 		if (IsNewGame) {
 			isThereAMonster();
 			IsNewGame = false;
@@ -163,7 +198,7 @@ void Game::run()
 			<< "  DMG: " << MyHero.hero->getDamage() << std::endl
 			<< "  ACD: " << MyHero.hero->getAttackCoolDown() << std::endl;
 		if (Monsters.empty()) {
-			printMap();
+			printMapOnRun();
 			std::cout << std::endl << MyHero.hero->getName() << " cleared the map." << std::endl;
 			isTheGameRunning = false;
 		}

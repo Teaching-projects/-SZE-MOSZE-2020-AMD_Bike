@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
 		std::cout << "2 - Set your own game" << std::endl;
 		std::cin >> command;
 		if (command == "1") {
-			PreparedGame Game("preparedgame.json");
+			PreparedGame Game("preparedgame2.json");
 			Game.run();
 		}
 		else if (command == "2") {
