@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
 		std::cin >> command;
 
 		if (command == "1") {
-			PreparedGame Game("[prepared]game.json");
+			PreparedGame Game("preparedgame2.json");
 			if (difficulty == "1") {
 				Game.registerRenderer(new ObserverTextRenderer());
 				Game.registerRenderer(new ObserverSVGRenderer("ObserverOutput.svg"));

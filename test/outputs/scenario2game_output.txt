@@ -1,0 +1,211 @@
+Welcome to the game!
+1 - Normal, where you can see the entire map
+2 - Hard, where your sight is limited to your Hero's vision
+Choose one of the game modes below, using their numbers:
+1 - Prepared game
+2 - Set your own game
+
+Choose one of the commands below, using their numbers (or exit to exit):
+1 - set maps
+2 - put heroes
+3 - put monsters
+4 - run
+exit - exit
+
+
+Choose a map, using their numbers (or back to go back):
+1 - Map1.json
+2 - Map2.json
+back - back
+The chosen map is: 
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░░░░░░░░░░░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+
+Choose one of the commands below, using their numbers (or exit to exit):
+1 - set maps
+2 - put heroes
+3 - put monsters
+4 - run
+exit - exit
+
+
+Choose a hero, which you want to put on the map, using their numbers (or back to go back):
+1 - Prince Aidan of Khanduras
+back - back
+Give the x, y coordinates of the hero! (The upper left corner is 1, 1.)
+X: 
+Y: 
+Prince Aidan of Khanduras
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██┣┫░░░░░░░░░░░░░░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+
+Choose one of the commands below, using their numbers (or exit to exit):
+1 - set maps
+2 - put heroes
+3 - put monsters
+4 - run
+exit - exit
+
+
+Choose a monster, which you want to put on the map, using their numbers (or back to go back):
+1 - Blood Raven
+2 - Fallen
+3 - Zombie
+back - back
+Give the x, y coordinates of the hero! (The upper left corner is 1, 1.)
+X: 
+Y: 
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██┣┫░░░░░░░░░░░░M░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+
+Choose one of the commands below, using their numbers (or exit to exit):
+1 - set maps
+2 - put heroes
+3 - put monsters
+4 - run
+exit - exit
+
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██┣┫░░░░░░░░░░░░M░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
+
+Prince Aidan of Khanduras: LVL1
+   HP: 30/30
+  DMG: physical 3, magical 1
+  ACD: 1.1
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░┣┫░░░░░░░░░░M░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
+
+Prince Aidan of Khanduras: LVL1
+   HP: 30/30
+  DMG: physical 3, magical 1
+  ACD: 1.1
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░┣┫░░░░░░░░M░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
+
+Prince Aidan of Khanduras: LVL1
+   HP: 30/30
+  DMG: physical 3, magical 1
+  ACD: 1.1
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░┣┫░░░░░░M░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
+
+Prince Aidan of Khanduras: LVL1
+   HP: 30/30
+  DMG: physical 3, magical 1
+  ACD: 1.1
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░░░┣┫░░░░M░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
+
+Prince Aidan of Khanduras: LVL1
+   HP: 30/30
+  DMG: physical 3, magical 1
+  ACD: 1.1
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░░░░░┣┫░░M░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
+
+Prince Aidan of Khanduras: LVL1
+   HP: 30/30
+  DMG: physical 3, magical 1
+  ACD: 1.1
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░░░░░░░┣┫M░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
+Prince Aidan of Khanduras vs Blood Raven
+
+The hero died.
+
+Prince Aidan of Khanduras: LVL1
+   HP: 0/30
+  DMG: physical 3, magical 1
+  ACD: 1.1
+
+Choose one of the commands below, using their numbers (or exit to exit):
+1 - set maps
+2 - put heroes
+3 - put monsters
+4 - run
+exit - exit
+
