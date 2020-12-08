@@ -147,7 +147,22 @@ public:
 	void registerRenderer(Renderer* renderer);
 
 	/**
+	* \brief This function removes the first renderer.
+	* \param none
+	*
+	*/
+	void removeRenderer();
+
+	/**
+	* \brief This function prints the map when the user settings the game.
+	* \param none
+	*
+	*/
+	void printBeforeRun();
+
+	/**
 	* \brief This function runs the game.
+	* \param none
 	*
 	*/
 	void run();

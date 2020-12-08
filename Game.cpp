@@ -142,6 +142,16 @@ void Game::registerRenderer(Renderer* renderer)
 	renderers.push_back(renderer);
 }
 
+void Game::removeRenderer()
+{
+	renderers.pop_front();
+}
+
+void Game::printBeforeRun() {
+	for (auto &renderer : renderers)
+		renderer->render(*this);
+}
+
 void Game::run()
 {
 	if (GamesMap.GetMapSize() == 0 || (MyHero.coord.x == -1 && MyHero.coord.y == -1)) { throw NotInitializedException("The map is not set or there is no Hero on the map!"); }
@@ -149,8 +159,7 @@ void Game::run()
 	isTheGameRunning = true;
 	std::string command = "";
 	while (isTheGameRunning) {
-		for (auto &&renderer : renderers)
-			renderer->render(*this);
+		printBeforeRun();
 		if (IsNewGame) {
 			isThereAMonster();
 			IsNewGame = false;
@@ -171,8 +180,7 @@ void Game::run()
 			<< "  DMG: " << MyHero.hero->getDamage() << std::endl
 			<< "  ACD: " << MyHero.hero->getAttackCoolDown() << std::endl;
 		if (Monsters.empty()) {
-			for (auto &&renderer : renderers)
-				renderer->render(*this);
+			printBeforeRun();
 			std::cout << std::endl << MyHero.hero->getName() << " cleared the map." << std::endl;
 			isTheGameRunning = false;
 		}

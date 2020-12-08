@@ -29,17 +29,8 @@ void bad_exit(int exitcode) {
 	exit(exitcode);
 }
 
-void chooseDifficulty(std::string difficulty, Game& TheGame)
-{
-	if (difficulty == "1") {
-		TheGame.registerRenderer(new ObserverTextRenderer());
-		TheGame.registerRenderer(new ObserverSVGRenderer("ObserverOutput.svg"));
-	}
-	else if (difficulty == "2") {
-		TheGame.registerRenderer(new HeroTextRenderer());
-		TheGame.registerRenderer(new CharacterSVGRenderer("CharacterOutput.svg"));
-	}
-}
+
+
 
 Coordinates coutcord()
 {
@@ -58,11 +49,11 @@ int main(int argc, char** argv) {
 		std::string difficulty;
 		std::string command;
 		std::cout << "Welcome to the game!" << std::endl;
+		while(((command == "1") || (command == "2")) && ((difficulty == "1") || (difficulty == "2")))
 		std::cout << "Choose one of the game difficulties below, using their numbers:" << std::endl;
 		std::cout << "1 - Normal, where you can see the entire map" << std::endl;
 		std::cout << "2 - Hard, where your sight is limited to your Hero's vision" << std::endl;
-		std::cin >> command;
-		difficulty = command;
+		std::cin >> difficulty;
 		std::cout << "Choose one of the game modes below, using their numbers:" << std::endl;
 		std::cout << "1 - Prepared game" << std::endl;
 		std::cout << "2 - Set your own game" << std::endl;
@@ -83,6 +74,7 @@ int main(int argc, char** argv) {
 		}
 		else if (command == "2") {
 			Game TheGame;
+			TheGame.registerRenderer(new ObserverTextRenderer());
 			std::map<std::string, Hero> HeroMap;
 			std::map<std::string, Monster> MonsterMap;
 			std::vector<std::string> MapList;
@@ -126,7 +118,8 @@ int main(int argc, char** argv) {
 					else if (command != "back") {
 						if (stoi(command) > static_cast<int>(MapList.size()) || stoi(command) < 0) { bad_exit(5); }
 						TheGame.setMap(MapList[stoi(command) - 1]);
-						chooseDifficulty(difficulty, TheGame);
+						std::cout << "The chosen map is: " << std::endl;
+						TheGame.printBeforeRun();
 					}
 				}
 				else if (command == "2") {
@@ -149,6 +142,7 @@ int main(int argc, char** argv) {
 							if (i == stoi(command)) TheGame.putHero(AktHero.second, coord.y, coord.x);
 							i++;
 						}
+						TheGame.printBeforeRun();
 					}
 				}
 				else if (command == "3") {
@@ -171,8 +165,15 @@ int main(int argc, char** argv) {
 							i++;
 						}
 					}
+					TheGame.printBeforeRun();
 				}
 				else if (command == "4") {
+					if (difficulty == "2") {
+						TheGame.removeRenderer();
+						TheGame.registerRenderer(new HeroTextRenderer());
+						TheGame.registerRenderer(new CharacterSVGRenderer("CharacterOutput.svg"));
+					}
+					else TheGame.registerRenderer(new CharacterSVGRenderer("ObserverOutput.svg"));
 					TheGame.run();
 				}
 			}
