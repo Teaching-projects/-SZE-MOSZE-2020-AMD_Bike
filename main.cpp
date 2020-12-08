@@ -180,7 +180,6 @@ int main(int argc, char** argv) {
 		}
 	}
 	else if (argc == 2) {
-
 		if (!std::filesystem::exists(argv[1])) bad_exit(2);
 		std::string hero_file;
 		std::list<std::string> monster_files;
