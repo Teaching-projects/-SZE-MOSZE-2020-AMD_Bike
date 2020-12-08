@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_151',['y',['../structCoordinates.html#aae83211da8e94ae2edd3b407c19bff07',1,'Coordinates']]]
+  ['physical_164',['physical',['../structDamage.html#aee70c6c924eac810d02f61efbc90c719',1,'Damage']]]
 ];

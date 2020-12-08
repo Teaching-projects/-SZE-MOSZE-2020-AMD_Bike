@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['x_149',['x',['../structCoordinates.html#a11c878fbd2d0805c91af17d2ba2289a1',1,'Coordinates']]],
-  ['xp_150',['xp',['../classPlayer.html#ae61f2ea9b978c907d74338758b27e3d8',1,'Player']]]
+  ['name_163',['name',['../classCharacter.html#a1cbd8bdd76b3f41ec82315e95e5bcacd',1,'Character']]]
 ];

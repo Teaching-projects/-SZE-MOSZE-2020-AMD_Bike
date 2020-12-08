@@ -84,7 +84,7 @@ Inheritance diagram for Map:</div>
 <div class="center"><img src="classMap__inherit__graph.png" border="0" usemap="#Map_inherit__map" alt="Inheritance graph"/></div>
 <map name="Map_inherit__map" id="Map_inherit__map">
 <area shape="rect" title="Map class." alt="" coords="29,5,80,32"/>
-<area shape="rect" href="classMarkedMap.html" title="MarkedMap class." alt="" coords="5,80,104,107"/>
+<area shape="rect" href="classMarkedMap.html" title=" " alt="" coords="5,80,104,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -109,14 +109,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a74d5010209ad0da6b05595a33f36fc76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7b">Map::type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a74d5010209ad0da6b05595a33f36fc76">get</a> (int x, int y) const</td></tr>
 <tr class="memdesc:a74d5010209ad0da6b05595a33f36fc76"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the coordinates type (Free/Walk).  <a href="classMap.html#a74d5010209ad0da6b05595a33f36fc76">More...</a><br /></td></tr>
 <tr class="separator:a74d5010209ad0da6b05595a33f36fc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5db5b7dd6d702968502b4c11cad457b"><td class="memItemLeft" align="right" valign="top"><a id="aa5db5b7dd6d702968502b4c11cad457b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetTheLongestRow</b> ()</td></tr>
+<tr class="memitem:aa5db5b7dd6d702968502b4c11cad457b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#aa5db5b7dd6d702968502b4c11cad457b">GetTheLongestRow</a> ()</td></tr>
+<tr class="memdesc:aa5db5b7dd6d702968502b4c11cad457b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function gets the longest row.  <a href="classMap.html#aa5db5b7dd6d702968502b4c11cad457b">More...</a><br /></td></tr>
 <tr class="separator:aa5db5b7dd6d702968502b4c11cad457b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d97ccd858d1be5ebcc3b1bb33c2a243"><td class="memItemLeft" align="right" valign="top"><a id="a7d97ccd858d1be5ebcc3b1bb33c2a243"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetMapSize</b> ()</td></tr>
+<tr class="memitem:a7d97ccd858d1be5ebcc3b1bb33c2a243"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a7d97ccd858d1be5ebcc3b1bb33c2a243">GetMapSize</a> ()</td></tr>
+<tr class="memdesc:a7d97ccd858d1be5ebcc3b1bb33c2a243"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function counts the rows of the given map.  <a href="classMap.html#a7d97ccd858d1be5ebcc3b1bb33c2a243">More...</a><br /></td></tr>
 <tr class="separator:a7d97ccd858d1be5ebcc3b1bb33c2a243"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d9323f2c0f129fe463efb0dfbf19f10"><td class="memItemLeft" align="right" valign="top"><a id="a0d9323f2c0f129fe463efb0dfbf19f10"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GetRow</b> (int xRow)</td></tr>
+<tr class="memitem:a0d9323f2c0f129fe463efb0dfbf19f10"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a0d9323f2c0f129fe463efb0dfbf19f10">GetRow</a> (int xRow)</td></tr>
+<tr class="memdesc:a0d9323f2c0f129fe463efb0dfbf19f10"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function gets the given row.  <a href="classMap.html#a0d9323f2c0f129fe463efb0dfbf19f10">More...</a><br /></td></tr>
 <tr class="separator:a0d9323f2c0f129fe463efb0dfbf19f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -218,6 +218,73 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a Wall enum type, if there is a '#' character, and Free enum type, if there is a ' ' character, where the <a class="el" href="classCharacter.html" title="Character class.">Character</a> can move. </dd></dl>
+
+</div>
+</div>
+<a id="a7d97ccd858d1be5ebcc3b1bb33c2a243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d97ccd858d1be5ebcc3b1bb33c2a243">&#9670;&nbsp;</a></span>GetMapSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Map::GetMapSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function counts the rows of the given map. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the count of the rows. </dd></dl>
+
+</div>
+</div>
+<a id="a0d9323f2c0f129fe463efb0dfbf19f10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d9323f2c0f129fe463efb0dfbf19f10">&#9670;&nbsp;</a></span>GetRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Map::GetRow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>xRow</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function gets the given row. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xRow</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the xRow-th row. </dd></dl>
+
+</div>
+</div>
+<a id="aa5db5b7dd6d702968502b4c11cad457b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5db5b7dd6d702968502b4c11cad457b">&#9670;&nbsp;</a></span>GetTheLongestRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Map::GetTheLongestRow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function gets the longest row. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the longest row of the map. </dd></dl>
 
 </div>
 </div>

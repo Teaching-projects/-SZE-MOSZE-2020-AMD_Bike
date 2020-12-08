@@ -66,6 +66,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classGame-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Game Class Reference</div>  </div>
@@ -76,6 +77,27 @@ $(function() {
  <a href="classGame.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Game_8h_source.html">Game.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Game:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGame__inherit__graph.png" border="0" usemap="#Game_inherit__map" alt="Inheritance graph"/></div>
+<map name="Game_inherit__map" id="Game_inherit__map">
+<area shape="rect" title="Game class." alt="" coords="34,5,95,32"/>
+<area shape="rect" href="classPreparedGame.html" title="PreparedGame class." alt="" coords="5,80,124,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Game:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGame__coll__graph.png" border="0" usemap="#Game_coll__map" alt="Collaboration graph"/></div>
+<map name="Game_coll__map" id="Game_coll__map">
+<area shape="rect" title="Game class." alt="" coords="55,184,116,211"/>
+<area shape="rect" href="classMap.html" title="Map class." alt="" coords="5,95,56,121"/>
+<area shape="rect" href="structHeroCoordinates.html" title=" " alt="" coords="80,95,211,121"/>
+<area shape="rect" href="structCoordinates.html" title=" " alt="" coords="45,5,145,32"/>
+<area shape="rect" href="classHero.html" title="Hero class." alt="" coords="169,5,223,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -119,6 +141,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a322e8becdb483d7fe972fb9c599d7576"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a322e8becdb483d7fe972fb9c599d7576">isThereAMonster</a> ()</td></tr>
 <tr class="memdesc:a322e8becdb483d7fe972fb9c599d7576"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function checks if there are monsters in the hero's way, and if yes, then the hero figths with them.  <a href="classGame.html#a322e8becdb483d7fe972fb9c599d7576">More...</a><br /></td></tr>
 <tr class="separator:a322e8becdb483d7fe972fb9c599d7576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a2fcf5a729ea13b5ef230d059adf348af"><td class="memItemLeft" align="right" valign="top"><a id="a2fcf5a729ea13b5ef230d059adf348af"></a>
+<a class="el" href="classMap.html">Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a2fcf5a729ea13b5ef230d059adf348af">GamesMap</a></td></tr>
+<tr class="memdesc:a2fcf5a729ea13b5ef230d059adf348af"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a <a class="el" href="classMap.html" title="Map class.">Map</a> type variable. <br /></td></tr>
+<tr class="separator:a2fcf5a729ea13b5ef230d059adf348af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8573bcc2e37f224ca509a524e81ce738"><td class="memItemLeft" align="right" valign="top"><a id="a8573bcc2e37f224ca509a524e81ce738"></a>
+<a class="el" href="structHeroCoordinates.html">HeroCoordinates</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a8573bcc2e37f224ca509a524e81ce738">MyHero</a></td></tr>
+<tr class="memdesc:a8573bcc2e37f224ca509a524e81ce738"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a <a class="el" href="structHeroCoordinates.html">HeroCoordinates</a> type variable. <br /></td></tr>
+<tr class="separator:a8573bcc2e37f224ca509a524e81ce738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba9a0707341188c1c6863aa9179c72e9"><td class="memItemLeft" align="right" valign="top"><a id="aba9a0707341188c1c6863aa9179c72e9"></a>
+std::list&lt; <a class="el" href="structMonsterCoordinates.html">MonsterCoordinates</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#aba9a0707341188c1c6863aa9179c72e9">Monsters</a></td></tr>
+<tr class="memdesc:aba9a0707341188c1c6863aa9179c72e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a <a class="el" href="structMonsterCoordinates.html">MonsterCoordinates</a> list, where the monsters are stored. <br /></td></tr>
+<tr class="separator:aba9a0707341188c1c6863aa9179c72e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb07f605b681d5ec88583484c65ef245"><td class="memItemLeft" align="right" valign="top"><a id="afb07f605b681d5ec88583484c65ef245"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#afb07f605b681d5ec88583484c65ef245">isTheGameRunning</a></td></tr>
+<tr class="memdesc:afb07f605b681d5ec88583484c65ef245"><td class="mdescLeft">&#160;</td><td class="mdescRight">This bool type variable, which is true, if the game runs. <br /></td></tr>
+<tr class="separator:afb07f605b681d5ec88583484c65ef245"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classGame.html" title="Game class.">Game</a> class. </p>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['hero_141',['hero',['../structHeroCoordinates.html#a448775e4176195dae2858b0a0739b1f3',1,'HeroCoordinates']]],
-  ['hp_142',['hp',['../classCharacter.html#a273353643988a87a0ce03cff3870b2d9',1,'Character']]]
+  ['gamesmap_153',['GamesMap',['../classGame.html#a2fcf5a729ea13b5ef230d059adf348af',1,'Game']]]
 ];
