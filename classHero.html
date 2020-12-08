@@ -79,9 +79,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7f826e812e32aa68d2a6c12cadf8b44b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a7f826e812e32aa68d2a6c12cadf8b44b">Hero</a> (const std::string &amp;name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl)</td></tr>
-<tr class="memdesc:a7f826e812e32aa68d2a6c12cadf8b44b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor function initializes the <a class="el" href="classHero.html" title="Hero class.">Hero</a>, with the given data in the parameter.  <a href="classHero.html#a7f826e812e32aa68d2a6c12cadf8b44b">More...</a><br /></td></tr>
-<tr class="separator:a7f826e812e32aa68d2a6c12cadf8b44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afde5515e74c5bd17ed8f3963efb63524"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#afde5515e74c5bd17ed8f3963efb63524">Hero</a> (const std::string &amp;name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl)</td></tr>
+<tr class="memdesc:afde5515e74c5bd17ed8f3963efb63524"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor function initializes the <a class="el" href="classHero.html" title="Hero class.">Hero</a>, with the given data in the parameter.  <a href="classHero.html#afde5515e74c5bd17ed8f3963efb63524">More...</a><br /></td></tr>
+<tr class="separator:afde5515e74c5bd17ed8f3963efb63524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c7a1cf729e3e36769d20485d17e06dd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a3c7a1cf729e3e36769d20485d17e06dd">getName</a> () const</td></tr>
 <tr class="memdesc:a3c7a1cf729e3e36769d20485d17e06dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a getter function, that returns the <a class="el" href="classHero.html" title="Hero class.">Hero</a>'s name.  <a href="classHero.html#a3c7a1cf729e3e36769d20485d17e06dd">More...</a><br /></td></tr>
 <tr class="separator:a3c7a1cf729e3e36769d20485d17e06dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,6 +100,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a17e77f3769e62aeb4e1807bbfc720f47"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a17e77f3769e62aeb4e1807bbfc720f47">getLevel</a> () const</td></tr>
 <tr class="memdesc:a17e77f3769e62aeb4e1807bbfc720f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a getter function, that returns the <a class="el" href="classHero.html" title="Hero class.">Hero</a>'s actual level.  <a href="classHero.html#a17e77f3769e62aeb4e1807bbfc720f47">More...</a><br /></td></tr>
 <tr class="separator:a17e77f3769e62aeb4e1807bbfc720f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb3f50ace2a337b9dfaa4d32c58f4307"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#abb3f50ace2a337b9dfaa4d32c58f4307">getLightRadius</a> () const</td></tr>
+<tr class="memdesc:abb3f50ace2a337b9dfaa4d32c58f4307"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a getter function, that returns the <a class="el" href="classHero.html" title="Hero class.">Hero</a>'s actual sight parameter.  <a href="classHero.html#abb3f50ace2a337b9dfaa4d32c58f4307">More...</a><br /></td></tr>
+<tr class="separator:abb3f50ace2a337b9dfaa4d32c58f4307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0128b13c37754f13ee242fd4982c58c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#aa0128b13c37754f13ee242fd4982c58c">isAlive</a> () const</td></tr>
 <tr class="memdesc:aa0128b13c37754f13ee242fd4982c58c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function checks whether the <a class="el" href="classHero.html" title="Hero class.">Hero</a>'s hitpoints is above zero or not.  <a href="classHero.html#aa0128b13c37754f13ee242fd4982c58c">More...</a><br /></td></tr>
 <tr class="separator:aa0128b13c37754f13ee242fd4982c58c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,8 +136,8 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>6.0</dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2020/11/22 19:17 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7f826e812e32aa68d2a6c12cadf8b44b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f826e812e32aa68d2a6c12cadf8b44b">&#9670;&nbsp;</a></span>Hero()</h2>
+<a id="afde5515e74c5bd17ed8f3963efb63524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afde5515e74c5bd17ed8f3963efb63524">&#9670;&nbsp;</a></span>Hero()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,7 +212,19 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>acdperlvl</em>&#160;</td>
+          <td class="paramname"><em>acdperlvl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lightradius</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lightradiusperlvl</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -383,6 +398,32 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the <a class="el" href="classHero.html" title="Hero class.">Hero</a>'s actual level. </dd></dl>
+
+</div>
+</div>
+<a id="abb3f50ace2a337b9dfaa4d32c58f4307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb3f50ace2a337b9dfaa4d32c58f4307">&#9670;&nbsp;</a></span>getLightRadius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Hero::getLightRadius </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is a getter function, that returns the <a class="el" href="classHero.html" title="Hero class.">Hero</a>'s actual sight parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the <a class="el" href="classHero.html" title="Hero class.">Hero</a>'s actual sight parameter. </dd></dl>
 
 </div>
 </div>

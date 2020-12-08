@@ -12,10 +12,11 @@ var searchData=
   ['getheroposition_22',['getHeroPosition',['../classMarkedMap.html#a2dd71318d17ef1044c3db37731efee3c',1,'MarkedMap']]],
   ['gethp_23',['getHp',['../classCharacter.html#a5498d08a9dbfa968420ea8f5cb98ec3d',1,'Character']]],
   ['getlevel_24',['getLevel',['../classHero.html#a17e77f3769e62aeb4e1807bbfc720f47',1,'Hero']]],
-  ['getmapsize_25',['getMapSize',['../classJSON.html#a2f1953ec7d24dc3abc45ad10e9f40352',1,'JSON::getMapSize()'],['../classMap.html#a7d97ccd858d1be5ebcc3b1bb33c2a243',1,'Map::GetMapSize()']]],
-  ['getmaxhealthpoints_26',['getMaxHealthPoints',['../classHero.html#ac6a7deeb6e390a23536d622042f4c48e',1,'Hero']]],
-  ['getmonsterpositions_27',['getMonsterPositions',['../classMarkedMap.html#a54da9baceab4edbc7d4c2e91930fff14',1,'MarkedMap']]],
-  ['getname_28',['getName',['../classCharacter.html#ad79f892fe576c7ef0804cad502d94517',1,'Character::getName()'],['../classHero.html#a3c7a1cf729e3e36769d20485d17e06dd',1,'Hero::getName()'],['../classMonster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster::getName()']]],
-  ['getrow_29',['GetRow',['../classMap.html#a0d9323f2c0f129fe463efb0dfbf19f10',1,'Map']]],
-  ['getthelongestrow_30',['GetTheLongestRow',['../classMap.html#aa5db5b7dd6d702968502b4c11cad457b',1,'Map']]]
+  ['getlightradius_25',['getLightRadius',['../classHero.html#abb3f50ace2a337b9dfaa4d32c58f4307',1,'Hero']]],
+  ['getmapsize_26',['getMapSize',['../classJSON.html#a2f1953ec7d24dc3abc45ad10e9f40352',1,'JSON::getMapSize()'],['../classMap.html#a7d97ccd858d1be5ebcc3b1bb33c2a243',1,'Map::GetMapSize()']]],
+  ['getmaxhealthpoints_27',['getMaxHealthPoints',['../classHero.html#ac6a7deeb6e390a23536d622042f4c48e',1,'Hero']]],
+  ['getmonsterpositions_28',['getMonsterPositions',['../classMarkedMap.html#a54da9baceab4edbc7d4c2e91930fff14',1,'MarkedMap']]],
+  ['getname_29',['getName',['../classCharacter.html#ad79f892fe576c7ef0804cad502d94517',1,'Character::getName()'],['../classHero.html#a3c7a1cf729e3e36769d20485d17e06dd',1,'Hero::getName()'],['../classMonster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster::getName()']]],
+  ['getrow_30',['GetRow',['../classMap.html#a0d9323f2c0f129fe463efb0dfbf19f10',1,'Map']]],
+  ['getthelongestrow_31',['GetTheLongestRow',['../classMap.html#aa5db5b7dd6d702968502b4c11cad457b',1,'Map']]]
 ];
