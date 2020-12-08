@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_63',['y',['../structHeroCoordinates.html#a522586499b649cd4f0fdf03e88737073',1,'HeroCoordinates::y()'],['../structMonsterCoordinates.html#a6169d514dc3b223cc3c07b746336dd8b',1,'MonsterCoordinates::y()']]]
+  ['y_68',['y',['../structCoordinates.html#aae83211da8e94ae2edd3b407c19bff07',1,'Coordinates']]]
 ];

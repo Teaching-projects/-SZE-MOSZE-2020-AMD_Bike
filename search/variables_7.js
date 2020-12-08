@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['y_140',['y',['../structHeroCoordinates.html#a522586499b649cd4f0fdf03e88737073',1,'HeroCoordinates::y()'],['../structMonsterCoordinates.html#a6169d514dc3b223cc3c07b746336dd8b',1,'MonsterCoordinates::y()']]]
+  ['x_149',['x',['../structCoordinates.html#a11c878fbd2d0805c91af17d2ba2289a1',1,'Coordinates']]],
+  ['xp_150',['xp',['../classPlayer.html#ae61f2ea9b978c907d74338758b27e3d8',1,'Player']]]
 ];

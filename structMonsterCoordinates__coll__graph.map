@@ -1,4 +1,5 @@
 <map id="MonsterCoordinates" name="MonsterCoordinates">
-<area shape="rect" id="node1" title=" " alt="" coords="5,95,159,121"/>
-<area shape="rect" id="node2" href="$classMonster.html" title="Monster class." alt="" coords="45,5,119,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="33,95,187,121"/>
+<area shape="rect" id="node2" href="$structCoordinates.html" title=" " alt="" coords="5,5,105,32"/>
+<area shape="rect" id="node3" href="$classMonster.html" title="Monster class." alt="" coords="129,5,203,32"/>
 </map>
