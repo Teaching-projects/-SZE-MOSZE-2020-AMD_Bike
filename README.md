@@ -47,10 +47,10 @@ A korábban említett `markedmap.txt`-t illetve a rajta elhelyezkedő Hőst, ill
 
 ```json
   "map": "markedmap.txt",
-  "hero": "Hero.json",
-  "monster-1": "Troll.json",
-  "monster-2": "Goblin.json",
-  "monster-3": "WolfRider.json",
+  "hero": "hero.json",
+  "monster-1": "Zombie.json",
+  "monster-2": "Fallen.json",
+  "monster-3": "Blood_Raven.json",
   "wall_texture" : "Wall.jpg",
   "free_texture" : "Free.jpg"
 ```
@@ -97,7 +97,7 @@ A hero.json a következőképpen néz ki:
 - Látó távolság növekedése szintlépéskor - (_light_radius_bonus_per_level_) (alapértelmezetten 1)
 - Kép - (_texture_)
 
-#### Goblin.json
+#### Fallen.json
 Példa egy monsterre:
 ```json
 {
@@ -109,7 +109,7 @@ Példa egy monsterre:
   "attack_cooldown": 1.6,
   "lore": "The Fallen Ones (a.k.a. the Fallen), and formally known as Namus Improbus are a race of demons.",
   "additional_info": "May be resurrected by a Shaman.", 
-  "texture": "Monster1.jpg"
+  "texture": "Monster2.jpg"
 }
 ```
 

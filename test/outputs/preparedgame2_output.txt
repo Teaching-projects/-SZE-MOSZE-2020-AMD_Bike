@@ -1,4 +1,6 @@
 Welcome to the game!
+1 - Normal, where you can see the entire map
+2 - Hard, where your sight is limited to your Hero's vision
 Choose one of the game modes below, using their numbers:
 1 - Prepared game
 2 - Set your own game
@@ -9,7 +11,7 @@ Choose one of the game modes below, using their numbers:
 ║██████████║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 30/30
@@ -23,7 +25,7 @@ Prince Aidan of Khanduras: LVL1
 ║██████████║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 30/30
@@ -37,7 +39,7 @@ Prince Aidan of Khanduras: LVL1
 ║██████████║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Fallen
 
 Prince Aidan of Khanduras: LVL1
@@ -52,7 +54,7 @@ Prince Aidan of Khanduras: LVL1
 ║██████████║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 25/30
@@ -66,7 +68,7 @@ Prince Aidan of Khanduras: LVL1
 ║░░░░░░████║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 25/30
@@ -80,7 +82,7 @@ Prince Aidan of Khanduras: LVL1
 ║░░░░░░░░██║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Fallen
 
 Prince Aidan of Khanduras: LVL1
@@ -95,7 +97,7 @@ Prince Aidan of Khanduras: LVL1
 ║██░░░░░░░░║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 20/30
@@ -108,7 +110,7 @@ Prince Aidan of Khanduras: LVL1
 ║██░░░░░░░░║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 20/30
@@ -121,7 +123,7 @@ Prince Aidan of Khanduras: LVL1
 ║░░░░░░░░██║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 20/30
@@ -134,7 +136,7 @@ Prince Aidan of Khanduras: LVL1
 ║░░░░░░████║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Zombie
 
 Prince Aidan of Khanduras: LVL1
@@ -148,7 +150,7 @@ Prince Aidan of Khanduras: LVL1
 ║░░░░██████║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 16/30
@@ -161,7 +163,7 @@ Prince Aidan of Khanduras: LVL1
 ║░░████████║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 16/30
@@ -174,7 +176,7 @@ Prince Aidan of Khanduras: LVL1
 ║██████████║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 16/30
@@ -187,7 +189,7 @@ Prince Aidan of Khanduras: LVL1
 ║████████M░║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 16/30
@@ -200,7 +202,7 @@ Prince Aidan of Khanduras: LVL1
 ║██████M░░░║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 16/30
@@ -213,7 +215,7 @@ Prince Aidan of Khanduras: LVL1
 ║████M░░░██║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 16/30
@@ -226,7 +228,7 @@ Prince Aidan of Khanduras: LVL1
 ║██M░░░████║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL1
    HP: 16/30
@@ -239,7 +241,7 @@ Prince Aidan of Khanduras: LVL1
 ║M░░░████░░║
 ╚══════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Fallen
 
 Prince Aidan of Khanduras: LVL2
@@ -254,7 +256,7 @@ Prince Aidan of Khanduras: LVL2
 ║██M░░░░░M░████║
 ╚══════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL2
    HP: 30/35
@@ -268,7 +270,7 @@ Prince Aidan of Khanduras: LVL2
 ║████M░░░░░M░██║
 ╚══════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL2
    HP: 30/35
@@ -282,7 +284,7 @@ Prince Aidan of Khanduras: LVL2
 ║██████M░░░░░M░║
 ╚══════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL2
    HP: 30/35
@@ -296,7 +298,7 @@ Prince Aidan of Khanduras: LVL2
 ║████████M░░░░░║
 ╚══════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL2
    HP: 30/35
@@ -310,7 +312,7 @@ Prince Aidan of Khanduras: LVL2
 ║██████████M░░░║
 ╚══════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Fallen
 
 Prince Aidan of Khanduras: LVL2
@@ -326,7 +328,7 @@ Prince Aidan of Khanduras: LVL2
 ║██████████████║
 ╚══════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL2
    HP: 30/35
@@ -341,7 +343,7 @@ Prince Aidan of Khanduras: LVL2
 ║██████████████║
 ╚══════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Fallen
 
 Prince Aidan of Khanduras: LVL2
@@ -357,7 +359,7 @@ Prince Aidan of Khanduras: LVL2
 ║██████████████║
 ╚══════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL2
    HP: 30/35
@@ -372,7 +374,7 @@ Prince Aidan of Khanduras: LVL2
 ║██████████████║
 ╚══════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Zombie
 
 Prince Aidan of Khanduras: LVL3
@@ -388,7 +390,7 @@ Prince Aidan of Khanduras: LVL3
 ║██████████████████║
 ╚══════════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL3
    HP: 40/40
@@ -403,7 +405,7 @@ Prince Aidan of Khanduras: LVL3
 ║██████████████████║
 ╚══════════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL3
    HP: 40/40
@@ -418,7 +420,7 @@ Prince Aidan of Khanduras: LVL3
 ║██████████████████║
 ╚══════════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Zombie
 
 Prince Aidan of Khanduras: LVL3
@@ -434,7 +436,7 @@ Prince Aidan of Khanduras: LVL3
 ║██████████████████║
 ╚══════════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL3
    HP: 40/40
@@ -449,7 +451,7 @@ Prince Aidan of Khanduras: LVL3
 ║██████████████████║
 ╚══════════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL3
    HP: 40/40
@@ -464,7 +466,7 @@ Prince Aidan of Khanduras: LVL3
 ║██████████████████║
 ╚══════════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 
 Prince Aidan of Khanduras: LVL3
    HP: 40/40
@@ -479,7 +481,7 @@ Prince Aidan of Khanduras: LVL3
 ║████████████████║
 ╚════════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Fallen
 
 Prince Aidan of Khanduras: LVL3
@@ -495,7 +497,7 @@ Prince Aidan of Khanduras: LVL3
 ║██████████████║
 ╚══════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Zombie
 
 Prince Aidan of Khanduras: LVL4
@@ -511,7 +513,7 @@ Prince Aidan of Khanduras: LVL4
 ║████████████████║
 ╚════════════════╝
 
-Type north/south/west/east to move your hero in that direction!
+Type north/south/west/east to move your hero in that direction! (or type ff to surrender)
 Prince Aidan of Khanduras vs Blood Raven
 
 Prince Aidan of Khanduras: LVL9

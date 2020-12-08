@@ -53,10 +53,10 @@ sca-build:
 	$(CC) $(CFLAGS) $(CPPOBJECTS) -o main
 
 valgrind-check:
-	valgrind --leak-check=full --error-exitcode=1 cat $(T)/scenarios/scenario1game.txt | ./main
+	valgrind --leak-check=full --error-exitcode=1 cat $(T)/scenarios/scenario2game.txt | ./main
 
 valgrind-check-two:
-	valgrind --leak-check=full --error-exitcode=1 cat $(T)/scenarios/preparedgame2.txt | ./main
+	valgrind --leak-check=full --error-exitcode=1 cat $(T)/scenarios/preparedgame.txt | ./main
 
 valgrind-check-three:
 	valgrind --leak-check=full --error-exitcode=1 ./main $(T)/scenarios/scenario1.json

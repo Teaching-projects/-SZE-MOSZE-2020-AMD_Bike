@@ -4,6 +4,10 @@
 #include "../Damage.h"
 #include "../Map.h"
 #include "../Game.h"
+#include "../MarkedMap.h"
+#include "../PreparedGame.h"
+#include "../TextRenderer.h"
+#include "../SVGRenderer.h"
 #include <gtest/gtest.h>
 
 TEST(ParserTest, InputString) {
@@ -171,6 +175,7 @@ TEST(NewUnitTests, NoValueError) {
 }
 
 
+
 TEST(NewGameUnitTests, WrongIndexException) {
 	Hero Unit = Hero::parse("Dark_Wanderer.json");
 	Game TheGame;
@@ -237,6 +242,23 @@ TEST(NewGameUnitTests, NotInitializedException) {
 	catch (std::runtime_error &e) {
 		ASSERT_EQ(e.what(), expectedErrorMsg);
 	}
+}
+
+
+
+TEST(FinalUnitTests, HeroCoordinatesTest) {
+	MarkedMap map("markedmap.txt");
+	Coordinates coord = {2, 1};
+	ASSERT_TRUE(map.getHeroPosition().x == coord.x);
+	ASSERT_TRUE(map.getHeroPosition().y == coord.y);
+}
+
+TEST(FinalUnitTests, MonsterCoordinatesTest) {
+	MarkedMap map("markedmap.txt");
+	Coordinates coord = { 2, 3 };
+	std::list<Coordinates> monsterTest = map.getMonsterPositions('1');
+	ASSERT_TRUE(monsterTest.begin()->x == coord.x);
+	ASSERT_TRUE(monsterTest.begin()->y == coord.y);
 }
 
 int main(int argc, char** argv) {
