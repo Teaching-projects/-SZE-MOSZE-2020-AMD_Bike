@@ -7,5 +7,6 @@
   "damage": 6,
   "defense": 1,
   "attack_cooldown": 2.8,
-  "race": "undead"
+  "race": "undead",
+  "texture": "Monster2.jpg"
 }

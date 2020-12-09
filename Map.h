@@ -38,7 +38,7 @@ public:
 	* \param filename
 	* [in] This is the name of the given file, in which the map is located.
 	*/
-	Map(std::string filename);
+	Map(const std::string& filename);
 
 	///This is an enum for the map, with which we can give the correct information about the field. 
 	enum type
@@ -61,14 +61,14 @@ public:
 	* \return Returns the longest row of the map.
 	*
 	*/
-	int GetTheLongestRow();
+	int GetTheLongestRow() const;
 
 	/**
 	* \brief This function counts the rows of the given map.
 	* \return Returns the count of the rows.
 	*
 	*/
-	int GetMapSize();
+	int GetMapSize() const;
 
 	/**
 	* \brief This function gets the given row.
@@ -76,7 +76,14 @@ public:
 	* \return Returns the xRow-th row.
 	*
 	*/
-	std::string GetRow(int xRow);
+	std::string GetRow(int xRow) const;
+
+	/**
+	* \brief This function sets the maps value on the given coordinates.
+	* \param x, y
+	*
+	*/
+	void setMap(int x, int y, char c);
 
 	class WrongIndexException : public std::runtime_error {
 	public:
@@ -86,33 +93,8 @@ public:
 		* \return Returns the appropriate error message.
 		*
 		*/
-		WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg) {}
+		explicit WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg) {}
 	};
-};
-
-class MarkedMap : public Map {
-public:
-	/**
-	* \brief This constructor function initializes the map, with the given data in the parameter.
-	* \param filename
-	* [in] It contains the name of the given marked map.
-	*/
-	MarkedMap(std::string filename);
-
-	/**
-	* \brief This function search for the 'H' on the given map, so for the Hero.
-	* \return Returns the x and y coordinates of the Hero.
-	*
-	*/
-	Coordinates getHeroPosition() const;
-
-	/**
-	* \brief This function search for the diggerent kind of monsters on the map.
-	* \param c
-	* \return Returns the x and y coordinates of the monsters in a list.
-	*
-	*/
-	std::list<Coordinates> getMonsterPositions(char c) const;
 };
 
 #endif

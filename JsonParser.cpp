@@ -72,7 +72,6 @@ std::map<std::string, std::string> JsonParser::ParserFromString(std::string Stri
 		if (akt2 == "") {
 			throw std::runtime_error("No value given to the \"" + akt1 + "\" key!" );
 		}
-
 		toReturn.insert(std::pair<std::string, std::string>(akt1, akt2));
 		akt1 = "";
 		akt2 = "";

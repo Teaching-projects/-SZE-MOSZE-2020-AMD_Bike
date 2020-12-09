@@ -7,18 +7,15 @@
 *
 * \author skrobi12, hajdunorbi, Szabi1104
 *
-* \version 11.0
+* \version 12.0
 *
-* \date 2020/12/02 14:17
+* \date 2020/12/07 20:17
 */
 
 
 #ifndef PREPAREDGAME_H
 #define PREPAREDGAME_H
 
-#include <string>
-#include <fstream>
-#include <vector>
 #include "Game.h"
 
 class PreparedGame : protected Game {
@@ -28,8 +25,11 @@ public:
 	* \param prepgamename
 	* [in] It contains the name of the given map, hero and monsters files.
 	*/
-	PreparedGame(std::string prepgamename);
+	explicit PreparedGame(const std::string& prepgamename);
+
 	using Game::run;
+	using Game::registerRenderer;
+	using Game::getTextures;
 };
 #endif
 

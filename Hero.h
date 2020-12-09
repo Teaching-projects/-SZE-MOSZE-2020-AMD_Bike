@@ -42,6 +42,7 @@ private:
 	const int lightradiusperlvl;			///< This is the amount of sight parameter, which the Hero gains by each level up.
 	int level;								///< This number shows the Hero's actual level.
 	int aktxp;								///< This is the Hero's actual amount of experience points.
+	std::string texture;					///< This is the Hero image's name
 
 public:
 	/**
@@ -49,15 +50,8 @@ public:
 	* \param HeroData
 	* [in] This map contains all the specific data of the Hero
 	*/
-	Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg , int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl);
-
-	/**
-	* \brief This function reads the Hero's specific datas, from a file.
-	* \param String
-	* \return Returns the Hero, all of its parameters.
-	*
-	*/static Hero parse(const std::string& String);
-
+	Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg , int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl, const std::string& texture);
+	
 	/**
 	* \brief This is a getter function, that returns the Hero's name.
 	* \param none
@@ -115,6 +109,21 @@ public:
 	int getLightRadius() const;
 
 	/**
+	* \brief This is a getter function, that returns the Hero image's name.
+	* \param none
+	* \return Returns the Hero image's name.
+	*
+	*/
+	std::string getTexture() const;
+
+	/**
+	* \brief This function reads the Hero's specific datas, from a file.
+	* \param String
+	* \return Returns the Hero, all of its parameters.
+	*
+	*/static Hero parse(const std::string& String);
+
+	/**
 	* \brief This function checks whether the Hero's hitpoints is above zero or not.
 	* \param none
 	* \return Returns true if the Hero's hitpoints is above zero, and false if it's not.
@@ -127,7 +136,7 @@ public:
 	* \param monster
 	*
 	*/
-	void DMGTaken(Monster& monster);
+	void DMGTaken(const Monster& monster);
 
 	/**
 	* \brief This function calls the DMGTaken() function and specifies the actual amount of xp, which the Hero gains and calls the LevelUp() if needed.

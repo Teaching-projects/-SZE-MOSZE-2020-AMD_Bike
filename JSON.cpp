@@ -1,8 +1,7 @@
 #include "JSON.h"
-#include <iostream>
 #include <vector>
 
-JSON::JSON(VariantMap data) : data(data)
+JSON::JSON(const VariantMap& data) : data(data)
 {
 }
 
@@ -18,7 +17,6 @@ JSON JSON::parseFromFile(std::string FileName)
 		file.close();
 	}
 	else {
-		
 		std::string errMsg = "The file cannot be opened!";
 		throw ParseException(errMsg);
 	}
@@ -40,7 +38,7 @@ JSON JSON::parseFromFile(std::istream& Istream)
 
 JSON JSON::parseFromString(std::string String)
 {
-	std::vector<std::string> Check1 = { "name", "hero", "lore", "race", "additional_info", "map", "monster-1", "monster-2", "monster-3" };
+	std::vector<std::string> Check1 = { "name", "hero", "lore", "race", "additional_info", "map", "monster-1", "monster-2", "monster-3", "wall_texture", "free_texture", "texture" };
 	std::vector<std::string> Check2 = { "monsters", "heroes", "maps" };
 	
 	VariantMap StringData;
@@ -56,7 +54,7 @@ JSON JSON::parseFromString(std::string String)
 		}
 		String.erase(0, x + 1);
 		if (std::find(Check1.begin(), Check1.end(), akt1) != Check1.end()){
-			size_t x = String.find('"') + 1;
+			x = String.find('"') + 1;
 			while ((String[x] != '"') && (x != String.size())) {
 				if (isupper(String[x]) && (String[x - 1] != '-') && (String[x - 1] != '_') && (akt2 != "")) {
 					akt2 = akt2 + ' ' + String[x];
@@ -74,7 +72,7 @@ JSON JSON::parseFromString(std::string String)
 			String.erase(0, x + 1);
 		}
 		else if (std::find(Check2.begin(), Check2.end(), akt1) != Check2.end()) {
-			size_t x = String.find('[') + 1;
+			x = String.find('[') + 1;
 			while ((String[x] != ']') && (x != String.size())) {
 				if (String.find('"') != std::string::npos && String.find(']') != std::string::npos) {
 					if (String.find('"') < String.find(']')) x = String.find('"') + 1;
@@ -130,9 +128,4 @@ JSON JSON::parseFromString(std::string String)
 bool JSON::count(std::string String) const
 {
 	return data.count(String);
-}
-
-int JSON::getMapSize() const
-{
-	return data.size();
 }

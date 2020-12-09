@@ -16,11 +16,11 @@
 #ifndef MONSTER_H
 #define MONSTER_H
 
-#include "Damage.h"
-#include "JSON.h"
 #include <string>
 #include <map>
 #include <variant>
+#include "Damage.h"
+#include "JSON.h"
 
 class Monster {
 private:
@@ -31,6 +31,7 @@ private:
 	double acd;							///< This is the Monster's attack cooldown.
 	const std::string race;				///< This marks the Monster's race.
 	const std::string lore;				///< This is the lore of the Monster.
+	std::string texture;				///< This is the Hero image's name
 
 public:
 	/**
@@ -38,15 +39,7 @@ public:
 	* \param MonsterData
 	* [in] This map contains all the specific data of the Monster
 	*/
-	Monster(const std::string name, int hp, int physicaldmg, int magicaldmg, int def, double acd);
-
-	/**
-	* \brief This function reads the Monster's specific datas, from a file.
-	* \param String
-	* \return Returns a Monster unit, all of its parameters.
-	*
-	*/
-	static Monster parse(const std::string& String);
+	Monster(const std::string &name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const std::string& texture);
 
 	/**
 	* \brief This is a getter function, that returns the Monster's name.
@@ -79,6 +72,16 @@ public:
 	*
 	*/
 	double getAttackCoolDown() const;
+
+	std::string getTexture() const;
+
+	/**
+	* \brief This function reads the Monster's specific datas, from a file.
+	* \param String
+	* \return Returns a Monster unit, all of its parameters.
+	*
+	*/
+	static Monster parse(const std::string& String);
 
 	/**
 	* \brief This function checks whether the Monster's hitpoints is above zero or not.

@@ -1,20 +1,17 @@
 #include <iostream>
-#include <map>
 #include <string>
-#include <filesystem>
 #include <sstream>
+#include <filesystem>
 #include <algorithm>
 #include <iterator>
+#include <map>
 #include <list>
 #include <vector>
 
-#include "JSON.h"
-#include "Hero.h"
 #include "Monster.h"
-#include "Game.h"
-#include "Map.h"
 #include "PreparedGame.h"
-
+#include "TextRenderer.h"
+#include "SVGRenderer.h"
 
 
 const std::map<int, std::string> error_messages = {
@@ -32,21 +29,52 @@ void bad_exit(int exitcode) {
 	exit(exitcode);
 }
 
+
+
+
+Coordinates coutcord()
+{
+	Coordinates coord;
+	std::cout << "Give the x, y coordinates of the hero! (The upper left corner is 1, 1.)" << std::endl;
+	std::cout << "X: " << std::endl;
+	std::cin >> coord.x;
+	std::cout << "Y: " << std::endl;
+	std::cin >> coord.y;
+	return coord;
+}
+
 int main(int argc, char** argv) {
 
 	if (argc == 1) {
+		std::string difficulty;
 		std::string command;
 		std::cout << "Welcome to the game!" << std::endl;
+		while(((command == "1") || (command == "2")) && ((difficulty == "1") || (difficulty == "2")))
+		std::cout << "Choose one of the game difficulties below, using their numbers:" << std::endl;
+		std::cout << "1 - Normal, where you can see the entire map" << std::endl;
+		std::cout << "2 - Hard, where your sight is limited to your Hero's vision" << std::endl;
+		std::cin >> difficulty;
 		std::cout << "Choose one of the game modes below, using their numbers:" << std::endl;
 		std::cout << "1 - Prepared game" << std::endl;
 		std::cout << "2 - Set your own game" << std::endl;
 		std::cin >> command;
+
 		if (command == "1") {
 			PreparedGame Game("preparedgame2.json");
-			Game.run();
+			if (difficulty == "1") {
+				Game.registerRenderer(new ObserverTextRenderer());
+				Game.registerRenderer(new ObserverSVGRenderer("ObserverOutput.svg"));
+				Game.run();
+			}
+			else if (difficulty == "2") {
+				Game.registerRenderer(new HeroTextRenderer());
+				Game.registerRenderer(new CharacterSVGRenderer("CharacterOutput.svg"));
+				Game.run();
+			}
 		}
 		else if (command == "2") {
 			Game TheGame;
+			TheGame.registerRenderer(new ObserverTextRenderer());
 			std::map<std::string, Hero> HeroMap;
 			std::map<std::string, Monster> MonsterMap;
 			std::vector<std::string> MapList;
@@ -59,7 +87,6 @@ int main(int argc, char** argv) {
 					Hero AktHero = Hero::parse(std::get<std::string>(hero_file));
 					HeroMap.insert({ AktHero.getName(), AktHero });
 				}
-
 				JSON::list monsters_file_list = Units.get<JSON::list>("monsters");
 
 				for (auto monster_file : monsters_file_list) {
@@ -75,7 +102,6 @@ int main(int argc, char** argv) {
 					MapList.push_back(std::get<std::string>(map_file));
 				}
 			}
-
 			while (command != "exit") {
 				std::cout << std::endl << "Choose one of the commands below, using their numbers (or exit to exit):" << std::endl;
 				std::cout << "1 - set maps\n2 - put heroes\n3 - put monsters\n4 - run\nexit - exit\n" << std::endl;
@@ -92,8 +118,8 @@ int main(int argc, char** argv) {
 					else if (command != "back") {
 						if (stoi(command) > static_cast<int>(MapList.size()) || stoi(command) < 0) { bad_exit(5); }
 						TheGame.setMap(MapList[stoi(command) - 1]);
-						std::cout << "The chosen map: " << std::endl;
-						TheGame.printMap();
+						std::cout << "The chosen map is: " << std::endl;
+						TheGame.print();
 					}
 				}
 				else if (command == "2") {
@@ -109,22 +135,16 @@ int main(int argc, char** argv) {
 						bad_exit(5);
 					else if (command != "back") {
 						if (stoi(command) >= i || stoi(command) < 0) { bad_exit(5); }
+						Coordinates coord = coutcord();
 						i = 1;
-						int x, y;
-						std::cout << "Give the x, y coordinates of the hero! (The upper left corner is 1, 1.)" << std::endl;
-						std::cout << "X: " << std::endl;
-						std::cin >> x;
-						std::cout << "Y: " << std::endl;
-						std::cin >> y;
 						for (auto &AktHero : HeroMap) {
 							std::cout << AktHero.second.getName() << std::endl;
-							if (i == stoi(command)) TheGame.putHero(AktHero.second, y, x);
+							if (i == stoi(command)) TheGame.putHero(AktHero.second, coord.y, coord.x);
 							i++;
 						}
+						TheGame.print();
 					}
-					TheGame.printMap();
 				}
-
 				else if (command == "3") {
 					std::cout << std::endl << "Choose a monster, which you want to put on the map, using their numbers (or back to go back):" << std::endl;
 					int i = 1;
@@ -138,31 +158,29 @@ int main(int argc, char** argv) {
 						bad_exit(5);
 					else if (command != "back") {
 						if (stoi(command) >= i || stoi(command) < 0) { bad_exit(5); }
+						Coordinates coord = coutcord();
 						i = 1;
-						int x, y;
-						std::cout << "Give the x, y coordinates of the monster! (The upper left corner is 1, 1.)" << std::endl;
-						std::cout << "X: " << std::endl;
-						std::cin >> x;
-						std::cout << "Y: " << std::endl;
-						std::cin >> y;
 						for (auto &AktMonster : MonsterMap) {
-							if (i == stoi(command)) TheGame.putMonster(AktMonster.second, y, x);
+							if (i == stoi(command)) TheGame.putMonster(AktMonster.second, coord.y, coord.x);
 							i++;
 						}
 					}
-					TheGame.printMap();
+					TheGame.print();
 				}
 				else if (command == "4") {
+					if (difficulty == "2") {
+						TheGame.removeRenderer();
+						TheGame.registerRenderer(new HeroTextRenderer());
+						TheGame.registerRenderer(new CharacterSVGRenderer("CharacterOutput.svg"));
+					}
+					else TheGame.registerRenderer(new ObserverSVGRenderer("ObserverOutput.svg"));
 					TheGame.run();
 				}
 			}
 		}
-
 	}
 	else if (argc == 2) {
-
 		if (!std::filesystem::exists(argv[1])) bad_exit(2);
-
 		std::string hero_file;
 		std::list<std::string> monster_files;
 		try {
@@ -176,7 +194,6 @@ int main(int argc, char** argv) {
 			}
 		}
 		catch (const JSON::ParseException& e) { bad_exit(4); }
-
 		try {
 			Hero hero{ Hero::parse(hero_file) };
 			std::list<Monster> monsters;
