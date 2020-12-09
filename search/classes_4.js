@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['hero_85',['Hero',['../classHero.html',1,'']]],
-  ['herocoordinates_86',['HeroCoordinates',['../structHeroCoordinates.html',1,'']]]
+  ['hero_107',['Hero',['../classHero.html',1,'']]],
+  ['herocoordinates_108',['HeroCoordinates',['../structHeroCoordinates.html',1,'']]],
+  ['herotextrenderer_109',['HeroTextRenderer',['../classHeroTextRenderer.html',1,'']]]
 ];

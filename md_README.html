@@ -72,20 +72,205 @@ Csapat tagjai:</h1>
 <ul>
 <li>Hajdu Norbert</li>
 <li>Skrapits Róbert Ágoston</li>
-<li>Gergály Szabolcs</li>
+<li>Boja Richard</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
 A feladat leírása:</h1>
-<p>A program indulásakor 2 <a class="el" href="classJSON.html" title="JSON class.">JSON</a> kiterjesztésű fájl nevét szükséges megadni. Ezekben vannak meghatározva karaktereink adatai, azaz a nevük, az életerejük, a sebzésük és egy olyan paraméter mely az ütéseik között eltelt időt tárolja másodpercben, amiket beolvasunk a programba a fájlokból.<br  />
- Például ezekben a fájlokban tárolt információk alapján az összecsapó két karakterünk: Luke Skywalker 2500 270 1.2 és Darth Vader 3800 440 3.2. Ezután az ütési gyorsaság figyelembe vételével egymást sebzi a két karakter és a végén amelyik karakter először éri el a 0 életerőt, az veszít, a másik pedig győzedelmeskedik.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
-A program lefutását egy Character osztály és a main &lt;em&gt;Fight()&lt;/em&gt; függvénye teszi lehetővé:</h2>
-<p>Az osztály 4 adattaggal rendelkezik, amelyek a karakterek nevét, életerejét, sebzését és a már említett paramétert határozzák meg, melyek közül a név, a sebzés és a paraméter konstans, mert ezek nem fognak változni a harc során sem.<br  />
- Az osztály az adattagokon kívül 4 konstans getter-rel, egy <em>DMGTaken()</em> függvénnyel, egy <em>IsDead()</em> függvénnyel, egy <em>pharseUnit()</em> és egy konstruktor-ral rendelkezik. Ezen függvények közül a <em>DMGTaken()</em> függvény negatív életerő kiküszöböléséért és a karakterek sebződéséért, míg a <em>IsDead()</em> a karakter halálának megállapításáért felelős. A <a class="el" href="classCharacter.html" title="Character class.">Character</a> osztály <em>pharseUnit()</em> függvénye kizárólag csak a fájlból beolvasásért felelős.<br  />
- A programban a harc lefutását a main-ben egy <em>Fight()</em> fügvénnyel valósítottuk meg, amelyben a karakterek támadásai az ütéseik gyorsaságának függvényében x időnként következnek be és vizsgáljuk a karakterek esetleges halálát a már említett <em>DMGTaken()</em> függvény meghívásával.<br  />
- A <em>Units</em> könyvtárban találhatóak maguk a karakterek azaz unitok, szám szerint 3. <br  />
- A <em>test.sh</em> shell script feladata hogy a 3 unitot (Yoda.json, Vader.yson, Luke.yson) mind a 6 lehetséges módon megütköztesse egymással (bár az ütések között eltelt időnek köszönhetően ritka, mikor a kimenetelt befolyásolja az, hogy ki indította a harcot). A diff parancs segítségével leellenőrzi, hogy a kapott eredmények megegyeznek-e a várt kimenettel, vagyis az <em>output.txt</em> megegyezik-e a <em>correct_output.txt</em>-ben tárolt adatokkal.</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<p>A feladatunk egy RPG játék létrehozása volt. Az említett játék ebben a végleges formájában úgy működik, hogy az általunk készített program üdvözli a felhasználót, majd ezután lehetősege nyílik kiválasztania a játék nehézségét.<br  />
+ A nehézségi szint megadása után pedig további lehetősegként megadható, hogy egy előre létrehozott pályán játszhassunk <b><a class="el" href="classPreparedGame.html" title="PreparedGame class.">PreparedGame</a></b>, vagy pedig mi magunk szeeretnénk összerakni azt <b>CustomGame</b></p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+PreparedGame</h1>
+<h3><a class="anchor" id="autotoc_md4"></a>
+markedmap.txt</h3>
+<div class="fragment"><div class="line">##############</div>
+<div class="line"># H #  ####  #</div>
+<div class="line"># ####22##  #</div>
+<div class="line"># 12# 3##  #</div>
+<div class="line">###1# ##  #</div>
+<div class="line">#     1   #</div>
+<div class="line">#########</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md5"></a>
+Jelmagyarázat</h3>
+<ul>
+<li><code>#</code> a falat jelöli</li>
+<li><code>H</code> a Hősünket jelöli, akit mozgatni fogunk</li>
+<li><code>1</code>, <code>2</code>, <code>3</code> pedig a különböző típusú szörnyeket jelöli, akikkel a Hősünk megküzd a játék során</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Nehézségi szintek:</h3>
+<ul>
+<li><code>Normal</code>: (Normál) A felhasználó/játékos az előre elkészített pálya egészét látja, így pontosan tisztában van azzal, hogy éppen milyen típusú szörnyek várnak rá, és hova kell lépnie, hogy azokat elkerülje</li>
+<li><code>Hard</code>: (Nehéz) A felhasználó/játékos már nem a pálya egészét, hanem a Hősének megfelelő távolságra lát el, ami szintlépésenkként egy adott értékkel nő.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Hős mozgatása</h3>
+<p>A nehézségi szint kiválasztása után elindul a játék, ahol a fent látható pálya alapján kirajzolódik a térkép, és elkezdhetjük irányítani Hősünket az égtájak megadásával, amiket angolul kell megadni <code>north</code>, <code>south</code>, <code>west</code>, <code>east</code>. Ha szörny mezőre lépünk, a csata megkezdődik, melynek során Hősünkek lehetősége nyílik tapasztalatot szerezni a kiosztott sebzés mértékében. Amennyiben túléli a csatát tovább folytathatja harcát mindaddig, míg el nem fogynak a szörnyek a pályáról, vagy a hősünk meg nem hal.  természetesen minél több szörnnyel küzdünk meg annál több szintet lépünk, és erőnk, azaz a Hős statisztikája is ennek fügvényében változik.</p>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Inputok</h2>
+<p>A korábban említett <code>markedmap.txt</code>-t illetve a rajta elhelyezkedő Hőst, illetve szörnyeket egy <code>[prepared]game.json</code> fogja tárolni, ahonnan minden szükséges információt kinyerünk. Ilyen adatok például a Hős sebzése, életereje, stb...</p>
+<h3><a class="anchor" id="autotoc_md9"></a>
+[prepared]game.json</h3>
+<div class="fragment"><div class="line">&quot;map&quot;: &quot;markedmap.txt&quot;,</div>
+<div class="line">&quot;hero&quot;: &quot;hero.json&quot;,</div>
+<div class="line">&quot;monster-1&quot;: &quot;Zombie.json&quot;,</div>
+<div class="line">&quot;monster-2&quot;: &quot;Fallen.json&quot;,</div>
+<div class="line">&quot;monster-3&quot;: &quot;Blood_Raven.json&quot;,</div>
+<div class="line">&quot;wall_texture&quot; : &quot;Wall.jpg&quot;,</div>
+<div class="line">&quot;free_texture&quot; : &quot;Free.jpg&quot;</div>
+</div><!-- fragment --><p>Tehát ahogyan azt említettük, a <code>markedmap.txt</code>-ben lévő <code>H</code>-t, illetve <code>számokat</code> a <code>[prepared]game.json</code>-ből kiolvasott json-őkből nyerjük ki, ahol minden létező adatot megtalálhatunk, ami a játék futásához szükséges. <br  />
+</p>
+<h3><a class="anchor" id="autotoc_md10"></a>
+hero.json</h3>
+<p>A hero.json a következőképpen néz ki:</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;name&quot;: &quot;Prince Aidan of Khanduras&quot;,</div>
+<div class="line">  &quot;base_health_points&quot;: 30,</div>
+<div class="line">  &quot;base_damage&quot;: 3,</div>
+<div class="line">  &quot;base_magical_damage&quot;: 1,</div>
+<div class="line">  &quot;base_defense&quot;: 2,</div>
+<div class="line">  &quot;base_attack_cooldown&quot;: 1.1,</div>
+<div class="line">  &quot;experience_per_level&quot;: 20,</div>
+<div class="line">  &quot;health_point_bonus_per_level&quot;: 5,</div>
+<div class="line">  &quot;damage_bonus_per_level&quot;: 1,</div>
+<div class="line">  &quot;magical_damage_bonus_per_level&quot;: 1,</div>
+<div class="line">  &quot;defense_bonus_per_level&quot;: 1,</div>
+<div class="line">  &quot;cooldown_multiplier_per_level&quot;: 0.9,</div>
+<div class="line">  &quot;light_radius&quot;: 2,</div>
+<div class="line">  &quot;light_radius_bonus_per_level&quot;: 1,</div>
+<div class="line">  &quot;texture&quot;: &quot;Hero.jpg&quot;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
+Adatok:</h3>
+<ul>
+<li>Név (<em>name</em>)</li>
+<li>Életerő - (<em>base_health_points</em>)</li>
+<li>Sebzés - (<em>damage</em>) (opcionális - alapértelmezetten 0)</li>
+<li>Varázs sebzés - (<em>magical_damage</em>) (opcionális - alapértelmezetten 0)</li>
+<li>Védelem - (<em>defense</em>)</li>
+<li>Két ütés között eltelt idő - (<em>base_attack_cooldown</em>)</li>
+<li>Tapasztalat szintlépéskor (<em>experience_per_level</em>)</li>
+<li>Életerő növekedése szintlépéskor - (<em>health_point_bonus_per_level</em>)</li>
+<li>Sebzés növekedése szintlépéskor - (<em>damage_bonus_per_level</em>) (opcionális - alapértelmezetten 0)</li>
+<li>Varázs sebzés növekedése szintlépéskor - (<em>magical_damage_bonus_per_level</em>) (opcionális - alapértelmezetten 0)</li>
+<li>Védelem növekedése szintlépéskor - (<em>defense_bonus_per_level</em>)</li>
+<li>Két ütés között eltelt idő csökkenése szintlépéskor - (<em>cooldown_multiplier_per_level</em>)</li>
+<li>Látó távolság - (<em>light_radius</em>)</li>
+<li>Látó távolság növekedése szintlépéskor - (<em>light_radius_bonus_per_level</em>) (alapértelmezetten 1)</li>
+<li>Kép - (<em>texture</em>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md12"></a>
+Fallen.json</h3>
+<p>Példa egy monsterre: </p><div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;name&quot;: &quot;Fallen&quot;,</div>
+<div class="line">  &quot;health_points&quot;: 4,</div>
+<div class="line">  &quot;damage&quot;: 1,</div>
+<div class="line">  &quot;magical_damage&quot;: 5,</div>
+<div class="line">  &quot;defense&quot;: 2,</div>
+<div class="line">  &quot;attack_cooldown&quot;: 1.6,</div>
+<div class="line">  &quot;lore&quot;: &quot;The Fallen Ones (a.k.a. the Fallen), and formally known as Namus Improbus are a race of demons.&quot;,</div>
+<div class="line">  &quot;additional_info&quot;: &quot;May be resurrected by a Shaman.&quot;, </div>
+<div class="line">  &quot;texture&quot;: &quot;Monster1.jpg&quot;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md13"></a>
+Adatok:</h3>
+<ul>
+<li>Név (<em>name</em>)</li>
+<li>Életerő - (<em>base_health_point</em>)</li>
+<li>Sebzés - (<em>damage</em>) (opcionális - alapértelmezetten 0)</li>
+<li>Varázs sebzés - (<em>magical_damage</em>) (opcionális - alapértelmezetten 0)</li>
+<li>Két ütés között eltelt idő - (<em>attack_cooldown</em>)</li>
+<li>Védelem - (<em>defense</em>)</li>
+<li>Kép - (<em>texture</em>)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md14"></a>
+CustomGame</h1>
+<p>Hasonlóan a <b><a class="el" href="classPreparedGame.html" title="PreparedGame class.">PreparedGame</a></b>-hez, először itt is ki kell választania a felhasználónak a <b>Nehézségi szintet</b>, majd ezután a számok segítségével ki tudjuk választani melyik pályán szeretnénk játszani. Ezután kiválaszthatjuk, hogy melyik Hősel szeretnénk játszani, illetve az a pályán hol helyezkedjen el (természetesen egyszerre csak egy hős lehet a pályán...). Természetesen a szörnyeket is hasonlóképpen kell kiválasztani egy listából, és megadni azokat a koordinátákat, ahol szeretnénk, hogy legyenek a játék indulásakor.  Fontos megjegyezni, hogy több szörny lehet egy mezőn, illetve a szörnyeket és a hőst tehetjük azonos mezőre. Ebben az esetben a játék úgy indul, hogy megküzdünk az összes olyan szörnnyel, amelyik a Hősünk koordinátáin helyezkedik el.</p>
+<p>A <b>Nehézségi szinteken</b> kívül a Hős mozgatása is teljesen ugyanúgy működik mint a <b>Preparedgame</b>-nél.</p>
+<h2><a class="anchor" id="autotoc_md15"></a>
+Inputok</h2>
+<p>A Hős és szörnyek megadása pontosan úgy történik, ahogyan a <b>Preparedgame</b>-nél. Viszont a térkép megadása üresen történik.</p>
+<h3><a class="anchor" id="autotoc_md16"></a>
+Map1.json</h3>
+<p>Példa egy ilyen üres map-re: </p><div class="fragment"><div class="line">{</div>
+<div class="line">##############</div>
+<div class="line">#   #  ####  #</div>
+<div class="line"># ####  ##  #</div>
+<div class="line">#   #  ##  #</div>
+<div class="line">### # ##  #</div>
+<div class="line">#        #</div>
+<div class="line">#########</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md17"></a>
+Output</h1>
+<p>A fent említett két futtatási módban, azaz a <b>CustomGame</b> és a <b>[prepared]game.json</b> módban az output ugyan olyan módon jelenik meg, mely lehet parancsosorn kirajzolás szimbólumokkal és képekkel történő svg fájlba importálás egyaránt.<br  />
+ Ezek a kiíratások természetesen a nehézségi szintet figyelmbe véve máshogy jelennek meg. <br  />
+</p>
+<h3><a class="anchor" id="autotoc_md18"></a>
+Parancssori kirajzolás</h3>
+<p>Példa egy parancssori kirajzolásra amikor a hős az egész térképet látja: </p><div class="fragment"><div class="line">╔════════════════════════════╗</div>
+<div class="line">║████████████████████████████║</div>
+<div class="line">║██░░┣┫░░██░░░░████████░░░░██║</div>
+<div class="line">║██░░████████M░M░████░░░░████║</div>
+<div class="line">║██░░M░M░██░░M░████░░░░██████║</div>
+<div class="line">║██████M░██░░████░░░░████████║</div>
+<div class="line">║██░░░░░░░░░░M░░░░░░░████████║</div>
+<div class="line">║████████████████████████████║</div>
+<div class="line">╚════════════════════════════╝</div>
+</div><!-- fragment --><p>Illetve egy példa arra, amikor a játék nehezítve van: </p><div class="fragment"><div class="line">╔══════════╗</div>
+<div class="line">║██████████║</div>
+<div class="line">║░░░░┣┫░░M░║</div>
+<div class="line">║M░░░██████║</div>
+<div class="line">║██M░░░████║</div>
+<div class="line">╚══════════╝</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md19"></a>
+SVG fájlba inportálás</h3>
+<p>Példa, mikor az egész térkép látható:<br  />
+</p>
+<p><img src="/test/examples/Observer.JPG?raw=true" alt=" Példa, mikor az egész térkép látható: " title="Példa, mikor az egész térkép látható:" class="inline"/></p>
+<p>Illetve, mikor csak egy része:<br  />
+</p>
+<p><img src="/test/examples/Character.JPG?raw=true" alt=" Illetve, mikor csak egy része: " title="Illetve, mikor csak egy része:" class="inline"/> </p>
+<h1><a class="anchor" id="autotoc_md20"></a>
+Scenario</h1>
+<h2><a class="anchor" id="autotoc_md21"></a>
+Input</h2>
+<p>Ez esetben, ahogy neve is utal rá egy 'scenario' -t adunk a programnak parancssori argumentumként, mely tartalmazza a hőst, illetve szörnyek egy listáját, melyeket hősünk a megadott sorrendben megpróbál legyőzni.<br  />
+ Egy ilyen 'scenario' input a következőképpen néz ki:</p>
+<h3><a class="anchor" id="autotoc_md22"></a>
+scenario1.json</h3>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;hero&quot;: &quot;Dark_Wanderer.json&quot;,</div>
+<div class="line">  &quot;monsters&quot;: [</div>
+<div class="line">    &quot;Fallen.json&quot;,</div>
+<div class="line">    &quot;Fallen.json&quot;,</div>
+<div class="line">    &quot;Zombie.json&quot;,</div>
+<div class="line">    &quot;Fallen.json&quot;,</div>
+<div class="line">    &quot;Fallen.json&quot;,</div>
+<div class="line">    &quot;Zombie.json&quot;,</div>
+<div class="line">    &quot;Fallen.json&quot;,</div>
+<div class="line">    &quot;Blood_Raven.json&quot;</div>
+<div class="line">  ]</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
+Output</h2>
+<p>Abban az esetben, ha a játékot 'scenario' -val futtatjuk a parancsosri argumentumon keresztül, akkor az output az egyes csaták kimenetelét, illetve a végleges kimenetelt jeleníti meg szövegesen, mely a következő képpen néz ki a 'test/scenarios/scenario1' felhasználásával: <br  />
+</p>
+<h3><a class="anchor" id="autotoc_md24"></a>
+scenario1_output.txt</h3>
+<div class="fragment"><div class="line">Prince Aidan of Khanduras(1) vs Fallen</div>
+<div class="line">Prince Aidan of Khanduras(1) vs Fallen</div>
+<div class="line">Prince Aidan of Khanduras(1) vs Zombie</div>
+<div class="line">Prince Aidan of Khanduras(1) vs Fallen</div>
+<div class="line">Prince Aidan of Khanduras(2) vs Fallen</div>
+<div class="line">Prince Aidan of Khanduras(2) vs Zombie</div>
+<div class="line">Prince Aidan of Khanduras(2) vs Fallen</div>
+<div class="line">Prince Aidan of Khanduras(3) vs Blood Raven</div>
+<div class="line">The hero won.</div>
+<div class="line">Prince Aidan of Khanduras: LVL8</div>
+<div class="line">   HP: 62/65</div>
+<div class="line">  DMG: physical 10, magical 8</div>
+<div class="line">  ACD: 0.526127</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md25"></a>
 Dokumentáció</h2>
 <p><a href="https://teaching-projects.github.io/-SZE-MOSZE-2020-AMD_Bike/">https://teaching-projects.github.io/-SZE-MOSZE-2020-AMD_Bike/</a> </p>
 </div></div><!-- contents -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_171',['y',['../structCoordinates.html#aae83211da8e94ae2edd3b407c19bff07',1,'Coordinates']]]
+  ['renderers_212',['renderers',['../classGame.html#a31ae712e27347072b664c2c522f163a2',1,'Game']]]
 ];

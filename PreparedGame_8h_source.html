@@ -71,23 +71,25 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef PREPAREDGAME_H</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define PREPAREDGAME_H</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;Game.h&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classPreparedGame.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPreparedGame.html">PreparedGame</a> : <span class="keyword">protected</span> <a class="code" href="classGame.html">Game</a> {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classPreparedGame.html#ac6fcceb8416e36682a5ead434026e15f">PreparedGame</a>(std::string prepgamename);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">using</span> <a class="code" href="classGame.html#a1ab78f5ed0d5ea879157357cf2fb2afa">Game::run</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;Game.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classPreparedGame.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPreparedGame.html">PreparedGame</a> : <span class="keyword">protected</span> <a class="code" href="classGame.html">Game</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classPreparedGame.html#a61c32d1bbd015f24230826e8b410a891">PreparedGame</a>(<span class="keyword">const</span> std::string&amp; prepgamename);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">using</span> <a class="code" href="classGame.html#a1ab78f5ed0d5ea879157357cf2fb2afa">Game::run</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">using</span> <a class="code" href="classGame.html#a95dedd778de0fc02a5c045d8212129d0">Game::registerRenderer</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">using</span> <a class="code" href="classGame.html#aa50f9a5339ad73dfacebabec4dfd9ad1">Game::getTextures</a>;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassGame_html_a1ab78f5ed0d5ea879157357cf2fb2afa"><div class="ttname"><a href="classGame.html#a1ab78f5ed0d5ea879157357cf2fb2afa">Game::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">This function runs the game.</div><div class="ttdef"><b>Definition:</b> Game.cpp:178</div></div>
-<div class="ttc" id="aclassPreparedGame_html_ac6fcceb8416e36682a5ead434026e15f"><div class="ttname"><a href="classPreparedGame.html#ac6fcceb8416e36682a5ead434026e15f">PreparedGame::PreparedGame</a></div><div class="ttdeci">PreparedGame(std::string prepgamename)</div><div class="ttdoc">This constructor function initializes the PreparedGame, with the given data in the parameter.</div><div class="ttdef"><b>Definition:</b> PreparedGame.cpp:3</div></div>
-<div class="ttc" id="aclassPreparedGame_html"><div class="ttname"><a href="classPreparedGame.html">PreparedGame</a></div><div class="ttdoc">PreparedGame class.</div><div class="ttdef"><b>Definition:</b> PreparedGame.h:24</div></div>
-<div class="ttc" id="aclassGame_html"><div class="ttname"><a href="classGame.html">Game</a></div><div class="ttdoc">Game class.</div><div class="ttdef"><b>Definition:</b> Game.h:36</div></div>
+<div class="ttc" id="aclassGame_html_a1ab78f5ed0d5ea879157357cf2fb2afa"><div class="ttname"><a href="classGame.html#a1ab78f5ed0d5ea879157357cf2fb2afa">Game::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">This function runs the game.</div><div class="ttdef"><b>Definition:</b> Game.cpp:166</div></div>
+<div class="ttc" id="aclassPreparedGame_html_a61c32d1bbd015f24230826e8b410a891"><div class="ttname"><a href="classPreparedGame.html#a61c32d1bbd015f24230826e8b410a891">PreparedGame::PreparedGame</a></div><div class="ttdeci">PreparedGame(const std::string &amp;prepgamename)</div><div class="ttdoc">This constructor function initializes the PreparedGame, with the given data in the parameter.</div><div class="ttdef"><b>Definition:</b> PreparedGame.cpp:3</div></div>
+<div class="ttc" id="aclassGame_html_aa50f9a5339ad73dfacebabec4dfd9ad1"><div class="ttname"><a href="classGame.html#aa50f9a5339ad73dfacebabec4dfd9ad1">Game::getTextures</a></div><div class="ttdeci">std::map&lt; std::string, std::string &gt; getTextures() const</div><div class="ttdoc">This is a getter function, which returns the textures.</div><div class="ttdef"><b>Definition:</b> Game.cpp:37</div></div>
+<div class="ttc" id="aclassPreparedGame_html"><div class="ttname"><a href="classPreparedGame.html">PreparedGame</a></div><div class="ttdoc">PreparedGame class.</div><div class="ttdef"><b>Definition:</b> PreparedGame.h:21</div></div>
+<div class="ttc" id="aclassGame_html"><div class="ttname"><a href="classGame.html">Game</a></div><div class="ttdoc">Game class.</div><div class="ttdef"><b>Definition:</b> Game.h:39</div></div>
+<div class="ttc" id="aclassGame_html_a95dedd778de0fc02a5c045d8212129d0"><div class="ttname"><a href="classGame.html#a95dedd778de0fc02a5c045d8212129d0">Game::registerRenderer</a></div><div class="ttdeci">void registerRenderer(Renderer *renderer)</div><div class="ttdoc">This function adds a new rendering method to the game.</div><div class="ttdef"><b>Definition:</b> Game.cpp:151</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
