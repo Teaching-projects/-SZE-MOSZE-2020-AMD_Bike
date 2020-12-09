@@ -34,7 +34,7 @@
 | markedmap | Merge: 12.08 | 0 | @Teaching-projects/mortar_kombat  / @gboldi19, @balazs482 |
 | preparedgame | Merge: 12.08 | 0 | @Teaching-projects/mortar_kombat  / @gboldi19, @balazs482 |
 | light radius | Merge: 12.08 | 0 | @Teaching-projects/mortar_kombat  / @gboldi19, @balazs482 |
-| rendering | Merge: mm.dd | ... | @Teaching-projects/mortar_kombat  / @gboldi19, @balazs482 |
+| rendering | Merge: 12.10 | 0 | @Teaching-projects/amd_bike  / @skrobi12 , @hajdunorbi, @Szabi1104 (időhiány miatt) |
 
 # Unit tesztek
 
