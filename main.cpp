@@ -173,7 +173,7 @@ int main(int argc, char** argv) {
 						TheGame.registerRenderer(new HeroTextRenderer());
 						TheGame.registerRenderer(new CharacterSVGRenderer("CharacterOutput.svg"));
 					}
-					else TheGame.registerRenderer(new CharacterSVGRenderer("ObserverOutput.svg"));
+					else TheGame.registerRenderer(new ObserverSVGRenderer("ObserverOutput.svg"));
 					TheGame.run();
 				}
 			}

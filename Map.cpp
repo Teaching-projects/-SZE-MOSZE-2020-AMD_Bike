@@ -55,3 +55,8 @@ std::string Map::GetRow(int xRow) const
 {
 	return map[xRow];
 }
+
+void Map::setMap(int x, int y, char c)
+{
+	map[y][x] = c;
+}

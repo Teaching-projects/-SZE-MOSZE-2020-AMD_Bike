@@ -78,6 +78,13 @@ public:
 	*/
 	std::string GetRow(int xRow) const;
 
+	/**
+	* \brief This function sets the maps value on the given coordinates.
+	* \param x, y
+	*
+	*/
+	void setMap(int x, int y, char c);
+
 	class WrongIndexException : public std::runtime_error {
 	public:
 		/**

@@ -31,6 +31,7 @@ private:
 	double acd;							///< This is the Monster's attack cooldown.
 	const std::string race;				///< This marks the Monster's race.
 	const std::string lore;				///< This is the lore of the Monster.
+	std::string texture;				///< This is the Hero image's name
 
 public:
 	/**
@@ -38,7 +39,7 @@ public:
 	* \param MonsterData
 	* [in] This map contains all the specific data of the Monster
 	*/
-	Monster(const std::string name, int hp, int physicaldmg, int magicaldmg, int def, double acd);
+	Monster(const std::string name, int hp, int physicaldmg, int magicaldmg, int def, double acd, std::string texture);
 
 	/**
 	* \brief This is a getter function, that returns the Monster's name.
@@ -71,6 +72,8 @@ public:
 	*
 	*/
 	double getAttackCoolDown() const;
+
+	std::string getTexture() const;
 
 	/**
 	* \brief This function reads the Monster's specific datas, from a file.

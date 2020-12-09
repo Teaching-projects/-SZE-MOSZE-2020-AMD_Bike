@@ -1,8 +1,8 @@
 #include "Hero.h"
 #include <vector>
 
-Hero::Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl) :
-	name(name), hp(hp), dmg{ physicaldmg, magicaldmg }, def(def), acd(acd),
+Hero::Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl, std::string texture) :
+	name(name), hp(hp), dmg{ physicaldmg, magicaldmg }, def(def), acd(acd), 
 	expperlvl(expperlvl),
 	hpperlvl(hpperlvl),
 	physicaldmgperlvl(physicaldmgperlvl),
@@ -10,7 +10,8 @@ Hero::Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg, int
 	defperlvl(defperlvl),
 	acdperlvl(acdperlvl),
 	lightradius(lightradius),
-	lightradiusperlvl(lightradiusperlvl)
+	lightradiusperlvl(lightradiusperlvl),
+	texture(texture)
 {
 	maxhp = hp;
 	aktxp = 0;
@@ -52,6 +53,11 @@ int Hero::getLightRadius() const
 	return lightradius;
 }
 
+std::string Hero::getTexture() const
+{
+	return texture;
+}
+
 Hero Hero::parse(const std::string& String)
 {
 	JSON HeroAttributes = JSON::parseFromFile("test/units/" + String);
@@ -67,6 +73,7 @@ Hero Hero::parse(const std::string& String)
 	int physicaldmgperlvl, magicaldmgperlvl;
 	int lightradiusperlvl = 1;
 	Damage dmg;
+	std::string heroTexture = "test/textures/NoTexture.jpg";
 	if (HeroAttributes.count("base_damage") && !(HeroAttributes.count("base_magical_damage"))) {
 		dmg.physical = HeroAttributes.get<int>("base_damage");
 		physicaldmgperlvl = HeroAttributes.get<int>("damage_bonus_per_level");
@@ -86,6 +93,7 @@ Hero Hero::parse(const std::string& String)
 		magicaldmgperlvl = HeroAttributes.get<int>("magical_damage_bonus_per_level");
 	}
 	if(HeroAttributes.count("light_radius_bonus_per_level")) lightradiusperlvl = HeroAttributes.get<int>("light_radius_bonus_per_level");
+	if (HeroAttributes.count("texture")) heroTexture = HeroAttributes.get<std::string>("texture");
 
 	return Hero(HeroAttributes.get<std::string>("name"),
 		HeroAttributes.get<int>("base_health_points"),
@@ -100,7 +108,8 @@ Hero Hero::parse(const std::string& String)
 		HeroAttributes.get<int>("defense_bonus_per_level"),
 		HeroAttributes.get<double>("cooldown_multiplier_per_level"), 
 		HeroAttributes.get<int>("light_radius"),
-		lightradiusperlvl);
+		lightradiusperlvl,
+		heroTexture);
 }
 
 bool Hero::isAlive() const

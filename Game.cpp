@@ -6,6 +6,8 @@ Game::Game() : GamesMap(Map()), Monsters(), isTheGameRunning(false)
 	MyHero.hero = nullptr;
 	MyHero.coord.x = -1;
 	MyHero.coord.y = -1;
+	Textures["WallTexture"] = std::string("test/textures/Wall.jpg");
+	Textures["FreeTexture"] = std::string("test/textures/Free.jpg");
 }
 
 Game::Game(std::string mapfilename) : GamesMap(Map(mapfilename)), Monsters(), isTheGameRunning(false)
@@ -13,6 +15,8 @@ Game::Game(std::string mapfilename) : GamesMap(Map(mapfilename)), Monsters(), is
 	MyHero.hero = nullptr;
 	MyHero.coord.x = -1;
 	MyHero.coord.y = -1;
+	Textures["WallTexture"] = std::string("test/textures/Wall.jpg");
+	Textures["FreeTexture"] = std::string("test/textures/Free.jpg");
 }
 
 Map Game::getMap() const 
@@ -64,6 +68,8 @@ void Game::putHero(Hero hero, int x, int y)
 				MyHero.hero = new Hero(hero);
 				MyHero.coord.x = x;
 				MyHero.coord.y = y;
+				GamesMap.setMap(x, y, 'H');
+				Textures["HeroTexture"] = std::string("test/textures/") += hero.getTexture();
 			}
 			else { throw AlreadyHasHeroException("There is already a Hero on the map!"); }
 		}
@@ -101,6 +107,10 @@ void Game::putMonster(Monster monster, int x, int y)
 		else if (GamesMap.get(x, y) == GamesMap.Free) {
 			MonsterCoordinates AktMonster = { monster, {x, y} };
 			Monsters.push_back(AktMonster);
+			char c;
+			for (int i = 0; i <= static_cast<int>(monster.getTexture().size()); i++) { if (isdigit(monster.getTexture()[i])) c = monster.getTexture()[i]; }
+			GamesMap.setMap(x, y, c);
+			if (!Textures.count(Textures[std::string("MonsterTexture-") += c])) Textures[std::string("MonsterTexture-") += c] = (std::string("test/textures/Monster") += c) += std::string(".jpg");
 		}
 		else { throw std::runtime_error("The map does not exists."); }
 	}

@@ -109,7 +109,7 @@ Példa egy monsterre:
   "attack_cooldown": 1.6,
   "lore": "The Fallen Ones (a.k.a. the Fallen), and formally known as Namus Improbus are a race of demons.",
   "additional_info": "May be resurrected by a Shaman.", 
-  "texture": "Monster2.jpg"
+  "texture": "Monster1.jpg"
 }
 ```
 
@@ -156,23 +156,22 @@ Példa egy parancssori kirajzolásra amikor a hős az egész térképet látja:
 ```
 ╔════════════════════════════╗
 ║████████████████████████████║
-║██MM░░┣┫██░░░░████████░░░░██║
-║██░░████████░░░░████░░░░████║
-║██M░░░MM██░░░░████░░░░██████║
-║██████░░██░░████░░░░████████║
-║██░░░░M░░░M░░░░░M░██████████║
+║██░░┣┫░░██░░░░████████░░░░██║
+║██░░████████M░M░████░░░░████║
+║██░░M░M░██░░M░████░░░░██████║
+║██████M░██░░████░░░░████████║
+║██░░░░░░░░░░M░░░░░░░████████║
 ║████████████████████████████║
 ╚════════════════════════════╝
 ```
 Illetve egy példa arra, amikor a játék nehezítve van:
 ```
-╔════════╗
-║██░░░░░░║
-║██░░████║
-║██┣┫░░MM║
-║██████░░║
-║██░░░░M░║
-╚════════╝
+╔══════════╗
+║██████████║
+║░░░░┣┫░░M░║
+║M░░░██████║
+║██M░░░████║
+╚══════════╝
 ```
 
 #### SVG fájlba inportálás

@@ -1,7 +1,7 @@
 #include "Monster.h"
 #include <vector>
 
-Monster::Monster(const std::string name, int hp, int physicaldmg, int magicaldmg, int def, double acd) : name(name), hp(hp), dmg{ physicaldmg, magicaldmg }, def(def), acd(acd)
+Monster::Monster(const std::string name, int hp, int physicaldmg, int magicaldmg, int def, double acd, std::string texture) : name(name), hp(hp), dmg{ physicaldmg, magicaldmg }, def(def), acd(acd), texture(texture)
 {
 }
 
@@ -24,6 +24,11 @@ double Monster::getAttackCoolDown() const
 	return acd;
 }
 
+std::string Monster::getTexture() const
+{
+	return texture;
+}
+
 Monster Monster::parse(const std::string& String)
 {
 	JSON MonsterAttributes = JSON::parseFromFile("test/units/" + String);
@@ -38,6 +43,7 @@ Monster Monster::parse(const std::string& String)
 		throw std::runtime_error("Not enough parameters!");
 	}
 	Damage dmg;
+	std::string MonsterTexture = "test/textures/NoTexture.jpg";
 	if (MonsterAttributes.count("damage") && !(MonsterAttributes.count("magical_damage"))) {
 		dmg.physical = MonsterAttributes.get<int>("damage");
 		dmg.magical = 0;
@@ -50,13 +56,15 @@ Monster Monster::parse(const std::string& String)
 		dmg.physical = MonsterAttributes.get<int>("damage");
 		dmg.magical = MonsterAttributes.get<int>("magical_damage");
 	}
+	if (MonsterAttributes.count("texture")) MonsterTexture = MonsterAttributes.get<std::string>("texture");
 
 	return Monster(MonsterAttributes.get<std::string>("name"),
 		MonsterAttributes.get<int>("health_points"),
 		dmg.physical,
 		dmg.magical,
 		MonsterAttributes.get<int>("defense"),
-		MonsterAttributes.get<double>("attack_cooldown"));
+		MonsterAttributes.get<double>("attack_cooldown"),
+		MonsterTexture);
 }
 
 bool Monster::isAlive() const
