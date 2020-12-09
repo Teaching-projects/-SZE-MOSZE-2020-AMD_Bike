@@ -25,7 +25,7 @@ public:
 	* \param prepgamename
 	* [in] It contains the name of the given map, hero and monsters files.
 	*/
-	PreparedGame(std::string prepgamename);
+	PreparedGame(const std::string& prepgamename);
 
 	using Game::run;
 	using Game::registerRenderer;

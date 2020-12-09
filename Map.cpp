@@ -4,7 +4,7 @@ Map::Map() : map() {
 
 }
 
-Map::Map(std::string filename)
+Map::Map(const std::string& filename)
 {
 	std::ifstream file;
 	file.open("test/maps/" + filename);

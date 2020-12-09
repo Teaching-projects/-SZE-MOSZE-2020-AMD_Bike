@@ -36,7 +36,7 @@ public:
 	* \param data
 	* [in] This is a map type variable, which contains the Hero and all the Monsters, that the Hero will fight against.
 	*/
-	JSON(VariantMap data);
+	JSON(const VariantMap& data);
 
 	/**
 	* \brief This function opens the given input (in the current case a FileName). After a FileName is given, this function makes a string from it, and calls the ParserFromString() function, whit the created string as parameter.

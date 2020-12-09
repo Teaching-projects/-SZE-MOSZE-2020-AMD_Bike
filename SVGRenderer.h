@@ -35,7 +35,7 @@ public:
 	* \param Game&
 	*
 	*/
-	void render(const Game&) const = 0;
+	virtual void render(const Game&) const = 0;
 };
 
 class CharacterSVGRenderer : public SVGRenderer {

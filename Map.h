@@ -38,7 +38,7 @@ public:
 	* \param filename
 	* [in] This is the name of the given file, in which the map is located.
 	*/
-	Map(std::string filename);
+	Map(const std::string& filename);
 
 	///This is an enum for the map, with which we can give the correct information about the field. 
 	enum type

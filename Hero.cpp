@@ -1,7 +1,7 @@
 #include "Hero.h"
 #include <vector>
 
-Hero::Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl, std::string texture) :
+Hero::Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl, const std::string& texture) :
 	name(name), hp(hp), dmg{ physicaldmg, magicaldmg }, def(def), acd(acd), 
 	expperlvl(expperlvl),
 	hpperlvl(hpperlvl),
@@ -117,7 +117,7 @@ bool Hero::isAlive() const
 	return (hp > 0);
 }
 
-void Hero::DMGTaken(Monster& monster)
+void Hero::DMGTaken(const Monster& monster)
 {
 	if (def <= monster.getDamage().physical) {
 		hp -= monster.getDamage().physical - def;

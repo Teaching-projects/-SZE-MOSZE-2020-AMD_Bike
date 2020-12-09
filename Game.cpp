@@ -10,7 +10,7 @@ Game::Game() : GamesMap(Map()), Monsters(), isTheGameRunning(false)
 	Textures["FreeTexture"] = std::string("test/textures/Free.jpg");
 }
 
-Game::Game(std::string mapfilename) : GamesMap(Map(mapfilename)), Monsters(), isTheGameRunning(false)
+Game::Game(const std::string &mapfilename) : GamesMap(Map(mapfilename)), Monsters(), isTheGameRunning(false)
 {
 	MyHero.hero = nullptr;
 	MyHero.coord.x = -1;
@@ -49,7 +49,7 @@ bool Game::isMonsterAlive(int x, int y) const
 	return false;
 }
 
-void Game::setMap(Map map)
+void Game::setMap(const Map &map)
 {
 	if (isTheGameRunning) { throw GameAlreadyStartedException("The game is already running!"); }
 	if ((MyHero.coord.x == -1 && MyHero.coord.y == -1) && Monsters.size() == 0) { GamesMap = map; }
@@ -77,7 +77,7 @@ void Game::putHero(Hero hero, int x, int y)
 	else { throw std::runtime_error("The map does not exists."); }
 }
 
-void Game::moveHero(std::string direction)
+void Game::moveHero(const std::string &direction)
 {
 	if (direction == "north") {
 		if (GamesMap.get(MyHero.coord.x, MyHero.coord.y - 1) != GamesMap.Wall) { MyHero.coord.y--; }
@@ -144,7 +144,7 @@ void Game::isThereAMonster()
 			}
 		}
 		if (!OneMonster->monster.isAlive())OneMonster = Monsters.erase(OneMonster);
-		else OneMonster++;
+		else ++OneMonster;
 	}
 }
 

@@ -1,6 +1,6 @@
 #include "PreparedGame.h"
 
-PreparedGame::PreparedGame(std::string prepgamename)
+PreparedGame::PreparedGame(const std::string& prepgamename)
 {
 	JSON PreparedGame = JSON::parseFromFile("test/scenarios/" + prepgamename);
 	std::vector<std::string> Check = { "map", "hero", "monster-1", "wall_texture", "free_texture" };

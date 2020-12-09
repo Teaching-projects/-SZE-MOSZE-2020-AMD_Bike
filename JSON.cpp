@@ -1,7 +1,7 @@
 #include "JSON.h"
 #include <vector>
 
-JSON::JSON(VariantMap data) : data(data)
+JSON::JSON(const VariantMap& data) : data(data)
 {
 }
 
@@ -55,7 +55,7 @@ JSON JSON::parseFromString(std::string String)
 		String.erase(0, x + 1);
 
 		if (std::find(Check1.begin(), Check1.end(), akt1) != Check1.end()){
-			size_t x = String.find('"') + 1;
+			x = String.find('"') + 1;
 			while ((String[x] != '"') && (x != String.size())) {
 				if (isupper(String[x]) && (String[x - 1] != '-') && (String[x - 1] != '_') && (akt2 != "")) {
 					akt2 = akt2 + ' ' + String[x];
@@ -73,7 +73,7 @@ JSON JSON::parseFromString(std::string String)
 			String.erase(0, x + 1);
 		}
 		else if (std::find(Check2.begin(), Check2.end(), akt1) != Check2.end()) {
-			size_t x = String.find('[') + 1;
+			x = String.find('[') + 1;
 			while ((String[x] != ']') && (x != String.size())) {
 				if (String.find('"') != std::string::npos && String.find(']') != std::string::npos) {
 					if (String.find('"') < String.find(']')) x = String.find('"') + 1;

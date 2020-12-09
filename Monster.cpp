@@ -1,7 +1,7 @@
 #include "Monster.h"
 #include <vector>
 
-Monster::Monster(const std::string name, int hp, int physicaldmg, int magicaldmg, int def, double acd, std::string texture) : name(name), hp(hp), dmg{ physicaldmg, magicaldmg }, def(def), acd(acd), texture(texture)
+Monster::Monster(const std::string &name, int hp, int physicaldmg, int magicaldmg, int def, double acd, const std::string& texture) : name(name), hp(hp), dmg{ physicaldmg, magicaldmg }, def(def), acd(acd), texture(texture)
 {
 }
 

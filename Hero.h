@@ -50,8 +50,8 @@ public:
 	* \param HeroData
 	* [in] This map contains all the specific data of the Hero
 	*/
-	Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg , int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl, std::string texture);
-
+	Hero(const std::string& name, int hp, int physicaldmg, int magicaldmg , int def, double acd, const int expperlvl, const int hpperlvl, const int physicaldmgperlvl, const int magicaldmgperlvl, const int defperlvl, const double acdperlvl, int lightradius, int lightradiusperlvl, const std::string& texture);
+	
 	/**
 	* \brief This is a getter function, that returns the Hero's name.
 	* \param none
@@ -136,7 +136,7 @@ public:
 	* \param monster
 	*
 	*/
-	void DMGTaken(Monster& monster);
+	void DMGTaken(const Monster& monster);
 
 	/**
 	* \brief This function calls the DMGTaken() function and specifies the actual amount of xp, which the Hero gains and calls the LevelUp() if needed.

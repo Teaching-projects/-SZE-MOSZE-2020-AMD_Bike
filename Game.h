@@ -53,7 +53,7 @@ public:
 	* \param mapfilename
 	* [in] It contains the given maps name.
 	*/
-	Game(std::string mapfilename);
+	Game(const std::string &mapfilename);
 
 	/**
 	* \brief This is a getter function, which returns the map.
@@ -97,7 +97,7 @@ public:
 	* \param map
 	*
 	*/
-	void setMap(Map map);
+	void setMap(const Map &map);
 
 	/**
 	* \brief This function puts the hero on the given coordinates.
@@ -113,7 +113,7 @@ public:
 	* \param direction
 	*
 	*/
-	void moveHero(std::string direction);
+	void moveHero(const std::string &direction);
 
 	/**
 	* \brief This function puts a monster on the given coordinates.

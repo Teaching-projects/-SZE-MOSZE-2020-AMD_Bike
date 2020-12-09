@@ -1,6 +1,6 @@
 #include "MarkedMap.h"
 
-MarkedMap::MarkedMap(std::string filename)
+MarkedMap::MarkedMap(const std::string& filename)
 {
 	std::ifstream file;
 	file.open("test/maps/" + filename);
