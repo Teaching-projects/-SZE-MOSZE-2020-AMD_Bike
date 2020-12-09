@@ -31,5 +31,5 @@ public:
 	using Game::registerRenderer;
 	using Game::getTextures;
 };
-
 #endif
+

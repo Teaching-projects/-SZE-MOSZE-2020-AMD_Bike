@@ -19,7 +19,6 @@ PreparedGame::PreparedGame(const std::string& prepgamename)
 		Textures["HeroTexture"] = std::string("test/textures/") += JSON::parseFromFile("test/units/" + PreparedGame.get<std::string>("hero")).get<std::string>("texture");
 		MyHero.hero = new Hero(PreparedHero);
 		MyHero.coord = PreparedMap.getHeroPosition();
-
 		bool StillAMonster = true;
 		int i = 1;
 		while (StillAMonster) {

@@ -53,7 +53,6 @@ JSON JSON::parseFromString(std::string String)
 			throw std::runtime_error("No key given!");
 		}
 		String.erase(0, x + 1);
-
 		if (std::find(Check1.begin(), Check1.end(), akt1) != Check1.end()){
 			x = String.find('"') + 1;
 			while ((String[x] != '"') && (x != String.size())) {
