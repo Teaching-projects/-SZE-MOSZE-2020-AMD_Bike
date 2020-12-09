@@ -52,7 +52,7 @@ bool Game::isMonsterAlive(int x, int y) const
 void Game::setMap(Map map)
 {
 	if (isTheGameRunning) { throw GameAlreadyStartedException("The game is already running!"); }
-	if ((MyHero.coord.x == -1 && MyHero.coord.y == -1) || Monsters.size() == 0) { GamesMap = map; }
+	if ((MyHero.coord.x == -1 && MyHero.coord.y == -1) && Monsters.size() == 0) { GamesMap = map; }
 	else { throw AlreadyHasUnitsException("The map has already units on it!"); }
 }
 
