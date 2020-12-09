@@ -119,7 +119,7 @@ int main(int argc, char** argv) {
 						if (stoi(command) > static_cast<int>(MapList.size()) || stoi(command) < 0) { bad_exit(5); }
 						TheGame.setMap(MapList[stoi(command) - 1]);
 						std::cout << "The chosen map is: " << std::endl;
-						TheGame.printBeforeRun();
+						TheGame.print();
 					}
 				}
 				else if (command == "2") {
@@ -142,7 +142,7 @@ int main(int argc, char** argv) {
 							if (i == stoi(command)) TheGame.putHero(AktHero.second, coord.y, coord.x);
 							i++;
 						}
-						TheGame.printBeforeRun();
+						TheGame.print();
 					}
 				}
 				else if (command == "3") {
@@ -165,7 +165,7 @@ int main(int argc, char** argv) {
 							i++;
 						}
 					}
-					TheGame.printBeforeRun();
+					TheGame.print();
 				}
 				else if (command == "4") {
 					if (difficulty == "2") {

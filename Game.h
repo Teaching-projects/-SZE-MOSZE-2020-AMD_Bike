@@ -154,11 +154,11 @@ public:
 	void removeRenderer();
 
 	/**
-	* \brief This function prints the map when the user settings the game.
+	* \brief This function call the renderers print.
 	* \param none
 	*
 	*/
-	void printBeforeRun();
+	void print();
 
 	/**
 	* \brief This function runs the game.

@@ -139,6 +139,7 @@ void Game::isThereAMonster()
 				isTheGameRunning = false;
 				MyHero.coord.x = -1;
 				MyHero.coord.y = -1;
+				print();
 				break;
 			}
 		}
@@ -157,7 +158,7 @@ void Game::removeRenderer()
 	renderers.pop_front();
 }
 
-void Game::printBeforeRun() {
+void Game::print() {
 	for (auto &renderer : renderers)
 		renderer->render(*this);
 }
@@ -169,7 +170,7 @@ void Game::run()
 	isTheGameRunning = true;
 	std::string command = "";
 	while (isTheGameRunning) {
-		printBeforeRun();
+		print();
 		if (IsNewGame) {
 			isThereAMonster();
 			IsNewGame = false;
@@ -190,7 +191,7 @@ void Game::run()
 			<< "  DMG: " << MyHero.hero->getDamage() << std::endl
 			<< "  ACD: " << MyHero.hero->getAttackCoolDown() << std::endl;
 		if (Monsters.empty()) {
-			printBeforeRun();
+			print();
 			std::cout << std::endl << MyHero.hero->getName() << " cleared the map." << std::endl;
 			isTheGameRunning = false;
 		}
