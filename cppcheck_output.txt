@@ -1,0 +1,47 @@
+Map.h:41:2: style: Class 'Map' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+ Map(const std::string& filename);
+ ^
+Game.cpp:124:4: style: Consider using std::count_if algorithm instead of a raw loop. [useStlAlgorithm]
+   count++;
+   ^
+Hero.cpp:68:38: style: Consider using std::any_of, std::all_of, std::none_of, or std::accumulate algorithm instead of a raw loop. [useStlAlgorithm]
+  if (!HeroAttributes.count(i)) IsOK = false;
+                                     ^
+Monster.cpp:39:41: style: Consider using std::any_of, std::all_of, std::none_of, or std::accumulate algorithm instead of a raw loop. [useStlAlgorithm]
+  if (!MonsterAttributes.count(i)) IsOK = false;
+                                        ^
+PreparedGame.cpp:9:36: style: Consider using std::any_of, std::all_of, std::none_of, or std::accumulate algorithm instead of a raw loop. [useStlAlgorithm]
+  if (!PreparedGame.count(i)) IsOK = false;
+                                   ^
+SVGRenderer.h:38:15: style: The function 'render' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+ virtual void render(const Game&) const = 0;
+              ^
+Renderer.h:30:15: note: Virtual function in base class
+ virtual void render(const Game&) const = 0;
+              ^
+SVGRenderer.h:38:15: note: Function in derived class
+ virtual void render(const Game&) const = 0;
+              ^
+TextRenderer.h:45:15: style: The function 'render' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+ virtual void render(const Game&) const = 0;
+              ^
+Renderer.h:30:15: note: Virtual function in base class
+ virtual void render(const Game&) const = 0;
+              ^
+TextRenderer.h:45:15: note: Function in derived class
+ virtual void render(const Game&) const = 0;
+              ^
+main.cpp:102:14: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+     MapList.push_back(std::get<std::string>(map_file));
+             ^
+main.cpp:193:20: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+     monster_files.push_back(std::get<std::string>(monster_file));
+                   ^
+main.cpp:201:14: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+    monsters.push_back(Monster::parse(monster_file));
+             ^
+TextRenderer.cpp:3:0: style: The function 'setOutputStream' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingIncludeSystem]
+

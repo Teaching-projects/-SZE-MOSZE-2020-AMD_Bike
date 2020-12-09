@@ -93,7 +93,7 @@ public:
 		* \return Returns the appropriate error message.
 		*
 		*/
-		WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg) {}
+		explicit WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg) {}
 	};
 };
 

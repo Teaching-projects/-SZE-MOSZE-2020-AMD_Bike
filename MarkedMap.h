@@ -25,7 +25,7 @@ public:
 	* \param filename
 	* [in] It contains the name of the given marked map.
 	*/
-	MarkedMap(const std::string& filename);
+	explicit MarkedMap(const std::string& filename);
 
 	/**
 	* \brief This function search for the 'H' on the given map, so for the Hero.

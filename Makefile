@@ -45,7 +45,7 @@ documentation:
 	doxygen doxconf
 
 sca:
-	cppcheck $(CPPOBJECTS) --output-file=cppcheck_output.txt && $(CHMD) $(CFW) && ./$(CFW) && $(CHMD) $(CFE) && ./$(CFE)
+	cppcheck $(CPPOBJECTS) --enable=all --output-file=cppcheck_output.txt && $(CHMD) $(CFW) && ./$(CFW) && $(CHMD) $(CFE) && ./$(CFE)
 
 sca-test: sca-build valgrind-check valgrind-check-two valgrind-check-three io-tests
 

@@ -130,8 +130,3 @@ bool JSON::count(std::string String) const
 {
 	return data.count(String);
 }
-
-int JSON::getMapSize() const
-{
-	return data.size();
-}

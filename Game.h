@@ -53,7 +53,7 @@ public:
 	* \param mapfilename
 	* [in] It contains the given maps name.
 	*/
-	Game(const std::string &mapfilename);
+	explicit Game(const std::string &mapfilename);
 
 	/**
 	* \brief This is a getter function, which returns the map.
@@ -175,7 +175,7 @@ public:
 		* \return Returns the appropriate error message.
 		*
 		*/
-		OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg) {}
+		explicit OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg) {}
 	};
 
 	class AlreadyHasHeroException : public std::runtime_error {
@@ -186,7 +186,7 @@ public:
 		* \return Returns the appropriate error message.
 		*
 		*/
-		AlreadyHasHeroException(const std::string& errMsg) : std::runtime_error(errMsg) {}
+		explicit AlreadyHasHeroException(const std::string& errMsg) : std::runtime_error(errMsg) {}
 	};
 
 	class AlreadyHasUnitsException : public std::runtime_error {
@@ -197,7 +197,7 @@ public:
 		* \return Returns the appropriate error message.
 		*
 		*/
-		AlreadyHasUnitsException(const std::string& errMsg) : std::runtime_error(errMsg) {}
+		explicit AlreadyHasUnitsException(const std::string& errMsg) : std::runtime_error(errMsg) {}
 	};
 
 	class NotInitializedException : public std::runtime_error {
@@ -208,7 +208,7 @@ public:
 		* \return Returns the appropriate error message.
 		*
 		*/
-		NotInitializedException(const std::string& errMsg) : std::runtime_error(errMsg) {}
+		explicit NotInitializedException(const std::string& errMsg) : std::runtime_error(errMsg) {}
 	};
 
 	class GameAlreadyStartedException : public std::runtime_error {
@@ -219,7 +219,7 @@ public:
 		* \return Returns the appropriate error message.
 		*
 		*/
-		GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg) {}
+		explicit GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg) {}
 	};
 
 };

@@ -45,7 +45,7 @@ public:
 	* \param String
 	* [in] It defines the type of the output stream.
 	*/
-	CharacterSVGRenderer(const std::string& String);
+	explicit CharacterSVGRenderer(const std::string& String);
 
 	/**
 	* \brief This is a render function.
@@ -62,7 +62,7 @@ public:
 	* \param String
 	* [in] It defines the type of the output stream.
 	*/
-	ObserverSVGRenderer(const std::string& String);
+	explicit ObserverSVGRenderer(const std::string& String);
 
 	/**
 	* \brief This is a render function.
